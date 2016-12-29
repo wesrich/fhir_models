@@ -3,7 +3,7 @@ require_relative '../test_helper'
 class ProfileValidationTest < Test::Unit::TestCase
   ERROR_DIR = File.join('tmp', 'errors', 'ProfileValidationTest')
   EXAMPLE_ROOT = File.join('lib', 'fhir_models', 'examples', 'json')
-  FIXTURE_ROOT = File.join('lib', 'fhir_models', 'examples', 'fixtures')
+  FIXTURE_ROOT = File.join('lib', 'fhir_models', 'fixtures')
 
   # Automatically generate one test method per profiled file
   example_files = File.join(EXAMPLE_ROOT, '**', '*qicore.json')
