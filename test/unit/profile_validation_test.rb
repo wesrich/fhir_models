@@ -63,10 +63,16 @@ class ProfileValidationTest < Test::Unit::TestCase
     patient_json = File.read(File.join(FIXTURE_ROOT, 'second_order_invalid_patient.json'))
     patient = FHIR::Json.from_json(patient_json) # patient with backbone element but no mandatory subelement
 
+    valid_second_order_patient_json = File.read(File.join(FIXTURE_ROOT, 'second_order_valid_patient.json'))
+    valid_second_order_patient = FHIR::Json.from_json(valid_second_order_patient_json) # patient with backbone element with the mandatory subelement.
+
     errors = profile.validate_resource(valid_patient)
     assert errors.empty?, 'Profile erroneously enforced cardinality on the mandatory subelement of an optional backbone element that did not exist.'
 
     errors = profile.validate_resource(patient)
     assert errors.include?("Patient.communication.language failed cardinality test (1..1) -- found 0"), "Profile failed to note cardinality error on mandatory sub-element of optional backbone element."
+
+    errors = profile.validate_resource(valid_second_order_patient)
+    assert errors.empty?, "Profile failed to pass patient with optional backbone element with mandatory subelement applied."
   end
 end

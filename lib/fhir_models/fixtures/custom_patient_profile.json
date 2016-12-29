@@ -30,32 +30,7 @@
       "comments": "If no language is specified, this *implies* that the default local language is spoken.  If you need to convey proficiency for multiple modes then you need multiple Patient.Communication associations.   For animals, language is not a relevant field, and should be absent from the instance. If the Patient does not speak the default local language, then the Interpreter Required Standard can be used to explicitly declare that an interpreter is required.",
       "requirements": "If a patient does not speak the local language, interpreters may be required, so languages spoken and proficiency is an important things to keep track of both for patient and other persons of interest.",
       "min": 0,
-      "max": "*",
-      "type": [
-        {
-          "code": "BackboneElement"
-        }
-      ],
-      "constraint": [
-        {
-          "key": "ele-1",
-          "severity": "error",
-          "human": "All FHIR elements must have a @value or children",
-          "expression": "children().count() > id.count()",
-          "xpath": "@value|f:*|h:div",
-          "source": "Element"
-        }
-      ],
-      "mapping": [
-        {
-          "identity": "rim",
-          "map": "LanguageCommunication"
-        },
-        {
-          "identity": "cda",
-          "map": "patient.languageCommunication"
-        }
-      ]
+      "max": "*"
     }, {
       "id": "Patient.communication.language",
       "path": "Patient.communication.language",
@@ -65,11 +40,6 @@
       "requirements": "Most systems in multilingual countries will want to convey language. Not all systems actually need the regional dialect.",
       "min": 1,
       "max": "1",
-      "type": [
-        {
-          "code": "CodeableConcept"
-        }
-      ],
       "binding": {
         "extension": [
           {
@@ -84,21 +54,7 @@
         "valueSetReference": {
           "reference": "http://hl7.org/fhir/ValueSet/languages"
         }
-      },
-      "mapping": [
-        {
-          "identity": "v2",
-          "map": "PID-15, LAN-2"
-        },
-        {
-          "identity": "rim",
-          "map": "player[classCode=PSN|ANM and determinerCode=INSTANCE]/languageCommunication/code"
-        },
-        {
-          "identity": "cda",
-          "map": ".languageCode"
-        }
-      ]
+      }
     }]
   }
 }
