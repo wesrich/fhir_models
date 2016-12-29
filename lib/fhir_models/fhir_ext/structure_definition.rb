@@ -393,6 +393,60 @@ module FHIR
       @errors
     end
 
+    def check_all_cardinality!(json, snapshot, base_path)
+      elements = snapshot.element.inject({}) do |hash, element|
+        hash[element.path.split('.')] = element
+        hash
+      end
+      i = 2 # skip root node
+      @absent = []
+      while i > 0 do
+        set = elements.select { |key, _v| key.size == i }.values
+        break if set.empty?
+        set.each do |element|
+          path = element.path
+          if path.start_with? base_path
+            path = path[(base_path.size + 1)..-1]
+          end
+
+          next if path.nil?
+
+          parent_path = path.split('.')[0..-2].join('.')
+
+          if @absent.include?(parent_path)
+            @absent << path
+          else
+            nodes = get_json_nodes(json, path)
+            if nodes.empty?
+              @absent << path
+            end
+            validate_cardinality(nodes, element)
+          end
+        end
+        i += 1
+      end
+    end
+
+    def validate_cardinality(nodes, element)
+      # special filtering on extension URLs
+      extension_profile = element.type.find { |t| t.code == 'Extension' && !t.profile.nil? && !t.profile.empty? }
+      if extension_profile
+        nodes.keep_if { |x| extension_profile.profile.include?(x['url']) }
+      end
+
+      # Check the cardinality
+      min = element.min
+      max =
+        if element.max == '*'
+          Float::INFINITY
+        else
+          element.max.to_i
+        end
+      unless (min..max).cover?(nodes.size)
+        @errors << "#{element.path} failed cardinality test (#{min}..#{max}) -- found #{nodes.size}"
+      end
+    end
+
     # Checks whether or not the "json" is valid according to this definition.
     # json == the raw json for a FHIR resource
     def is_valid_json?(json)
@@ -407,32 +461,14 @@ module FHIR
 
       resource_type = json['resourceType']
       base_type = snapshot.element[0].path
+      check_all_cardinality!(json, snapshot, base_type)
       snapshot.element.each do |element|
         path = element.path
         path = path[(base_type.size + 1)..-1] if path.start_with? base_type
-
         nodes = get_json_nodes(json, path)
 
-        # special filtering on extension urls
-        extension_profile = element.type.find { |t| t.code == 'Extension' && !t.profile.nil? && !t.profile.empty? }
-        if extension_profile
-          nodes.keep_if { |x| extension_profile.profile.include?(x['url']) }
-        end
-
-        # Check the cardinality
-        min = element.min
-        max =
-          if element.max == '*'
-            Float::INFINITY
-          else
-            element.max.to_i
-          end
-        if (nodes.size < min) && (nodes.size > max)
-          @errors << "#{element.path} failed cardinality test (#{min}..#{max}) -- found #{nodes.size}"
-        end
-
         # Check the datatype for each node, only if the element has one declared, and it isn't the root element
-        if !element.type.empty? && element.path != id
+        if (!element.type.nil? && !element.type.empty?) && element.path != id
           nodes.each do |value|
             matching_type = 0
 
@@ -441,7 +477,7 @@ module FHIR
             element.type.each do |type|
               data_type_code = type.code
               verified_extension = false
-              if data_type_code == 'Extension' && !type.profile.empty?
+              if data_type_code == 'Extension' && type.profile.present?
                 extension_def = FHIR::Definitions.get_extension_definition(value['url'])
                 if extension_def
                   verified_extension = extension_def.validates_resource?(FHIR::Extension.new(deep_copy(value)))
