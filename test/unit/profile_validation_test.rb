@@ -3,6 +3,7 @@ require_relative '../test_helper'
 class ProfileValidationTest < Test::Unit::TestCase
   ERROR_DIR = File.join('tmp', 'errors', 'ProfileValidationTest')
   EXAMPLE_ROOT = File.join('lib', 'fhir_models', 'examples', 'json')
+  FIXTURE_ROOT = File.join('lib', 'fhir_models', 'fixtures')
 
   # Automatically generate one test method per profiled file
   example_files = File.join(EXAMPLE_ROOT, '**', '*qicore.json')
@@ -39,5 +40,39 @@ class ProfileValidationTest < Test::Unit::TestCase
     model = FHIR::Resource.new('language' => 'en-US')
     assert model.is_valid?, 'Language validation failed.'
     FHIR::Resource::METADATA['language']['binding']['strength'] = binding_strength
+  end
+
+  def test_first_order_profile_cardinality
+    profile_json = File.read(File.join(FIXTURE_ROOT, 'custom_patient_profile.json'))
+    profile = FHIR::Json.from_json(profile_json) # profile that specifies one and only one name
+
+    patient_json = File.read(File.join(FIXTURE_ROOT, 'first_order_invalid_patient.json'))
+    patient = FHIR::Json.from_json(patient_json) # patient with two names
+
+    errors = profile.validate_resource(patient)
+    assert errors.include?("Patient.name failed cardinality test (1..1) -- found 2"), "Profile failed to note cardinality error on name attribute."
+  end
+
+  def test_optional_second_order_profile_cardinality
+    profile_json = File.read(File.join(FIXTURE_ROOT, 'custom_patient_profile.json'))
+    profile = FHIR::Json.from_json(profile_json) # this profile enforces a mandatory element on an optional backbone element)
+
+    valid_patient_json = File.read(File.join(FIXTURE_ROOT, 'valid_patient.json'))
+    valid_patient = FHIR::Json.from_json(valid_patient_json) # patient without backbone element 'communication'
+
+    patient_json = File.read(File.join(FIXTURE_ROOT, 'second_order_invalid_patient.json'))
+    patient = FHIR::Json.from_json(patient_json) # patient with backbone element but no mandatory subelement
+
+    valid_second_order_patient_json = File.read(File.join(FIXTURE_ROOT, 'second_order_valid_patient.json'))
+    valid_second_order_patient = FHIR::Json.from_json(valid_second_order_patient_json) # patient with backbone element with the mandatory subelement.
+
+    errors = profile.validate_resource(valid_patient)
+    assert errors.empty?, 'Profile erroneously enforced cardinality on the mandatory subelement of an optional backbone element that did not exist.'
+
+    errors = profile.validate_resource(patient)
+    assert errors.include?("Patient.communication.language failed cardinality test (1..1) -- found 0"), "Profile failed to note cardinality error on mandatory sub-element of optional backbone element."
+
+    errors = profile.validate_resource(valid_second_order_patient)
+    assert errors.empty?, "Profile failed to pass patient with optional backbone element with mandatory subelement applied."
   end
 end
