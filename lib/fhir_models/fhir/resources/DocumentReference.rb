@@ -1,9 +1,5 @@
 module FHIR
   class DocumentReference < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = ['identifier', 'patient', 'type', 'encounter', 'authenticator', 'author', 'class', 'created', 'custodian', 'description', 'event', 'facility', 'format', 'indexed', 'language', 'location', 'period', 'related-id', 'related-ref', 'relatesto', 'relation', 'securitylabel', 'setting', 'status', 'subject']
     METADATA = {
       'id' => {'type'=>'id', 'path'=>'DocumentReference.id', 'min'=>0, 'max'=>1},
@@ -34,10 +30,6 @@ module FHIR
     }
 
     class RelatesTo < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'RelatesTo.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'RelatesTo.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -54,10 +46,6 @@ module FHIR
     end
 
     class Content < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'Content.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'Content.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -74,10 +62,6 @@ module FHIR
     end
 
     class Context < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'Context.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'Context.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -92,10 +76,6 @@ module FHIR
       }
 
       class Related < FHIR::Model
-        include FHIR::Hashable
-        include FHIR::Json
-        include FHIR::Xml
-
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Related.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Related.extension', 'min'=>0, 'max'=>Float::INFINITY},

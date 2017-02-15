@@ -1,9 +1,5 @@
 module FHIR
   class RequestGroup < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     MULTIPLE_TYPES = {
       'reason' => ['CodeableConcept', 'Reference']
     }
@@ -29,10 +25,6 @@ module FHIR
     }
 
     class Action < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       MULTIPLE_TYPES = {
         'timing' => ['dateTime', 'Period', 'Duration', 'Range', 'Timing']
       }
@@ -66,10 +58,6 @@ module FHIR
       }
 
       class Condition < FHIR::Model
-        include FHIR::Hashable
-        include FHIR::Json
-        include FHIR::Xml
-
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Condition.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Condition.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -90,10 +78,6 @@ module FHIR
       end
 
       class RelatedAction < FHIR::Model
-        include FHIR::Hashable
-        include FHIR::Json
-        include FHIR::Xml
-
         MULTIPLE_TYPES = {
           'offset' => ['Duration', 'Range']
         }

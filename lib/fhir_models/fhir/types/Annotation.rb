@@ -1,9 +1,5 @@
 module FHIR
   class Annotation < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     MULTIPLE_TYPES = {
       'author' => ['Reference', 'string']
     }

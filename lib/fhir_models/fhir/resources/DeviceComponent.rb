@@ -1,9 +1,5 @@
 module FHIR
   class DeviceComponent < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = ['parent', 'source', 'type']
     METADATA = {
       'id' => {'type'=>'id', 'path'=>'DeviceComponent.id', 'min'=>0, 'max'=>1},
@@ -27,10 +23,6 @@ module FHIR
     }
 
     class ProductionSpecification < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'ProductionSpecification.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'ProductionSpecification.extension', 'min'=>0, 'max'=>Float::INFINITY},

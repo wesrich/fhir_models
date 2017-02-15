@@ -1,9 +1,5 @@
 module FHIR
   class CarePlan < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = ['date', 'identifier', 'patient', 'activitycode', 'activitydate', 'activityreference', 'careteam', 'category', 'condition', 'goal', 'performer', 'relatedcode', 'relatedplan', 'subject']
     METADATA = {
       'id' => {'type'=>'id', 'path'=>'CarePlan.id', 'min'=>0, 'max'=>1},
@@ -34,10 +30,6 @@ module FHIR
     }
 
     class RelatedPlan < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'RelatedPlan.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'RelatedPlan.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -54,10 +46,6 @@ module FHIR
     end
 
     class Activity < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'Activity.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'Activity.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -70,10 +58,6 @@ module FHIR
       }
 
       class Detail < FHIR::Model
-        include FHIR::Hashable
-        include FHIR::Json
-        include FHIR::Xml
-
         MULTIPLE_TYPES = {
           'scheduled' => ['Timing', 'Period', 'string'],
           'product' => ['CodeableConcept', 'Reference']

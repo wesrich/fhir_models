@@ -1,9 +1,5 @@
 module FHIR
   class ActivityDefinition < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     MULTIPLE_TYPES = {
       'timing' => ['CodeableConcept', 'Timing'],
       'product' => ['Reference', 'CodeableConcept']
@@ -57,10 +53,6 @@ module FHIR
     }
 
     class DynamicValue < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'DynamicValue.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'DynamicValue.extension', 'min'=>0, 'max'=>Float::INFINITY},

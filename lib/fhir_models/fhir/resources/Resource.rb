@@ -1,9 +1,5 @@
 module FHIR
   class Resource < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = ['_id', '_lastUpdated', '_profile', '_security', '_tag']
     METADATA = {
       'id' => {'type'=>'id', 'path'=>'Resource.id', 'min'=>0, 'max'=>1},

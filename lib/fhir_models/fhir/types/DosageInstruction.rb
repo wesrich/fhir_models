@@ -1,9 +1,5 @@
 module FHIR
   class DosageInstruction < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     MULTIPLE_TYPES = {
       'asNeeded' => ['boolean', 'CodeableConcept'],
       'dose' => ['Range', 'Quantity'],

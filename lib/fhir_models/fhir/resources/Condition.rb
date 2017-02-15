@@ -1,9 +1,5 @@
 module FHIR
   class Condition < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     MULTIPLE_TYPES = {
       'onset' => ['dateTime', 'Age', 'Period', 'Range', 'string'],
       'abatement' => ['dateTime', 'Age', 'boolean', 'Period', 'Range', 'string']
@@ -46,10 +42,6 @@ module FHIR
     }
 
     class Stage < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'Stage.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'Stage.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -66,10 +58,6 @@ module FHIR
     end
 
     class Evidence < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'Evidence.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'Evidence.extension', 'min'=>0, 'max'=>Float::INFINITY},

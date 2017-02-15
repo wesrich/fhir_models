@@ -1,9 +1,5 @@
 module FHIR
   class Identifier < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = 
     METADATA = {
       'id' => {'type'=>'string', 'path'=>'Identifier.id', 'min'=>0, 'max'=>1},

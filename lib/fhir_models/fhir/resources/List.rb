@@ -1,9 +1,5 @@
 module FHIR
   class List < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = ['code', 'date', 'identifier', 'patient', 'encounter', 'empty-reason', 'item', 'notes', 'source', 'status', 'subject', 'title']
     METADATA = {
       'id' => {'type'=>'id', 'path'=>'List.id', 'min'=>0, 'max'=>1},
@@ -30,10 +26,6 @@ module FHIR
     }
 
     class Entry < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'Entry.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'Entry.extension', 'min'=>0, 'max'=>Float::INFINITY},

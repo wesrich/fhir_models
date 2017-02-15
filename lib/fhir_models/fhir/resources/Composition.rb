@@ -1,9 +1,5 @@
 module FHIR
   class Composition < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = ['date', 'identifier', 'patient', 'type', 'attester', 'author', 'class', 'confidentiality', 'context', 'encounter', 'entry', 'period', 'section', 'status', 'subject', 'title']
     METADATA = {
       'id' => {'type'=>'id', 'path'=>'Composition.id', 'min'=>0, 'max'=>1},
@@ -31,10 +27,6 @@ module FHIR
     }
 
     class Attester < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'Attester.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'Attester.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -53,10 +45,6 @@ module FHIR
     end
 
     class Event < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'Event.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'Event.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -75,10 +63,6 @@ module FHIR
     end
 
     class Section < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'Section.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'Section.extension', 'min'=>0, 'max'=>Float::INFINITY},

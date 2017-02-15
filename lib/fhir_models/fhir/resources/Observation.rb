@@ -1,9 +1,5 @@
 module FHIR
   class Observation < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     MULTIPLE_TYPES = {
       'effective' => ['dateTime', 'Period'],
       'value' => ['Quantity', 'CodeableConcept', 'string', 'Range', 'Ratio', 'SampledData', 'Attachment', 'time', 'dateTime', 'Period']
@@ -51,10 +47,6 @@ module FHIR
     }
 
     class ReferenceRange < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'ReferenceRange.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'ReferenceRange.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -77,10 +69,6 @@ module FHIR
     end
 
     class Related < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'Related.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'Related.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -97,10 +85,6 @@ module FHIR
     end
 
     class Component < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       MULTIPLE_TYPES = {
         'value' => ['Quantity', 'CodeableConcept', 'string', 'Range', 'Ratio', 'SampledData', 'Attachment', 'time', 'dateTime', 'Period']
       }

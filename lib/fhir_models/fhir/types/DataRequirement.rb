@@ -1,9 +1,5 @@
 module FHIR
   class DataRequirement < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = 
     METADATA = {
       'id' => {'type'=>'string', 'path'=>'DataRequirement.id', 'min'=>0, 'max'=>1},
@@ -16,10 +12,6 @@ module FHIR
     }
 
     class CodeFilter < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       MULTIPLE_TYPES = {
         'valueSet' => ['string', 'Reference']
       }
@@ -45,10 +37,6 @@ module FHIR
     end
 
     class DateFilter < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       MULTIPLE_TYPES = {
         'value' => ['dateTime', 'Period', 'Duration']
       }

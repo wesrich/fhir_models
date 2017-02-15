@@ -1,9 +1,5 @@
 module FHIR
   class Encounter < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = ['date', 'identifier', 'patient', 'type', 'appointment', 'class', 'condition', 'episodeofcare', 'incomingreferral', 'indication', 'length', 'location', 'location-period', 'part-of', 'participant', 'participant-type', 'practitioner', 'procedure', 'reason', 'service-provider', 'special-arrangement', 'status']
     METADATA = {
       'id' => {'type'=>'id', 'path'=>'Encounter.id', 'min'=>0, 'max'=>1},
@@ -37,10 +33,6 @@ module FHIR
     }
 
     class StatusHistory < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'StatusHistory.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'StatusHistory.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -57,10 +49,6 @@ module FHIR
     end
 
     class Participant < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'Participant.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'Participant.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -79,10 +67,6 @@ module FHIR
     end
 
     class Hospitalization < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'Hospitalization.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'Hospitalization.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -117,10 +101,6 @@ module FHIR
     end
 
     class Location < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'Location.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'Location.extension', 'min'=>0, 'max'=>Float::INFINITY},

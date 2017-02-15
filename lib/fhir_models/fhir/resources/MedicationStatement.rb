@@ -1,9 +1,5 @@
 module FHIR
   class MedicationStatement < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     MULTIPLE_TYPES = {
       'medication' => ['CodeableConcept', 'Reference'],
       'effective' => ['dateTime', 'Period']

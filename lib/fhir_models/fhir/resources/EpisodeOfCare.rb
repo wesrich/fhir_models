@@ -1,9 +1,5 @@
 module FHIR
   class EpisodeOfCare < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = ['date', 'identifier', 'patient', 'type', 'care-manager', 'condition', 'incomingreferral', 'organization', 'status']
     METADATA = {
       'id' => {'type'=>'id', 'path'=>'EpisodeOfCare.id', 'min'=>0, 'max'=>1},
@@ -29,10 +25,6 @@ module FHIR
     }
 
     class StatusHistory < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'StatusHistory.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'StatusHistory.extension', 'min'=>0, 'max'=>Float::INFINITY},

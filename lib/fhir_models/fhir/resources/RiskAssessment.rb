@@ -1,9 +1,5 @@
 module FHIR
   class RiskAssessment < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     MULTIPLE_TYPES = {
       'occurrence' => ['dateTime', 'Period'],
       'reason' => ['CodeableConcept', 'Reference']
@@ -39,10 +35,6 @@ module FHIR
     }
 
     class Prediction < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       MULTIPLE_TYPES = {
         'probability' => ['decimal', 'Range', 'CodeableConcept'],
         'when' => ['Period', 'Range']

@@ -1,9 +1,5 @@
 module FHIR
   class TriggerDefinition < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     MULTIPLE_TYPES = {
       'eventTiming' => ['Timing', 'Reference', 'date', 'dateTime']
     }

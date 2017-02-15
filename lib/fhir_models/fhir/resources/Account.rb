@@ -1,9 +1,5 @@
 module FHIR
   class Account < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = ['balance', 'identifier', 'name', 'owner', 'patient', 'period', 'status', 'subject', 'type']
     METADATA = {
       'id' => {'type'=>'id', 'path'=>'Account.id', 'min'=>0, 'max'=>1},
@@ -30,10 +26,6 @@ module FHIR
     }
 
     class Guarantor < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'Guarantor.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'Guarantor.extension', 'min'=>0, 'max'=>Float::INFINITY},

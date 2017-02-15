@@ -1,9 +1,5 @@
 module FHIR
   class Age < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = 
     METADATA = {
       'id' => {'type'=>'string', 'path'=>'Age.id', 'min'=>0, 'max'=>1},

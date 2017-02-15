@@ -1,9 +1,5 @@
 module FHIR
   class MessageDefinition < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = ['category', 'date', 'description', 'event', 'focus', 'jurisdiction', 'name', 'publisher', 'status', 'title', 'url', 'version']
     METADATA = {
       'id' => {'type'=>'id', 'path'=>'MessageDefinition.id', 'min'=>0, 'max'=>1},
@@ -39,10 +35,6 @@ module FHIR
     }
 
     class Focus < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'Focus.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'Focus.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -63,10 +55,6 @@ module FHIR
     end
 
     class AllowedResponse < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'AllowedResponse.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'AllowedResponse.extension', 'min'=>0, 'max'=>Float::INFINITY},

@@ -1,9 +1,5 @@
 module FHIR
   class Contract < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     MULTIPLE_TYPES = {
       'binding' => ['Attachment', 'Reference']
     }
@@ -41,10 +37,6 @@ module FHIR
     }
 
     class Agent < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'Agent.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'Agent.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -61,10 +53,6 @@ module FHIR
     end
 
     class Signer < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'Signer.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'Signer.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -83,10 +71,6 @@ module FHIR
     end
 
     class ValuedItem < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       MULTIPLE_TYPES = {
         'entity' => ['CodeableConcept', 'Reference']
       }
@@ -120,10 +104,6 @@ module FHIR
     end
 
     class Term < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'Term.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'Term.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -143,10 +123,6 @@ module FHIR
       }
 
       class Agent < FHIR::Model
-        include FHIR::Hashable
-        include FHIR::Json
-        include FHIR::Xml
-
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Agent.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Agent.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -163,10 +139,6 @@ module FHIR
       end
 
       class ValuedItem < FHIR::Model
-        include FHIR::Hashable
-        include FHIR::Json
-        include FHIR::Xml
-
         MULTIPLE_TYPES = {
           'entity' => ['CodeableConcept', 'Reference']
         }
@@ -217,10 +189,6 @@ module FHIR
     end
 
     class Friendly < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       MULTIPLE_TYPES = {
         'content' => ['Attachment', 'Reference']
       }
@@ -240,10 +208,6 @@ module FHIR
     end
 
     class Legal < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       MULTIPLE_TYPES = {
         'content' => ['Attachment', 'Reference']
       }
@@ -263,10 +227,6 @@ module FHIR
     end
 
     class Rule < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       MULTIPLE_TYPES = {
         'content' => ['Attachment', 'Reference']
       }

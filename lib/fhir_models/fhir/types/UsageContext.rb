@@ -1,9 +1,5 @@
 module FHIR
   class UsageContext < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     MULTIPLE_TYPES = {
       'value' => ['CodeableConcept', 'Quantity', 'Range']
     }

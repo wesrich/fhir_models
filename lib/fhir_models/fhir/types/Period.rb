@@ -1,9 +1,5 @@
 module FHIR
   class Period < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = 
     METADATA = {
       'id' => {'type'=>'string', 'path'=>'Period.id', 'min'=>0, 'max'=>1},

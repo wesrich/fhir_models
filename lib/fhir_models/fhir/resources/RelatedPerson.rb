@@ -1,9 +1,5 @@
 module FHIR
   class RelatedPerson < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = ['address', 'address-city', 'address-country', 'address-postalcode', 'address-state', 'address-use', 'birthdate', 'email', 'gender', 'phone', 'phonetic', 'telecom', 'active', 'identifier', 'name', 'patient']
     METADATA = {
       'id' => {'type'=>'id', 'path'=>'RelatedPerson.id', 'min'=>0, 'max'=>1},

@@ -1,9 +1,5 @@
 module FHIR
   class MedicationAdministration < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     MULTIPLE_TYPES = {
       'medication' => ['CodeableConcept', 'Reference'],
       'effective' => ['dateTime', 'Period']
@@ -40,10 +36,6 @@ module FHIR
     }
 
     class Dosage < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       MULTIPLE_TYPES = {
         'rate' => ['Ratio', 'Quantity']
       }

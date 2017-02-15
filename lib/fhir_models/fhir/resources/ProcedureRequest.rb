@@ -1,9 +1,5 @@
 module FHIR
   class ProcedureRequest < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     MULTIPLE_TYPES = {
       'reason' => ['CodeableConcept', 'Reference'],
       'scheduled' => ['dateTime', 'Period', 'Timing'],

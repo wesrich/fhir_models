@@ -1,9 +1,5 @@
 module FHIR
   class Element < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = 
     METADATA = {
       'id' => {'type'=>'string', 'path'=>'Element.id', 'min'=>0, 'max'=>1},

@@ -1,9 +1,5 @@
 module FHIR
   class Immunization < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = ['date', 'identifier', 'patient', 'dose-sequence', 'location', 'lot-number', 'manufacturer', 'notgiven', 'performer', 'reaction', 'reaction-date', 'reason', 'reason-not-given', 'requester', 'status', 'vaccine-code']
     METADATA = {
       'id' => {'type'=>'id', 'path'=>'Immunization.id', 'min'=>0, 'max'=>1},
@@ -39,10 +35,6 @@ module FHIR
     }
 
     class Explanation < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'Explanation.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'Explanation.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -59,10 +51,6 @@ module FHIR
     end
 
     class Reaction < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'Reaction.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'Reaction.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -81,10 +69,6 @@ module FHIR
     end
 
     class VaccinationProtocol < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'VaccinationProtocol.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'VaccinationProtocol.extension', 'min'=>0, 'max'=>Float::INFINITY},

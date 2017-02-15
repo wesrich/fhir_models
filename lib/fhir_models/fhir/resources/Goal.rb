@@ -1,9 +1,5 @@
 module FHIR
   class Goal < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     MULTIPLE_TYPES = {
       'start' => ['date', 'CodeableConcept'],
       'target' => ['date', 'Duration']
@@ -37,10 +33,6 @@ module FHIR
     }
 
     class Outcome < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       MULTIPLE_TYPES = {
         'result' => ['CodeableConcept', 'Reference']
       }

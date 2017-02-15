@@ -1,9 +1,5 @@
 module FHIR
   class Practitioner < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = ['address', 'address-city', 'address-country', 'address-postalcode', 'address-state', 'address-use', 'email', 'family', 'gender', 'given', 'phone', 'phonetic', 'telecom', 'active', 'communication', 'endpoint', 'identifier', 'location', 'name', 'organization', 'role', 'specialty']
     METADATA = {
       'id' => {'type'=>'id', 'path'=>'Practitioner.id', 'min'=>0, 'max'=>1},
@@ -28,10 +24,6 @@ module FHIR
     }
 
     class Role < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'Role.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'Role.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -62,10 +54,6 @@ module FHIR
     end
 
     class Qualification < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'Qualification.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'Qualification.extension', 'min'=>0, 'max'=>Float::INFINITY},

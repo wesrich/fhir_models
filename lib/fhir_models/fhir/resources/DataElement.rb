@@ -1,9 +1,5 @@
 module FHIR
   class DataElement < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = ['code', 'date', 'description', 'identifier', 'jurisdiction', 'name', 'publisher', 'status', 'stringency', 'title', 'url', 'version']
     METADATA = {
       'id' => {'type'=>'id', 'path'=>'DataElement.id', 'min'=>0, 'max'=>1},
@@ -33,10 +29,6 @@ module FHIR
     }
 
     class Mapping < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'Mapping.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'Mapping.extension', 'min'=>0, 'max'=>Float::INFINITY},

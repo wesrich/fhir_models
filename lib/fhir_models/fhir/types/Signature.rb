@@ -1,9 +1,5 @@
 module FHIR
   class Signature < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     MULTIPLE_TYPES = {
       'who' => ['uri', 'Reference'],
       'onBehalfOf' => ['uri', 'Reference']

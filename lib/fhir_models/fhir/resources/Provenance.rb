@@ -1,9 +1,5 @@
 module FHIR
   class Provenance < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = ['agent', 'end', 'entity', 'location', 'patient', 'sig', 'start', 'target']
     METADATA = {
       'id' => {'type'=>'id', 'path'=>'Provenance.id', 'min'=>0, 'max'=>1},
@@ -27,10 +23,6 @@ module FHIR
     }
 
     class Agent < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       MULTIPLE_TYPES = {
         'who' => ['uri', 'Reference'],
         'onBehalfOf' => ['uri', 'Reference']
@@ -59,10 +51,6 @@ module FHIR
     end
 
     class Entity < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'Entity.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'Entity.extension', 'min'=>0, 'max'=>Float::INFINITY},

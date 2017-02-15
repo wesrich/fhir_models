@@ -1,9 +1,5 @@
 module FHIR
   class ImagingStudy < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = ['identifier', 'patient', 'accession', 'basedon', 'bodysite', 'context', 'dicom-class', 'modality', 'reason', 'series', 'started', 'study', 'uid']
     METADATA = {
       'id' => {'type'=>'id', 'path'=>'ImagingStudy.id', 'min'=>0, 'max'=>1},
@@ -35,10 +31,6 @@ module FHIR
     }
 
     class BaseLocation < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'BaseLocation.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'BaseLocation.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -55,10 +47,6 @@ module FHIR
     end
 
     class Series < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'Series.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'Series.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -77,10 +65,6 @@ module FHIR
       }
 
       class BaseLocation < FHIR::Model
-        include FHIR::Hashable
-        include FHIR::Json
-        include FHIR::Xml
-
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'BaseLocation.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'BaseLocation.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -97,10 +81,6 @@ module FHIR
       end
 
       class Instance < FHIR::Model
-        include FHIR::Hashable
-        include FHIR::Json
-        include FHIR::Xml
-
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Instance.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Instance.extension', 'min'=>0, 'max'=>Float::INFINITY},

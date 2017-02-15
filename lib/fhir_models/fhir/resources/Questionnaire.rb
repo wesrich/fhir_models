@@ -1,9 +1,5 @@
 module FHIR
   class Questionnaire < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = ['code', 'context', 'date', 'identifier', 'publisher', 'status', 'title', 'version']
     METADATA = {
       'id' => {'type'=>'id', 'path'=>'Questionnaire.id', 'min'=>0, 'max'=>1},
@@ -29,10 +25,6 @@ module FHIR
     }
 
     class Item < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       MULTIPLE_TYPES = {
         'initial' => ['boolean', 'decimal', 'integer', 'date', 'dateTime', 'instant', 'time', 'string', 'uri', 'Attachment', 'Coding', 'Quantity', 'Reference']
       }
@@ -70,10 +62,6 @@ module FHIR
       }
 
       class EnableWhen < FHIR::Model
-        include FHIR::Hashable
-        include FHIR::Json
-        include FHIR::Xml
-
         MULTIPLE_TYPES = {
           'answer' => ['boolean', 'decimal', 'integer', 'date', 'dateTime', 'instant', 'time', 'string', 'uri', 'Attachment', 'Coding', 'Quantity', 'Reference']
         }
@@ -119,10 +107,6 @@ module FHIR
       end
 
       class Option < FHIR::Model
-        include FHIR::Hashable
-        include FHIR::Json
-        include FHIR::Xml
-
         MULTIPLE_TYPES = {
           'value' => ['integer', 'date', 'time', 'string', 'Coding']
         }

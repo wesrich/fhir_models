@@ -1,9 +1,5 @@
 module FHIR
   class DocumentManifest < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = ['identifier', 'patient', 'type', 'author', 'content-ref', 'created', 'description', 'recipient', 'related-id', 'related-ref', 'source', 'status', 'subject']
     METADATA = {
       'id' => {'type'=>'id', 'path'=>'DocumentManifest.id', 'min'=>0, 'max'=>1},
@@ -29,10 +25,6 @@ module FHIR
     }
 
     class Content < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       MULTIPLE_TYPES = {
         'p' => ['Attachment', 'Reference']
       }
@@ -52,10 +44,6 @@ module FHIR
     end
 
     class Related < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'Related.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'Related.extension', 'min'=>0, 'max'=>Float::INFINITY},

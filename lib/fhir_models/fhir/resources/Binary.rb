@@ -1,9 +1,5 @@
 module FHIR
   class Binary < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = ['contenttype']
     METADATA = {
       'id' => {'type'=>'id', 'path'=>'Binary.id', 'min'=>0, 'max'=>1},

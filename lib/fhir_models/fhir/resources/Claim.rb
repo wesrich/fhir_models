@@ -1,9 +1,5 @@
 module FHIR
   class Claim < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = ['created', 'facility', 'identifier', 'insurer', 'organization', 'patient', 'priority', 'provider', 'use']
     METADATA = {
       'id' => {'type'=>'id', 'path'=>'Claim.id', 'min'=>0, 'max'=>1},
@@ -47,10 +43,6 @@ module FHIR
     }
 
     class Related < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'Related.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'Related.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -69,10 +61,6 @@ module FHIR
     end
 
     class Payee < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'Payee.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'Payee.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -91,10 +79,6 @@ module FHIR
     end
 
     class CareTeam < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'CareTeam.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'CareTeam.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -117,10 +101,6 @@ module FHIR
     end
 
     class Information < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       MULTIPLE_TYPES = {
         'timing' => ['date', 'Period'],
         'value' => ['string', 'Quantity', 'Attachment', 'Reference']
@@ -155,10 +135,6 @@ module FHIR
     end
 
     class Diagnosis < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       MULTIPLE_TYPES = {
         'diagnosis' => ['CodeableConcept', 'Reference']
       }
@@ -184,10 +160,6 @@ module FHIR
     end
 
     class Procedure < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       MULTIPLE_TYPES = {
         'procedure' => ['CodeableConcept', 'Reference']
       }
@@ -211,10 +183,6 @@ module FHIR
     end
 
     class Insurance < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'Insurance.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'Insurance.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -239,10 +207,6 @@ module FHIR
     end
 
     class Accident < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       MULTIPLE_TYPES = {
         'location' => ['Address', 'Reference']
       }
@@ -266,10 +230,6 @@ module FHIR
     end
 
     class Item < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       MULTIPLE_TYPES = {
         'serviced' => ['date', 'Period'],
         'location' => ['CodeableConcept', 'Address', 'Reference']
@@ -305,10 +265,6 @@ module FHIR
       }
 
       class Detail < FHIR::Model
-        include FHIR::Hashable
-        include FHIR::Json
-        include FHIR::Xml
-
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Detail.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Detail.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -328,10 +284,6 @@ module FHIR
         }
 
         class SubDetail < FHIR::Model
-          include FHIR::Hashable
-          include FHIR::Json
-          include FHIR::Xml
-
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'SubDetail.id', 'min'=>0, 'max'=>1},
             'extension' => {'type'=>'Extension', 'path'=>'SubDetail.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -383,10 +335,6 @@ module FHIR
       end
 
       class Prosthesis < FHIR::Model
-        include FHIR::Hashable
-        include FHIR::Json
-        include FHIR::Xml
-
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Prosthesis.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Prosthesis.extension', 'min'=>0, 'max'=>Float::INFINITY},

@@ -1,9 +1,5 @@
 module FHIR
   class Specimen < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = ['accession', 'bodysite', 'collected', 'collector', 'container', 'container-id', 'identifier', 'parent', 'patient', 'subject', 'type']
     METADATA = {
       'id' => {'type'=>'id', 'path'=>'Specimen.id', 'min'=>0, 'max'=>1},
@@ -29,10 +25,6 @@ module FHIR
     }
 
     class Collection < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       MULTIPLE_TYPES = {
         'collected' => ['dateTime', 'Period']
       }
@@ -60,10 +52,6 @@ module FHIR
     end
 
     class Treatment < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       MULTIPLE_TYPES = {
         'time' => ['dateTime', 'Period']
       }
@@ -89,10 +77,6 @@ module FHIR
     end
 
     class Container < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       MULTIPLE_TYPES = {
         'additive' => ['CodeableConcept', 'Reference']
       }

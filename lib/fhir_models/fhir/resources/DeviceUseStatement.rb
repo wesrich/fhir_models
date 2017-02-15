@@ -1,9 +1,5 @@
 module FHIR
   class DeviceUseStatement < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     MULTIPLE_TYPES = {
       'timing' => ['Timing', 'Period', 'dateTime']
     }

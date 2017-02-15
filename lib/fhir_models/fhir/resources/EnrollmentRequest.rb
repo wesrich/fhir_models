@@ -1,9 +1,5 @@
 module FHIR
   class EnrollmentRequest < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = ['identifier', 'organization', 'patient', 'subject']
     METADATA = {
       'id' => {'type'=>'id', 'path'=>'EnrollmentRequest.id', 'min'=>0, 'max'=>1},

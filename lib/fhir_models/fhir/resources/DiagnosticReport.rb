@@ -1,9 +1,5 @@
 module FHIR
   class DiagnosticReport < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     MULTIPLE_TYPES = {
       'effective' => ['dateTime', 'Period']
     }
@@ -38,10 +34,6 @@ module FHIR
     }
 
     class Image < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'Image.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'Image.extension', 'min'=>0, 'max'=>Float::INFINITY},

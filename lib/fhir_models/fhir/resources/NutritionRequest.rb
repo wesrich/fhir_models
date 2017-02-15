@@ -1,9 +1,5 @@
 module FHIR
   class NutritionRequest < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = ['identifier', 'patient', 'encounter', 'additive', 'datetime', 'formula', 'oraldiet', 'provider', 'status', 'supplement']
     METADATA = {
       'id' => {'type'=>'id', 'path'=>'NutritionRequest.id', 'min'=>0, 'max'=>1},
@@ -29,10 +25,6 @@ module FHIR
     }
 
     class OralDiet < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'OralDiet.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'OralDiet.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -46,10 +38,6 @@ module FHIR
       }
 
       class Nutrient < FHIR::Model
-        include FHIR::Hashable
-        include FHIR::Json
-        include FHIR::Xml
-
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Nutrient.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Nutrient.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -66,10 +54,6 @@ module FHIR
       end
 
       class Texture < FHIR::Model
-        include FHIR::Hashable
-        include FHIR::Json
-        include FHIR::Xml
-
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Texture.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Texture.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -97,10 +81,6 @@ module FHIR
     end
 
     class Supplement < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'Supplement.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'Supplement.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -123,10 +103,6 @@ module FHIR
     end
 
     class EnteralFormula < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'EnteralFormula.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'EnteralFormula.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -143,10 +119,6 @@ module FHIR
       }
 
       class Administration < FHIR::Model
-        include FHIR::Hashable
-        include FHIR::Json
-        include FHIR::Xml
-
         MULTIPLE_TYPES = {
           'rate' => ['Quantity', 'Ratio']
         }

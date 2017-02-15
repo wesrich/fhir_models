@@ -1,9 +1,5 @@
 module FHIR
   class Attachment < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = 
     METADATA = {
       'id' => {'type'=>'string', 'path'=>'Attachment.id', 'min'=>0, 'max'=>1},

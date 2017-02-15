@@ -1,9 +1,5 @@
 module FHIR
   class ClinicalImpression < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     MULTIPLE_TYPES = {
       'effective' => ['dateTime', 'Period']
     }
@@ -40,10 +36,6 @@ module FHIR
     }
 
     class Investigation < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'Investigation.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'Investigation.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -60,10 +52,6 @@ module FHIR
     end
 
     class Finding < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       MULTIPLE_TYPES = {
         'item' => ['CodeableConcept', 'Reference']
       }

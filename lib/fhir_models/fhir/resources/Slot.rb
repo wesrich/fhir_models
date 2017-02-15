@@ -1,9 +1,5 @@
 module FHIR
   class Slot < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = ['identifier', 'schedule', 'slot-type', 'start', 'status']
     METADATA = {
       'id' => {'type'=>'id', 'path'=>'Slot.id', 'min'=>0, 'max'=>1},

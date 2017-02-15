@@ -1,9 +1,5 @@
 module FHIR
   class ReferralRequest < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = ['date', 'patient', 'type', 'basedon', 'category', 'context', 'parent', 'priority', 'recipient', 'requester', 'specialty', 'status']
     METADATA = {
       'id' => {'type'=>'id', 'path'=>'ReferralRequest.id', 'min'=>0, 'max'=>1},

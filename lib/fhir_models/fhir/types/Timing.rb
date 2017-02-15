@@ -1,9 +1,5 @@
 module FHIR
   class Timing < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = 
     METADATA = {
       'id' => {'type'=>'string', 'path'=>'Timing.id', 'min'=>0, 'max'=>1},
@@ -14,10 +10,6 @@ module FHIR
     }
 
     class Repeat < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       MULTIPLE_TYPES = {
         'bounds' => ['Duration', 'Range', 'Period']
       }

@@ -1,9 +1,5 @@
 module FHIR
   class Money < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = 
     METADATA = {
       'id' => {'type'=>'string', 'path'=>'Money.id', 'min'=>0, 'max'=>1},

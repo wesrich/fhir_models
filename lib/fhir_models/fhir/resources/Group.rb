@@ -1,9 +1,5 @@
 module FHIR
   class Group < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = ['actual', 'characteristic', 'code', 'exclude', 'identifier', 'member', 'type', 'value']
     METADATA = {
       'id' => {'type'=>'id', 'path'=>'Group.id', 'min'=>0, 'max'=>1},
@@ -26,10 +22,6 @@ module FHIR
     }
 
     class Characteristic < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       MULTIPLE_TYPES = {
         'value' => ['CodeableConcept', 'boolean', 'Quantity', 'Range']
       }
@@ -59,10 +51,6 @@ module FHIR
     end
 
     class Member < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'Member.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'Member.extension', 'min'=>0, 'max'=>Float::INFINITY},

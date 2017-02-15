@@ -1,9 +1,5 @@
 module FHIR
   class ServiceDefinition < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = ['date', 'description', 'effective', 'identifier', 'jurisdiction', 'name', 'publisher', 'status', 'title', 'topic', 'url', 'version']
     METADATA = {
       'id' => {'type'=>'id', 'path'=>'ServiceDefinition.id', 'min'=>0, 'max'=>1},

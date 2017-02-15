@@ -1,9 +1,5 @@
 module FHIR
   class EligibilityRequest < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     MULTIPLE_TYPES = {
       'serviced' => ['date', 'Period']
     }

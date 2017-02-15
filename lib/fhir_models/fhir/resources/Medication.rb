@@ -1,9 +1,5 @@
 module FHIR
   class Medication < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = ['code', 'container', 'form', 'ingredient', 'ingredient-code', 'manufacturer', 'package-item', 'package-item-code']
     METADATA = {
       'id' => {'type'=>'id', 'path'=>'Medication.id', 'min'=>0, 'max'=>1},
@@ -22,10 +18,6 @@ module FHIR
     }
 
     class Product < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'Product.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'Product.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -36,10 +28,6 @@ module FHIR
       }
 
       class Ingredient < FHIR::Model
-        include FHIR::Hashable
-        include FHIR::Json
-        include FHIR::Xml
-
         MULTIPLE_TYPES = {
           'item' => ['CodeableConcept', 'Reference']
         }
@@ -61,10 +49,6 @@ module FHIR
       end
 
       class Batch < FHIR::Model
-        include FHIR::Hashable
-        include FHIR::Json
-        include FHIR::Xml
-
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Batch.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Batch.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -89,10 +73,6 @@ module FHIR
     end
 
     class Package < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'Package.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'Package.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -102,10 +82,6 @@ module FHIR
       }
 
       class Content < FHIR::Model
-        include FHIR::Hashable
-        include FHIR::Json
-        include FHIR::Xml
-
         MULTIPLE_TYPES = {
           'item' => ['CodeableConcept', 'Reference']
         }

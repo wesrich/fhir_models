@@ -1,9 +1,5 @@
 module FHIR
   class Device < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = ['identifier', 'location', 'manufacturer', 'model', 'organization', 'patient', 'type', 'udicarrier', 'url']
     METADATA = {
       'id' => {'type'=>'id', 'path'=>'Device.id', 'min'=>0, 'max'=>1},

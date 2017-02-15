@@ -1,9 +1,5 @@
 module FHIR
   class PaymentNotice < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = ['created', 'identifier', 'organization', 'payment-status', 'provider', 'request', 'response', 'statusdate']
     METADATA = {
       'id' => {'type'=>'id', 'path'=>'PaymentNotice.id', 'min'=>0, 'max'=>1},

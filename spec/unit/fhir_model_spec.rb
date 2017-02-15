@@ -2,8 +2,19 @@ require 'pry'
 
 shared_context 'a FHIR Model' do |model_name|
   let(:expected_hash) { { id: '123' } }
-  let(:expected_json) { expected_hash.merge(resourceType: model_name).to_json }
-  let(:expected_xml) { expected_hash.merge(resourceType: model_name).to_json }
+  let(:hash_with_resource_type) { expected_hash.merge(resourceType: model_name) }
+  let(:expected_json) { hash_with_resource_type.to_json }
+  let(:expected_xml) { hash_with_resource_type.to_xml }
+
+  context '.new' do
+    it 'instantiates the current class' do
+      expect(described_class.new(expected_hash)).to be_a described_class
+    end
+
+    it 'instantiates another class when passed resourceType' do
+      expect(described_class.new(expected_hash.merge('resourceType' => 'Patient'))).to be_a FHIR::Patient
+    end
+  end
 
   context '#resourceType' do
     it 'returns the demodulized class name' do
@@ -24,8 +35,8 @@ shared_context 'a FHIR Model' do |model_name|
       it 'allows passing in a FHIR Profile context'
     end
 
-    context 'xml' do
-      it 'parses XML into a FHIR Model', :skip do
+    context 'xml', :skip do
+      it 'parses XML into a FHIR Model' do
         expect(described_class.new(expected_hash).to_fhir_xml).to eq expected_xml
         expect(described_class.new(expected_hash).to_fhir(format: :xml)).to eq expected_xml
       end
@@ -45,7 +56,7 @@ shared_context 'a FHIR Model' do |model_name|
       it 'allows passing in a FHIR Profile context'
     end
 
-    context 'xml' do
+    context 'xml', :skip do
       it 'returns an XML representation of a FHIR Model'
 
       it 'allows passing in a FHIR Version context'
@@ -66,7 +77,9 @@ describe FHIR::Model do
     end
   end
 
-  describe FHIR::Patient do
-    it_behaves_like 'a FHIR Model', 'Patient'
+  %w(Patient Resource).each do |model_name|
+    describe FHIR.const_get(model_name) do
+      it_behaves_like 'a FHIR Model', model_name
+    end
   end
 end

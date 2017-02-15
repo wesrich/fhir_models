@@ -1,9 +1,5 @@
 module FHIR
   class SupplyRequest < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     MULTIPLE_TYPES = {
       'orderedItem' => ['CodeableConcept', 'Reference'],
       'reason' => ['CodeableConcept', 'Reference']
@@ -33,10 +29,6 @@ module FHIR
     }
 
     class When < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'When.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'When.extension', 'min'=>0, 'max'=>Float::INFINITY},

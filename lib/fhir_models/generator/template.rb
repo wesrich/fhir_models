@@ -1,7 +1,6 @@
 module FHIR
   module Boot
     class Template
-      include FHIR::Hashable
       extend FHIR::Deprecate
 
       attr_accessor :name

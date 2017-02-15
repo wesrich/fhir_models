@@ -1,9 +1,5 @@
 module FHIR
   class Substance < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = ['category', 'code', 'container-identifier', 'expiry', 'identifier', 'quantity', 'substance-reference']
     METADATA = {
       'id' => {'type'=>'id', 'path'=>'Substance.id', 'min'=>0, 'max'=>1},
@@ -23,10 +19,6 @@ module FHIR
     }
 
     class Instance < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'Instance.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'Instance.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -45,10 +37,6 @@ module FHIR
     end
 
     class Ingredient < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       MULTIPLE_TYPES = {
         'substance' => ['CodeableConcept', 'Reference']
       }

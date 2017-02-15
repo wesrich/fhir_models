@@ -1,9 +1,5 @@
 module FHIR
   class FamilyMemberHistory < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     MULTIPLE_TYPES = {
       'born' => ['Period', 'date', 'string'],
       'age' => ['Age', 'Range', 'string'],
@@ -43,10 +39,6 @@ module FHIR
     }
 
     class Condition < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       MULTIPLE_TYPES = {
         'onset' => ['Age', 'Range', 'Period', 'string']
       }

@@ -1,9 +1,5 @@
 module FHIR
   class Count < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = 
     METADATA = {
       'id' => {'type'=>'string', 'path'=>'Count.id', 'min'=>0, 'max'=>1},

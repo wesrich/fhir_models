@@ -1,9 +1,5 @@
 module FHIR
   class Communication < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = ['based-on', 'category', 'context', 'identifier', 'medium', 'patient', 'received', 'recipient', 'sender', 'sent', 'status', 'subject']
     METADATA = {
       'id' => {'type'=>'id', 'path'=>'Communication.id', 'min'=>0, 'max'=>1},
@@ -33,10 +29,6 @@ module FHIR
     }
 
     class Payload < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       MULTIPLE_TYPES = {
         'content' => ['string', 'Attachment', 'Reference']
       }

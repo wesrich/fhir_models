@@ -1,9 +1,5 @@
 module FHIR
   class CommunicationRequest < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     MULTIPLE_TYPES = {
       'scheduled' => ['dateTime', 'Period']
     }
@@ -36,10 +32,6 @@ module FHIR
     }
 
     class Payload < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       MULTIPLE_TYPES = {
         'content' => ['string', 'Attachment', 'Reference']
       }

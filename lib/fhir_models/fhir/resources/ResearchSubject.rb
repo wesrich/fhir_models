@@ -1,9 +1,5 @@
 module FHIR
   class ResearchSubject < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = ['date', 'identifier', 'individual', 'patient', 'status']
     METADATA = {
       'id' => {'type'=>'id', 'path'=>'ResearchSubject.id', 'min'=>0, 'max'=>1},

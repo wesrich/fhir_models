@@ -1,9 +1,5 @@
 module FHIR
   class Schedule < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = ['active', 'actor', 'date', 'identifier', 'type']
     METADATA = {
       'id' => {'type'=>'id', 'path'=>'Schedule.id', 'min'=>0, 'max'=>1},

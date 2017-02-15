@@ -1,9 +1,5 @@
 module FHIR
   class BodySite < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     SEARCH_PARAMS = ['code', 'identifier', 'patient']
     METADATA = {
       'id' => {'type'=>'id', 'path'=>'BodySite.id', 'min'=>0, 'max'=>1},

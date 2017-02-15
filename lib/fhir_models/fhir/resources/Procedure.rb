@@ -1,9 +1,5 @@
 module FHIR
   class Procedure < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     MULTIPLE_TYPES = {
       'performed' => ['dateTime', 'Period']
     }
@@ -45,10 +41,6 @@ module FHIR
     }
 
     class Performer < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'Performer.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'Performer.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -65,10 +57,6 @@ module FHIR
     end
 
     class FocalDevice < FHIR::Model
-      include FHIR::Hashable
-      include FHIR::Json
-      include FHIR::Xml
-
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'FocalDevice.id', 'min'=>0, 'max'=>1},
         'extension' => {'type'=>'Extension', 'path'=>'FocalDevice.extension', 'min'=>0, 'max'=>Float::INFINITY},

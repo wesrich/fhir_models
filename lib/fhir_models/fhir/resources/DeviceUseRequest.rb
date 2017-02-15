@@ -1,9 +1,5 @@
 module FHIR
   class DeviceUseRequest < FHIR::Model
-    include FHIR::Hashable
-    include FHIR::Json
-    include FHIR::Xml
-
     MULTIPLE_TYPES = {
       'device' => ['Reference', 'CodeableConcept'],
       'occurrence' => ['dateTime', 'Period', 'Timing']
