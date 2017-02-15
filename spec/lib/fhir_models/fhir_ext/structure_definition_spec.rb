@@ -1,4 +1,4 @@
-RSpec.describe 'FHIR::Model' do
+RSpec.describe 'FHIR::Model', :skip do
   describe '#data_type?(datatype, value)' do
     subject { FHIR::StructureDefinition.new({}) }
 

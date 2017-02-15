@@ -1,4 +1,4 @@
-describe FHIR::Definitions do
+describe FHIR::Definitions, :skip do
   context '.load_extensions'
 
   context '.get_display' do
