@@ -21,6 +21,7 @@ class JsonFormatTest < Test::Unit::TestCase
       run_json_roundtrip_test(example_file, example_name)
     end
     define_method("test_json_xml_json_lossiness_#{example_name}") do
+      pend("NYI") # TODO: Remove
       run_json_xml_json_lossiness_test(example_file, example_name)
     end
   end
@@ -45,6 +46,8 @@ class JsonFormatTest < Test::Unit::TestCase
   end
 
   def run_json_xml_json_lossiness_test(example_file, example_name)
+    pend("NYI") # TODO: Remove
+
     input_json = File.read(example_file)
     resource_from_json = FHIR::Json.from_json(input_json)
     output_xml = resource_from_json.to_xml

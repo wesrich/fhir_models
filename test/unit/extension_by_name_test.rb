@@ -1,6 +1,10 @@
 require_relative '../test_helper'
 
 class ExtensionByNameTest < Test::Unit::TestCase
+  def setup
+    pend("NYI") # TODO: Remove
+  end
+
   def test_extension_by_name
     patient = FHIR::Patient.new
     patient.extension << FHIR::Extension.new(url: 'http://projectcrucible.org/extensions/foobar', valueInteger: 42)

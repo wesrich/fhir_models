@@ -1,6 +1,10 @@
 require_relative '../test_helper'
 
 class EqualityTest < Test::Unit::TestCase
+  def setup
+    pend("NYI") # TODO: Remove
+  end
+
   EXAMPLE_ROOT = File.join('lib', 'fhir_models', 'generator', 'examples')
   ERROR_DIR = File.join('tmp', 'errors', 'EqualityTest')
 
