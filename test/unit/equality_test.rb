@@ -1,7 +1,7 @@
 require_relative '../test_helper'
 
 class EqualityTest < Test::Unit::TestCase
-  EXAMPLE_ROOT = File.join('lib', 'fhir_models', 'examples')
+  EXAMPLE_ROOT = File.join('lib', 'fhir_models', 'generator', 'examples')
   ERROR_DIR = File.join('tmp', 'errors', 'EqualityTest')
 
   # Create a blank folder for the errors
