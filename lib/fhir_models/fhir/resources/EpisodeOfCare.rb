@@ -32,37 +32,6 @@ module FHIR
         'status' => {'valid_codes'=>{'http://hl7.org/fhir/episode-of-care-status'=>['planned', 'waitlist', 'active', 'onhold', 'finished', 'cancelled', 'entered-in-error', 'planned', 'waitlist', 'active', 'onhold', 'finished', 'cancelled', 'entered-in-error']}, 'type'=>'code', 'path'=>'StatusHistory.status', 'min'=>1, 'max'=>1, 'binding'=>{'strength'=>'required', 'uri'=>'http://hl7.org/fhir/ValueSet/episode-of-care-status'}},
         'period' => {'type'=>'Period', 'path'=>'StatusHistory.period', 'min'=>1, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :status            # 1-1 code
-      attr_accessor :period            # 1-1 Period
-    end
-
-    attr_accessor :id                   # 0-1 id
-    attr_accessor :meta                 # 0-1 Meta
-    attr_accessor :implicitRules        # 0-1 uri
-    attr_accessor :language             # 0-1 code
-    attr_accessor :text                 # 0-1 Narrative
-    attr_accessor :contained            # 0-* [ Resource ]
-    attr_accessor :extension            # 0-* [ Extension ]
-    attr_accessor :modifierExtension    # 0-* [ Extension ]
-    attr_accessor :identifier           # 0-* [ Identifier ]
-    attr_accessor :status               # 1-1 code
-    attr_accessor :statusHistory        # 0-* [ EpisodeOfCare::StatusHistory ]
-    attr_accessor :type                 # 0-* [ CodeableConcept ]
-    attr_accessor :condition            # 0-* [ Reference(Condition) ]
-    attr_accessor :patient              # 1-1 Reference(Patient)
-    attr_accessor :managingOrganization # 0-1 Reference(Organization)
-    attr_accessor :period               # 0-1 Period
-    attr_accessor :referralRequest      # 0-* [ Reference(ReferralRequest) ]
-    attr_accessor :careManager          # 0-1 Reference(Practitioner)
-    attr_accessor :team                 # 0-* [ Reference(CareTeam) ]
-    attr_accessor :account              # 0-* [ Reference(Account) ]
-
-    def resourceType
-      'EpisodeOfCare'
     end
   end
 end

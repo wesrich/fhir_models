@@ -37,41 +37,5 @@ module FHIR
       'note' => {'type'=>'Annotation', 'path'=>'DiagnosticRequest.note', 'min'=>0, 'max'=>Float::INFINITY},
       'relevantHistory' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Provenance'], 'type'=>'Reference', 'path'=>'DiagnosticRequest.relevantHistory', 'min'=>0, 'max'=>Float::INFINITY}
     }
-
-    attr_accessor :id                    # 0-1 id
-    attr_accessor :meta                  # 0-1 Meta
-    attr_accessor :implicitRules         # 0-1 uri
-    attr_accessor :language              # 0-1 code
-    attr_accessor :text                  # 0-1 Narrative
-    attr_accessor :contained             # 0-* [ Resource ]
-    attr_accessor :extension             # 0-* [ Extension ]
-    attr_accessor :modifierExtension     # 0-* [ Extension ]
-    attr_accessor :identifier            # 0-* [ Identifier ]
-    attr_accessor :definition            # 0-* [ Reference(Resource) ]
-    attr_accessor :basedOn               # 0-* [ Reference(Resource) ]
-    attr_accessor :replaces              # 0-* [ Reference(Resource) ]
-    attr_accessor :requisition           # 0-1 Identifier
-    attr_accessor :status                # 1-1 code
-    attr_accessor :intent                # 1-1 code
-    attr_accessor :priority              # 0-1 code
-    attr_accessor :code                  # 1-1 CodeableConcept
-    attr_accessor :subject               # 1-1 Reference(Patient|Group|Location|Device)
-    attr_accessor :context               # 0-1 Reference(Encounter|EpisodeOfCare)
-    attr_accessor :occurrenceDateTime    # 0-1 dateTime
-    attr_accessor :occurrencePeriod      # 0-1 Period
-    attr_accessor :occurrenceTiming      # 0-1 Timing
-    attr_accessor :authoredOn            # 0-1 dateTime
-    attr_accessor :requester             # 0-1 Reference(Device|Practitioner|Organization)
-    attr_accessor :performerType         # 0-1 CodeableConcept
-    attr_accessor :performer             # 0-1 Reference(Practitioner|Organization|Patient|Device|RelatedPerson)
-    attr_accessor :reasonCode            # 0-* [ CodeableConcept ]
-    attr_accessor :reasonReference       # 0-* [ Reference(Condition|Observation) ]
-    attr_accessor :supportingInformation # 0-* [ Reference(Resource) ]
-    attr_accessor :note                  # 0-* [ Annotation ]
-    attr_accessor :relevantHistory       # 0-* [ Reference(Provenance) ]
-
-    def resourceType
-      'DiagnosticRequest'
-    end
   end
 end

@@ -45,47 +45,6 @@ module FHIR
         'brand' => {'type'=>'string', 'path'=>'Dispense.brand', 'min'=>0, 'max'=>1},
         'note' => {'type'=>'string', 'path'=>'Dispense.note', 'min'=>0, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :product           # 0-1 CodeableConcept
-      attr_accessor :eye               # 0-1 CodeableConcept
-      attr_accessor :sphere            # 0-1 decimal
-      attr_accessor :cylinder          # 0-1 decimal
-      attr_accessor :axis              # 0-1 integer
-      attr_accessor :prism             # 0-1 decimal
-      attr_accessor :base              # 0-1 CodeableConcept
-      attr_accessor :add               # 0-1 decimal
-      attr_accessor :power             # 0-1 decimal
-      attr_accessor :backCurve         # 0-1 decimal
-      attr_accessor :diameter          # 0-1 decimal
-      attr_accessor :duration          # 0-1 Quantity
-      attr_accessor :color             # 0-1 string
-      attr_accessor :brand             # 0-1 string
-      attr_accessor :note              # 0-1 string
-    end
-
-    attr_accessor :id                    # 0-1 id
-    attr_accessor :meta                  # 0-1 Meta
-    attr_accessor :implicitRules         # 0-1 uri
-    attr_accessor :language              # 0-1 code
-    attr_accessor :text                  # 0-1 Narrative
-    attr_accessor :contained             # 0-* [ Resource ]
-    attr_accessor :extension             # 0-* [ Extension ]
-    attr_accessor :modifierExtension     # 0-* [ Extension ]
-    attr_accessor :identifier            # 0-* [ Identifier ]
-    attr_accessor :status                # 0-1 code
-    attr_accessor :patient               # 0-1 Reference(Patient)
-    attr_accessor :encounter             # 0-1 Reference(Encounter)
-    attr_accessor :dateWritten           # 0-1 dateTime
-    attr_accessor :prescriber            # 0-1 Reference(Practitioner)
-    attr_accessor :reasonCodeableConcept # 0-1 CodeableConcept
-    attr_accessor :reasonReference       # 0-1 Reference(Condition)
-    attr_accessor :dispense              # 0-* [ VisionPrescription::Dispense ]
-
-    def resourceType
-      'VisionPrescription'
     end
   end
 end

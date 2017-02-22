@@ -32,13 +32,6 @@ module FHIR
         'uri' => {'type'=>'uri', 'path'=>'Participant.uri', 'min'=>1, 'max'=>1},
         'display' => {'type'=>'string', 'path'=>'Participant.display', 'min'=>0, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :type              # 1-1 code
-      attr_accessor :uri               # 1-1 uri
-      attr_accessor :display           # 0-1 string
     end
 
     class Setup < FHIR::Model
@@ -67,13 +60,6 @@ module FHIR
             'message' => {'type'=>'markdown', 'path'=>'Operation.message', 'min'=>0, 'max'=>1},
             'detail' => {'type'=>'uri', 'path'=>'Operation.detail', 'min'=>0, 'max'=>1}
           }
-
-          attr_accessor :id                # 0-1 string
-          attr_accessor :extension         # 0-* [ Extension ]
-          attr_accessor :modifierExtension # 0-* [ Extension ]
-          attr_accessor :result            # 1-1 code
-          attr_accessor :message           # 0-1 markdown
-          attr_accessor :detail            # 0-1 uri
         end
 
         class Assert < FHIR::Model
@@ -85,26 +71,8 @@ module FHIR
             'message' => {'type'=>'markdown', 'path'=>'Assert.message', 'min'=>0, 'max'=>1},
             'detail' => {'type'=>'string', 'path'=>'Assert.detail', 'min'=>0, 'max'=>1}
           }
-
-          attr_accessor :id                # 0-1 string
-          attr_accessor :extension         # 0-* [ Extension ]
-          attr_accessor :modifierExtension # 0-* [ Extension ]
-          attr_accessor :result            # 1-1 code
-          attr_accessor :message           # 0-1 markdown
-          attr_accessor :detail            # 0-1 string
         end
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :operation         # 0-1 TestReport::Setup::Action::Operation
-        attr_accessor :assert            # 0-1 TestReport::Setup::Action::Assert
       end
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :action            # 1-* [ TestReport::Setup::Action ]
     end
 
     class Test < FHIR::Model
@@ -125,20 +93,7 @@ module FHIR
           'operation' => {'type'=>'TestReport::Setup::Action::Operation', 'path'=>'Action.operation', 'min'=>0, 'max'=>1},
           'assert' => {'type'=>'TestReport::Setup::Action::Assert', 'path'=>'Action.assert', 'min'=>0, 'max'=>1}
         }
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :operation         # 0-1 TestReport::Setup::Action::Operation
-        attr_accessor :assert            # 0-1 TestReport::Setup::Action::Assert
       end
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :name              # 0-1 string
-      attr_accessor :description       # 0-1 string
-      attr_accessor :action            # 1-* [ TestReport::Test::Action ]
     end
 
     class Teardown < FHIR::Model
@@ -156,41 +111,7 @@ module FHIR
           'modifierExtension' => {'type'=>'Extension', 'path'=>'Action.modifierExtension', 'min'=>0, 'max'=>Float::INFINITY},
           'operation' => {'type'=>'TestReport::Setup::Action::Operation', 'path'=>'Action.operation', 'min'=>1, 'max'=>1}
         }
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :operation         # 1-1 TestReport::Setup::Action::Operation
       end
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :action            # 1-* [ TestReport::Teardown::Action ]
-    end
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :identifier        # 0-1 Identifier
-    attr_accessor :name              # 0-1 string
-    attr_accessor :status            # 1-1 code
-    attr_accessor :score             # 0-1 decimal
-    attr_accessor :tester            # 0-1 string
-    attr_accessor :testScript        # 1-1 Reference(TestScript)
-    attr_accessor :issued            # 0-1 dateTime
-    attr_accessor :participant       # 0-* [ TestReport::Participant ]
-    attr_accessor :setup             # 0-1 TestReport::Setup
-    attr_accessor :test              # 0-* [ TestReport::Test ]
-    attr_accessor :teardown          # 0-1 TestReport::Teardown
-
-    def resourceType
-      'TestReport'
     end
   end
 end

@@ -23,30 +23,5 @@ module FHIR
       'header' => {'type'=>'string', 'path'=>'Endpoint.header', 'min'=>0, 'max'=>Float::INFINITY},
       'publicKey' => {'type'=>'string', 'path'=>'Endpoint.publicKey', 'min'=>0, 'max'=>1}
     }
-
-    attr_accessor :id                   # 0-1 id
-    attr_accessor :meta                 # 0-1 Meta
-    attr_accessor :implicitRules        # 0-1 uri
-    attr_accessor :language             # 0-1 code
-    attr_accessor :text                 # 0-1 Narrative
-    attr_accessor :contained            # 0-* [ Resource ]
-    attr_accessor :extension            # 0-* [ Extension ]
-    attr_accessor :modifierExtension    # 0-* [ Extension ]
-    attr_accessor :identifier           # 0-* [ Identifier ]
-    attr_accessor :status               # 1-1 code
-    attr_accessor :name                 # 0-1 string
-    attr_accessor :managingOrganization # 0-1 Reference(Organization)
-    attr_accessor :contact              # 0-* [ ContactPoint ]
-    attr_accessor :period               # 0-1 Period
-    attr_accessor :connectionType       # 1-1 Coding
-    attr_accessor :payloadType          # 1-* [ CodeableConcept ]
-    attr_accessor :payloadMimeType      # 0-* [ code ]
-    attr_accessor :address              # 1-1 uri
-    attr_accessor :header               # 0-* [ string ]
-    attr_accessor :publicKey            # 0-1 string
-
-    def resourceType
-      'Endpoint'
-    end
   end
 end

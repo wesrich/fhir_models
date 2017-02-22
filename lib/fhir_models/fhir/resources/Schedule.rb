@@ -19,26 +19,5 @@ module FHIR
       'planningHorizon' => {'type'=>'Period', 'path'=>'Schedule.planningHorizon', 'min'=>0, 'max'=>1},
       'comment' => {'type'=>'string', 'path'=>'Schedule.comment', 'min'=>0, 'max'=>1}
     }
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :identifier        # 0-* [ Identifier ]
-    attr_accessor :active            # 0-1 boolean
-    attr_accessor :serviceCategory   # 0-1 CodeableConcept
-    attr_accessor :serviceType       # 0-* [ CodeableConcept ]
-    attr_accessor :specialty         # 0-* [ CodeableConcept ]
-    attr_accessor :actor             # 1-1 Reference(Patient|Practitioner|RelatedPerson|Device|HealthcareService|Location)
-    attr_accessor :planningHorizon   # 0-1 Period
-    attr_accessor :comment           # 0-1 string
-
-    def resourceType
-      'Schedule'
-    end
   end
 end

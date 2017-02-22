@@ -34,39 +34,6 @@ module FHIR
         'onHold' => {'type'=>'boolean', 'path'=>'Guarantor.onHold', 'min'=>0, 'max'=>1},
         'period' => {'type'=>'Period', 'path'=>'Guarantor.period', 'min'=>0, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :party             # 1-1 Reference(Patient|RelatedPerson|Organization)
-      attr_accessor :onHold            # 0-1 boolean
-      attr_accessor :period            # 0-1 Period
-    end
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :identifier        # 0-* [ Identifier ]
-    attr_accessor :name              # 0-1 string
-    attr_accessor :type              # 0-1 CodeableConcept
-    attr_accessor :status            # 0-1 code
-    attr_accessor :active            # 0-1 Period
-    attr_accessor :currency          # 0-1 Coding
-    attr_accessor :balance           # 0-1 Money
-    attr_accessor :coverage          # 0-* [ Reference(Coverage) ]
-    attr_accessor :coveragePeriod    # 0-1 Period
-    attr_accessor :subject           # 0-1 Reference(Patient|Device|Practitioner|Location|HealthcareService|Organization)
-    attr_accessor :owner             # 0-1 Reference(Organization)
-    attr_accessor :description       # 0-1 string
-    attr_accessor :guarantor         # 0-* [ Account::Guarantor ]
-
-    def resourceType
-      'Account'
     end
   end
 end

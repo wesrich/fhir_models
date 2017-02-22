@@ -48,15 +48,6 @@ module FHIR
         'expectedSupplyDuration' => {'type'=>'Duration', 'path'=>'DispenseRequest.expectedSupplyDuration', 'min'=>0, 'max'=>1},
         'performer' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Organization'], 'type'=>'Reference', 'path'=>'DispenseRequest.performer', 'min'=>0, 'max'=>1}
       }
-
-      attr_accessor :id                     # 0-1 string
-      attr_accessor :extension              # 0-* [ Extension ]
-      attr_accessor :modifierExtension      # 0-* [ Extension ]
-      attr_accessor :validityPeriod         # 0-1 Period
-      attr_accessor :numberOfRepeatsAllowed # 0-1 positiveInt
-      attr_accessor :quantity               # 0-1 Quantity
-      attr_accessor :expectedSupplyDuration # 0-1 Duration
-      attr_accessor :performer              # 0-1 Reference(Organization)
     end
 
     class Substitution < FHIR::Model
@@ -67,47 +58,6 @@ module FHIR
         'allowed' => {'type'=>'boolean', 'path'=>'Substitution.allowed', 'min'=>1, 'max'=>1},
         'reason' => {'valid_codes'=>{'http://hl7.org/fhir/v3/ActReason'=>['CT', 'FP', 'OS', 'RR']}, 'type'=>'CodeableConcept', 'path'=>'Substitution.reason', 'min'=>0, 'max'=>1, 'binding'=>{'strength'=>'example', 'uri'=>'http://hl7.org/fhir/ValueSet/v3-SubstanceAdminSubstitutionReason'}}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :allowed           # 1-1 boolean
-      attr_accessor :reason            # 0-1 CodeableConcept
-    end
-
-    attr_accessor :id                        # 0-1 id
-    attr_accessor :meta                      # 0-1 Meta
-    attr_accessor :implicitRules             # 0-1 uri
-    attr_accessor :language                  # 0-1 code
-    attr_accessor :text                      # 0-1 Narrative
-    attr_accessor :contained                 # 0-* [ Resource ]
-    attr_accessor :extension                 # 0-* [ Extension ]
-    attr_accessor :modifierExtension         # 0-* [ Extension ]
-    attr_accessor :identifier                # 0-* [ Identifier ]
-    attr_accessor :definition                # 0-* [ Reference(ActivityDefinition|PlanDefinition) ]
-    attr_accessor :basedOn                   # 0-* [ Reference(CarePlan|DiagnosticRequest|MedicationRequest|ProcedureRequest|ReferralRequest) ]
-    attr_accessor :requisition               # 0-1 Identifier
-    attr_accessor :status                    # 0-1 code
-    attr_accessor :stage                     # 1-1 CodeableConcept
-    attr_accessor :medicationCodeableConcept # 1-1 CodeableConcept
-    attr_accessor :medicationReference       # 1-1 Reference(Medication)
-    attr_accessor :patient                   # 1-1 Reference(Patient)
-    attr_accessor :context                   # 0-1 Reference(Encounter|EpisodeOfCare)
-    attr_accessor :supportingInformation     # 0-* [ Reference(Resource) ]
-    attr_accessor :dateWritten               # 0-1 dateTime
-    attr_accessor :requester                 # 0-1 Reference(Practitioner|Organization|Patient|RelatedPerson|Device)
-    attr_accessor :reasonCode                # 0-* [ CodeableConcept ]
-    attr_accessor :reasonReference           # 0-* [ Reference(Condition|Observation) ]
-    attr_accessor :note                      # 0-* [ Annotation ]
-    attr_accessor :category                  # 0-1 CodeableConcept
-    attr_accessor :dosageInstruction         # 0-* [ DosageInstruction ]
-    attr_accessor :dispenseRequest           # 0-1 MedicationRequest::DispenseRequest
-    attr_accessor :substitution              # 0-1 MedicationRequest::Substitution
-    attr_accessor :priorPrescription         # 0-1 Reference(MedicationRequest)
-    attr_accessor :eventHistory              # 0-* [ Reference(Provenance) ]
-
-    def resourceType
-      'MedicationRequest'
     end
   end
 end

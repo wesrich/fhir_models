@@ -44,13 +44,6 @@ module FHIR
         'version' => {'type'=>'string', 'path'=>'FixedVersion.version', 'min'=>1, 'max'=>1},
         'mode' => {'valid_codes'=>{'http://hl7.org/fhir/system-version-processing-mode'=>['default', 'check', 'override', 'default', 'check', 'override']}, 'type'=>'code', 'path'=>'FixedVersion.mode', 'min'=>1, 'max'=>1, 'binding'=>{'strength'=>'required', 'uri'=>'http://hl7.org/fhir/ValueSet/system-version-processing-mode'}}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :system            # 1-1 uri
-      attr_accessor :version           # 1-1 string
-      attr_accessor :mode              # 1-1 code
     end
 
     class ExcludedSystem < FHIR::Model
@@ -61,12 +54,6 @@ module FHIR
         'system' => {'type'=>'uri', 'path'=>'ExcludedSystem.system', 'min'=>1, 'max'=>1},
         'version' => {'type'=>'string', 'path'=>'ExcludedSystem.version', 'min'=>0, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :system            # 1-1 uri
-      attr_accessor :version           # 0-1 string
     end
 
     class Designation < FHIR::Model
@@ -94,18 +81,7 @@ module FHIR
             'language' => {'valid_codes'=>{'urn:ietf:bcp:47'=>['bn', 'cs', 'da', 'de', 'de-AT', 'de-CH', 'de-DE', 'el', 'en', 'en-AU', 'en-CA', 'en-GB', 'en-IN', 'en-NZ', 'en-SG', 'en-US', 'es', 'es-AR', 'es-ES', 'es-UY', 'fi', 'fr', 'fr-BE', 'fr-CH', 'fr-FR', 'fy', 'fy-NL', 'hr', 'it', 'it-CH', 'it-IT', 'ja', 'ko', 'nl', 'nl-BE', 'nl-NL', 'no', 'no-NO', 'pt', 'pt-BR', 'ru', 'ru-RU', 'sr', 'sr-SP', 'sv', 'sv-SE', 'te', 'zh', 'zh-CN', 'zh-HK', 'zh-SG', 'zh-TW']}, 'type'=>'code', 'path'=>'Designation.language', 'min'=>0, 'max'=>1, 'binding'=>{'strength'=>'extensible', 'uri'=>'http://hl7.org/fhir/ValueSet/languages'}},
             'use' => {'valid_codes'=>{'http://snomed.info/sct'=>['900000000000003001', '900000000000013009', '900000000000550004']}, 'type'=>'Coding', 'path'=>'Designation.use', 'min'=>0, 'max'=>1, 'binding'=>{'strength'=>'required', 'uri'=>'http://hl7.org/fhir/ValueSet/designation-use'}}
           }
-
-          attr_accessor :id                # 0-1 string
-          attr_accessor :extension         # 0-* [ Extension ]
-          attr_accessor :modifierExtension # 0-* [ Extension ]
-          attr_accessor :language          # 0-1 code
-          attr_accessor :use               # 0-1 Coding
         end
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :designation       # 0-* [ ExpansionProfile::Designation::Include::Designation ]
       end
 
       class Exclude < FHIR::Model
@@ -124,61 +100,8 @@ module FHIR
             'language' => {'valid_codes'=>{'urn:ietf:bcp:47'=>['bn', 'cs', 'da', 'de', 'de-AT', 'de-CH', 'de-DE', 'el', 'en', 'en-AU', 'en-CA', 'en-GB', 'en-IN', 'en-NZ', 'en-SG', 'en-US', 'es', 'es-AR', 'es-ES', 'es-UY', 'fi', 'fr', 'fr-BE', 'fr-CH', 'fr-FR', 'fy', 'fy-NL', 'hr', 'it', 'it-CH', 'it-IT', 'ja', 'ko', 'nl', 'nl-BE', 'nl-NL', 'no', 'no-NO', 'pt', 'pt-BR', 'ru', 'ru-RU', 'sr', 'sr-SP', 'sv', 'sv-SE', 'te', 'zh', 'zh-CN', 'zh-HK', 'zh-SG', 'zh-TW']}, 'type'=>'code', 'path'=>'Designation.language', 'min'=>0, 'max'=>1, 'binding'=>{'strength'=>'extensible', 'uri'=>'http://hl7.org/fhir/ValueSet/languages'}},
             'use' => {'valid_codes'=>{'http://snomed.info/sct'=>['900000000000003001', '900000000000013009', '900000000000550004']}, 'type'=>'Coding', 'path'=>'Designation.use', 'min'=>0, 'max'=>1, 'binding'=>{'strength'=>'required', 'uri'=>'http://hl7.org/fhir/ValueSet/designation-use'}}
           }
-
-          attr_accessor :id                # 0-1 string
-          attr_accessor :extension         # 0-* [ Extension ]
-          attr_accessor :modifierExtension # 0-* [ Extension ]
-          attr_accessor :language          # 0-1 code
-          attr_accessor :use               # 0-1 Coding
         end
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :designation       # 0-* [ ExpansionProfile::Designation::Exclude::Designation ]
       end
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :include           # 0-1 ExpansionProfile::Designation::Include
-      attr_accessor :exclude           # 0-1 ExpansionProfile::Designation::Exclude
-    end
-
-    attr_accessor :id                     # 0-1 id
-    attr_accessor :meta                   # 0-1 Meta
-    attr_accessor :implicitRules          # 0-1 uri
-    attr_accessor :language               # 0-1 code
-    attr_accessor :text                   # 0-1 Narrative
-    attr_accessor :contained              # 0-* [ Resource ]
-    attr_accessor :extension              # 0-* [ Extension ]
-    attr_accessor :modifierExtension      # 0-* [ Extension ]
-    attr_accessor :url                    # 0-1 uri
-    attr_accessor :identifier             # 0-1 Identifier
-    attr_accessor :version                # 0-1 string
-    attr_accessor :name                   # 0-1 string
-    attr_accessor :status                 # 1-1 code
-    attr_accessor :experimental           # 0-1 boolean
-    attr_accessor :publisher              # 0-1 string
-    attr_accessor :contact                # 0-* [ ContactDetail ]
-    attr_accessor :date                   # 0-1 dateTime
-    attr_accessor :description            # 0-1 markdown
-    attr_accessor :useContext             # 0-* [ UsageContext ]
-    attr_accessor :jurisdiction           # 0-* [ CodeableConcept ]
-    attr_accessor :fixedVersion           # 0-* [ ExpansionProfile::FixedVersion ]
-    attr_accessor :excludedSystem         # 0-1 ExpansionProfile::ExcludedSystem
-    attr_accessor :includeDesignations    # 0-1 boolean
-    attr_accessor :designation            # 0-1 ExpansionProfile::Designation
-    attr_accessor :includeDefinition      # 0-1 boolean
-    attr_accessor :activeOnly             # 0-1 boolean
-    attr_accessor :excludeNested          # 0-1 boolean
-    attr_accessor :excludeNotForUI        # 0-1 boolean
-    attr_accessor :excludePostCoordinated # 0-1 boolean
-    attr_accessor :displayLanguage        # 0-1 code
-    attr_accessor :limitedExpansion       # 0-1 boolean
-
-    def resourceType
-      'ExpansionProfile'
     end
   end
 end

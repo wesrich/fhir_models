@@ -38,12 +38,6 @@ module FHIR
           'code' => {'valid_codes'=>{'http://hl7.org/fhir/immunization-recommendation-date-criterion'=>['due', 'recommended', 'earliest', 'overdue', 'latest', 'due', 'recommended', 'earliest', 'overdue', 'latest']}, 'type'=>'CodeableConcept', 'path'=>'DateCriterion.code', 'min'=>1, 'max'=>1, 'binding'=>{'strength'=>'example', 'uri'=>'http://hl7.org/fhir/ValueSet/immunization-recommendation-date-criterion'}},
           'value' => {'type'=>'dateTime', 'path'=>'DateCriterion.value', 'min'=>1, 'max'=>1}
         }
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :code              # 1-1 CodeableConcept
-        attr_accessor :value             # 1-1 dateTime
       end
 
       class Protocol < FHIR::Model
@@ -56,43 +50,7 @@ module FHIR
           'authority' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Organization'], 'type'=>'Reference', 'path'=>'Protocol.authority', 'min'=>0, 'max'=>1},
           'series' => {'type'=>'string', 'path'=>'Protocol.series', 'min'=>0, 'max'=>1}
         }
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :doseSequence      # 0-1 positiveInt
-        attr_accessor :description       # 0-1 string
-        attr_accessor :authority         # 0-1 Reference(Organization)
-        attr_accessor :series            # 0-1 string
       end
-
-      attr_accessor :id                           # 0-1 string
-      attr_accessor :extension                    # 0-* [ Extension ]
-      attr_accessor :modifierExtension            # 0-* [ Extension ]
-      attr_accessor :date                         # 1-1 dateTime
-      attr_accessor :vaccineCode                  # 1-1 CodeableConcept
-      attr_accessor :doseNumber                   # 0-1 positiveInt
-      attr_accessor :forecastStatus               # 1-1 CodeableConcept
-      attr_accessor :dateCriterion                # 0-* [ ImmunizationRecommendation::Recommendation::DateCriterion ]
-      attr_accessor :protocol                     # 0-1 ImmunizationRecommendation::Recommendation::Protocol
-      attr_accessor :supportingImmunization       # 0-* [ Reference(Immunization) ]
-      attr_accessor :supportingPatientInformation # 0-* [ Reference(Observation|AllergyIntolerance) ]
-    end
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :identifier        # 0-* [ Identifier ]
-    attr_accessor :patient           # 1-1 Reference(Patient)
-    attr_accessor :recommendation    # 1-* [ ImmunizationRecommendation::Recommendation ]
-
-    def resourceType
-      'ImmunizationRecommendation'
     end
   end
 end

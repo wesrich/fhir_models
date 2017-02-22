@@ -54,51 +54,6 @@ module FHIR
         'onsetString' => {'type'=>'string', 'path'=>'Condition.onset[x]', 'min'=>0, 'max'=>1},
         'note' => {'type'=>'Annotation', 'path'=>'Condition.note', 'min'=>0, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :code              # 1-1 CodeableConcept
-      attr_accessor :outcome           # 0-1 CodeableConcept
-      attr_accessor :onsetAge          # 0-1 Age
-      attr_accessor :onsetRange        # 0-1 Range
-      attr_accessor :onsetPeriod       # 0-1 Period
-      attr_accessor :onsetString       # 0-1 string
-      attr_accessor :note              # 0-1 Annotation
-    end
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :identifier        # 0-* [ Identifier ]
-    attr_accessor :patient           # 1-1 Reference(Patient)
-    attr_accessor :date              # 0-1 dateTime
-    attr_accessor :status            # 1-1 code
-    attr_accessor :name              # 0-1 string
-    attr_accessor :relationship      # 1-1 CodeableConcept
-    attr_accessor :gender            # 0-1 code
-    attr_accessor :bornPeriod        # 0-1 Period
-    attr_accessor :bornDate          # 0-1 date
-    attr_accessor :bornString        # 0-1 string
-    attr_accessor :ageAge            # 0-1 Age
-    attr_accessor :ageRange          # 0-1 Range
-    attr_accessor :ageString         # 0-1 string
-    attr_accessor :estimatedAge      # 0-1 boolean
-    attr_accessor :deceasedBoolean   # 0-1 boolean
-    attr_accessor :deceasedAge       # 0-1 Age
-    attr_accessor :deceasedRange     # 0-1 Range
-    attr_accessor :deceasedDate      # 0-1 date
-    attr_accessor :deceasedString    # 0-1 string
-    attr_accessor :note              # 0-1 Annotation
-    attr_accessor :condition         # 0-* [ FamilyMemberHistory::Condition ]
-
-    def resourceType
-      'FamilyMemberHistory'
     end
   end
 end

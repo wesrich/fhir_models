@@ -25,29 +25,5 @@ module FHIR
       'timingPeriod' => {'type'=>'Period', 'path'=>'DeviceUseStatement.timing[x]', 'min'=>0, 'max'=>1},
       'timingDateTime' => {'type'=>'dateTime', 'path'=>'DeviceUseStatement.timing[x]', 'min'=>0, 'max'=>1}
     }
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :bodySite          # 0-1 CodeableConcept
-    attr_accessor :whenUsed          # 0-1 Period
-    attr_accessor :device            # 1-1 Reference(Device)
-    attr_accessor :identifier        # 0-* [ Identifier ]
-    attr_accessor :indication        # 0-* [ CodeableConcept ]
-    attr_accessor :notes             # 0-* [ string ]
-    attr_accessor :recordedOn        # 0-1 dateTime
-    attr_accessor :subject           # 1-1 Reference(Patient)
-    attr_accessor :timingTiming      # 0-1 Timing
-    attr_accessor :timingPeriod      # 0-1 Period
-    attr_accessor :timingDateTime    # 0-1 dateTime
-
-    def resourceType
-      'DeviceUseStatement'
-    end
   end
 end

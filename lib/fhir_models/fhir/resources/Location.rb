@@ -35,40 +35,6 @@ module FHIR
         'latitude' => {'type'=>'decimal', 'path'=>'Position.latitude', 'min'=>1, 'max'=>1},
         'altitude' => {'type'=>'decimal', 'path'=>'Position.altitude', 'min'=>0, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :longitude         # 1-1 decimal
-      attr_accessor :latitude          # 1-1 decimal
-      attr_accessor :altitude          # 0-1 decimal
-    end
-
-    attr_accessor :id                   # 0-1 id
-    attr_accessor :meta                 # 0-1 Meta
-    attr_accessor :implicitRules        # 0-1 uri
-    attr_accessor :language             # 0-1 code
-    attr_accessor :text                 # 0-1 Narrative
-    attr_accessor :contained            # 0-* [ Resource ]
-    attr_accessor :extension            # 0-* [ Extension ]
-    attr_accessor :modifierExtension    # 0-* [ Extension ]
-    attr_accessor :identifier           # 0-* [ Identifier ]
-    attr_accessor :status               # 0-1 code
-    attr_accessor :name                 # 0-1 string
-    attr_accessor :alias                # 0-* [ string ]
-    attr_accessor :description          # 0-1 string
-    attr_accessor :mode                 # 0-1 code
-    attr_accessor :type                 # 0-1 CodeableConcept
-    attr_accessor :telecom              # 0-* [ ContactPoint ]
-    attr_accessor :address              # 0-1 Address
-    attr_accessor :physicalType         # 0-1 CodeableConcept
-    attr_accessor :position             # 0-1 Location::Position
-    attr_accessor :managingOrganization # 0-1 Reference(Organization)
-    attr_accessor :partOf               # 0-1 Reference(Location)
-    attr_accessor :endpoint             # 0-* [ Reference(Endpoint) ]
-
-    def resourceType
-      'Location'
     end
   end
 end

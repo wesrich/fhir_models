@@ -46,51 +46,6 @@ module FHIR
         'subClass' => {'type'=>'string', 'path'=>'Group.subClass', 'min'=>0, 'max'=>1},
         'subClassDisplay' => {'type'=>'string', 'path'=>'Group.subClassDisplay', 'min'=>0, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :group             # 0-1 string
-      attr_accessor :groupDisplay      # 0-1 string
-      attr_accessor :subGroup          # 0-1 string
-      attr_accessor :subGroupDisplay   # 0-1 string
-      attr_accessor :plan              # 0-1 string
-      attr_accessor :planDisplay       # 0-1 string
-      attr_accessor :subPlan           # 0-1 string
-      attr_accessor :subPlanDisplay    # 0-1 string
-      attr_accessor :local_class       # 0-1 string
-      attr_accessor :classDisplay      # 0-1 string
-      attr_accessor :subClass          # 0-1 string
-      attr_accessor :subClassDisplay   # 0-1 string
-    end
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :identifier        # 0-* [ Identifier ]
-    attr_accessor :status            # 0-1 code
-    attr_accessor :type              # 0-1 CodeableConcept
-    attr_accessor :policyHolder      # 0-1 Reference(Patient|RelatedPerson|Organization)
-    attr_accessor :subscriber        # 0-1 Reference(Patient|RelatedPerson)
-    attr_accessor :subscriberId      # 0-1 string
-    attr_accessor :beneficiary       # 0-1 Reference(Patient)
-    attr_accessor :relationship      # 0-1 CodeableConcept
-    attr_accessor :period            # 0-1 Period
-    attr_accessor :payor             # 0-* [ Reference(Organization|Patient|RelatedPerson) ]
-    attr_accessor :group             # 0-1 Coverage::Group
-    attr_accessor :dependent         # 0-1 string
-    attr_accessor :sequence          # 0-1 string
-    attr_accessor :order             # 0-1 positiveInt
-    attr_accessor :network           # 0-1 string
-    attr_accessor :contract          # 0-* [ Reference(Contract) ]
-
-    def resourceType
-      'Coverage'
     end
   end
 end

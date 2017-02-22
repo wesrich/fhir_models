@@ -21,28 +21,5 @@ module FHIR
       'organization' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Organization'], 'type'=>'Reference', 'path'=>'PaymentNotice.organization', 'min'=>0, 'max'=>1},
       'paymentStatus' => {'valid_codes'=>{'http://hl7.org/fhir/paymentstatus'=>['paid', 'cleared', 'paid', 'cleared']}, 'type'=>'CodeableConcept', 'path'=>'PaymentNotice.paymentStatus', 'min'=>0, 'max'=>1, 'binding'=>{'strength'=>'example', 'uri'=>'http://hl7.org/fhir/ValueSet/payment-status'}}
     }
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :identifier        # 0-* [ Identifier ]
-    attr_accessor :status            # 0-1 code
-    attr_accessor :request           # 0-1 Reference(Resource)
-    attr_accessor :response          # 0-1 Reference(Resource)
-    attr_accessor :statusDate        # 0-1 date
-    attr_accessor :created           # 0-1 dateTime
-    attr_accessor :target            # 0-1 Reference(Organization)
-    attr_accessor :provider          # 0-1 Reference(Practitioner)
-    attr_accessor :organization      # 0-1 Reference(Organization)
-    attr_accessor :paymentStatus     # 0-1 CodeableConcept
-
-    def resourceType
-      'PaymentNotice'
-    end
   end
 end

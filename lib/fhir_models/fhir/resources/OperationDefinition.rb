@@ -64,28 +64,7 @@ module FHIR
           'valueSetUri' => {'type'=>'uri', 'path'=>'Binding.valueSet[x]', 'min'=>1, 'max'=>1},
           'valueSetReference' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/ValueSet'], 'type'=>'Reference', 'path'=>'Binding.valueSet[x]', 'min'=>1, 'max'=>1}
         }
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :strength          # 1-1 code
-        attr_accessor :valueSetUri       # 1-1 uri
-        attr_accessor :valueSetReference # 1-1 Reference(ValueSet)
       end
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :name              # 1-1 code
-      attr_accessor :use               # 1-1 code
-      attr_accessor :min               # 1-1 integer
-      attr_accessor :max               # 1-1 string
-      attr_accessor :documentation     # 0-1 string
-      attr_accessor :type              # 0-1 code
-      attr_accessor :searchType        # 0-1 code
-      attr_accessor :profile           # 0-1 Reference(StructureDefinition)
-      attr_accessor :binding           # 0-1 OperationDefinition::Parameter::Binding
-      attr_accessor :part              # 0-* [ OperationDefinition::Parameter ]
     end
 
     class Overload < FHIR::Model
@@ -96,48 +75,6 @@ module FHIR
         'parameterName' => {'type'=>'string', 'path'=>'Overload.parameterName', 'min'=>0, 'max'=>Float::INFINITY},
         'comment' => {'type'=>'string', 'path'=>'Overload.comment', 'min'=>0, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :parameterName     # 0-* [ string ]
-      attr_accessor :comment           # 0-1 string
-    end
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :url               # 0-1 uri
-    attr_accessor :version           # 0-1 string
-    attr_accessor :name              # 1-1 string
-    attr_accessor :status            # 1-1 code
-    attr_accessor :kind              # 1-1 code
-    attr_accessor :experimental      # 0-1 boolean
-    attr_accessor :date              # 0-1 dateTime
-    attr_accessor :publisher         # 0-1 string
-    attr_accessor :contact           # 0-* [ ContactDetail ]
-    attr_accessor :description       # 0-1 markdown
-    attr_accessor :useContext        # 0-* [ UsageContext ]
-    attr_accessor :jurisdiction      # 0-* [ CodeableConcept ]
-    attr_accessor :purpose           # 0-1 markdown
-    attr_accessor :idempotent        # 0-1 boolean
-    attr_accessor :code              # 1-1 code
-    attr_accessor :comment           # 0-1 string
-    attr_accessor :base              # 0-1 Reference(OperationDefinition)
-    attr_accessor :resource          # 0-* [ code ]
-    attr_accessor :system            # 1-1 boolean
-    attr_accessor :type              # 1-1 boolean
-    attr_accessor :instance          # 1-1 boolean
-    attr_accessor :parameter         # 0-* [ OperationDefinition::Parameter ]
-    attr_accessor :overload          # 0-* [ OperationDefinition::Overload ]
-
-    def resourceType
-      'OperationDefinition'
     end
   end
 end

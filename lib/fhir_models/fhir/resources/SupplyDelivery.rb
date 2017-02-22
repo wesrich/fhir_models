@@ -26,30 +26,5 @@ module FHIR
       'destination' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Location'], 'type'=>'Reference', 'path'=>'SupplyDelivery.destination', 'min'=>0, 'max'=>1},
       'receiver' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Practitioner'], 'type'=>'Reference', 'path'=>'SupplyDelivery.receiver', 'min'=>0, 'max'=>Float::INFINITY}
     }
-
-    attr_accessor :id                          # 0-1 id
-    attr_accessor :meta                        # 0-1 Meta
-    attr_accessor :implicitRules               # 0-1 uri
-    attr_accessor :language                    # 0-1 code
-    attr_accessor :text                        # 0-1 Narrative
-    attr_accessor :contained                   # 0-* [ Resource ]
-    attr_accessor :extension                   # 0-* [ Extension ]
-    attr_accessor :modifierExtension           # 0-* [ Extension ]
-    attr_accessor :identifier                  # 0-1 Identifier
-    attr_accessor :status                      # 0-1 code
-    attr_accessor :patient                     # 0-1 Reference(Patient)
-    attr_accessor :type                        # 0-1 CodeableConcept
-    attr_accessor :quantity                    # 0-1 Quantity
-    attr_accessor :suppliedItemCodeableConcept # 0-1 CodeableConcept
-    attr_accessor :suppliedItemReference       # 0-1 Reference(Medication|Substance|Device)
-    attr_accessor :supplier                    # 0-1 Reference(Practitioner)
-    attr_accessor :whenPrepared                # 0-1 Period
-    attr_accessor :time                        # 0-1 dateTime
-    attr_accessor :destination                 # 0-1 Reference(Location)
-    attr_accessor :receiver                    # 0-* [ Reference(Practitioner) ]
-
-    def resourceType
-      'SupplyDelivery'
-    end
   end
 end

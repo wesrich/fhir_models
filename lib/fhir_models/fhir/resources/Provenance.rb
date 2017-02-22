@@ -38,16 +38,6 @@ module FHIR
         'onBehalfOfReference' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Practitioner', 'http://hl7.org/fhir/StructureDefinition/RelatedPerson', 'http://hl7.org/fhir/StructureDefinition/Patient', 'http://hl7.org/fhir/StructureDefinition/Device', 'http://hl7.org/fhir/StructureDefinition/Organization'], 'type'=>'Reference', 'path'=>'Agent.onBehalfOf[x]', 'min'=>0, 'max'=>1},
         'relatedAgentType' => {'valid_codes'=>{'http://hl7.org/fhir/v3/RoleLinkType'=>['REL', 'BACKUP', 'CONT', 'DIRAUTH', 'IDENT', 'INDAUTH', 'PART', 'REPL']}, 'type'=>'CodeableConcept', 'path'=>'Agent.relatedAgentType', 'min'=>0, 'max'=>1, 'binding'=>{'strength'=>'example', 'uri'=>'http://hl7.org/fhir/ValueSet/v3-RoleLinkType'}}
       }
-
-      attr_accessor :id                  # 0-1 string
-      attr_accessor :extension           # 0-* [ Extension ]
-      attr_accessor :modifierExtension   # 0-* [ Extension ]
-      attr_accessor :role                # 1-1 Coding
-      attr_accessor :whoUri              # 1-1 uri
-      attr_accessor :whoReference        # 1-1 Reference(Practitioner|RelatedPerson|Patient|Device|Organization)
-      attr_accessor :onBehalfOfUri       # 0-1 uri
-      attr_accessor :onBehalfOfReference # 0-1 Reference(Practitioner|RelatedPerson|Patient|Device|Organization)
-      attr_accessor :relatedAgentType    # 0-1 CodeableConcept
     end
 
     class Entity < FHIR::Model
@@ -59,36 +49,6 @@ module FHIR
         'reference' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Resource'], 'type'=>'Reference', 'path'=>'Entity.reference', 'min'=>1, 'max'=>1},
         'agent' => {'type'=>'Provenance::Agent', 'path'=>'Entity.agent', 'min'=>0, 'max'=>Float::INFINITY}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :role              # 1-1 code
-      attr_accessor :reference         # 1-1 Reference(Resource)
-      attr_accessor :agent             # 0-* [ Provenance::Agent ]
-    end
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :target            # 1-* [ Reference(Resource) ]
-    attr_accessor :period            # 0-1 Period
-    attr_accessor :recorded          # 1-1 instant
-    attr_accessor :reason            # 0-* [ Coding ]
-    attr_accessor :activity          # 0-1 Coding
-    attr_accessor :location          # 0-1 Reference(Location)
-    attr_accessor :policy            # 0-* [ uri ]
-    attr_accessor :agent             # 1-* [ Provenance::Agent ]
-    attr_accessor :entity            # 0-* [ Provenance::Entity ]
-    attr_accessor :signature         # 0-* [ Signature ]
-
-    def resourceType
-      'Provenance'
     end
   end
 end

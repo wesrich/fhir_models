@@ -44,46 +44,6 @@ module FHIR
         'reason' => {'valid_codes'=>{'http://hl7.org/fhir/v3/ActReason'=>['CT', 'FP', 'OS', 'RR']}, 'type'=>'CodeableConcept', 'path'=>'Substitution.reason', 'min'=>0, 'max'=>Float::INFINITY, 'binding'=>{'strength'=>'example', 'uri'=>'http://hl7.org/fhir/ValueSet/v3-SubstanceAdminSubstitutionReason'}},
         'responsibleParty' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Practitioner'], 'type'=>'Reference', 'path'=>'Substitution.responsibleParty', 'min'=>0, 'max'=>Float::INFINITY}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :type              # 1-1 CodeableConcept
-      attr_accessor :reason            # 0-* [ CodeableConcept ]
-      attr_accessor :responsibleParty  # 0-* [ Reference(Practitioner) ]
-    end
-
-    attr_accessor :id                        # 0-1 id
-    attr_accessor :meta                      # 0-1 Meta
-    attr_accessor :implicitRules             # 0-1 uri
-    attr_accessor :language                  # 0-1 code
-    attr_accessor :text                      # 0-1 Narrative
-    attr_accessor :contained                 # 0-* [ Resource ]
-    attr_accessor :extension                 # 0-* [ Extension ]
-    attr_accessor :modifierExtension         # 0-* [ Extension ]
-    attr_accessor :identifier                # 0-1 Identifier
-    attr_accessor :status                    # 0-1 code
-    attr_accessor :medicationCodeableConcept # 1-1 CodeableConcept
-    attr_accessor :medicationReference       # 1-1 Reference(Medication)
-    attr_accessor :patient                   # 0-1 Reference(Patient)
-    attr_accessor :supportingInformation     # 0-* [ Reference(Resource) ]
-    attr_accessor :dispenser                 # 0-1 Reference(Practitioner)
-    attr_accessor :dispensingOrganization    # 0-1 Reference(Organization)
-    attr_accessor :authorizingPrescription   # 0-* [ Reference(MedicationRequest) ]
-    attr_accessor :type                      # 0-1 CodeableConcept
-    attr_accessor :quantity                  # 0-1 Quantity
-    attr_accessor :daysSupply                # 0-1 Quantity
-    attr_accessor :whenPrepared              # 0-1 dateTime
-    attr_accessor :whenHandedOver            # 0-1 dateTime
-    attr_accessor :destination               # 0-1 Reference(Location)
-    attr_accessor :receiver                  # 0-* [ Reference(Patient|Practitioner) ]
-    attr_accessor :note                      # 0-* [ Annotation ]
-    attr_accessor :dosageInstruction         # 0-* [ DosageInstruction ]
-    attr_accessor :substitution              # 0-1 MedicationDispense::Substitution
-    attr_accessor :eventHistory              # 0-* [ Reference(Provenance) ]
-
-    def resourceType
-      'MedicationDispense'
     end
   end
 end

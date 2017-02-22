@@ -19,26 +19,5 @@ module FHIR
       'actualArm' => {'type'=>'string', 'path'=>'ResearchSubject.actualArm', 'min'=>0, 'max'=>1},
       'consent' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Consent'], 'type'=>'Reference', 'path'=>'ResearchSubject.consent', 'min'=>0, 'max'=>1}
     }
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :identifier        # 0-1 Identifier
-    attr_accessor :status            # 1-1 code
-    attr_accessor :period            # 0-1 Period
-    attr_accessor :study             # 1-1 Reference(ResearchStudy)
-    attr_accessor :individual        # 1-1 Reference(Patient)
-    attr_accessor :assignedArm       # 0-1 string
-    attr_accessor :actualArm         # 0-1 string
-    attr_accessor :consent           # 0-1 Reference(Consent)
-
-    def resourceType
-      'ResearchSubject'
-    end
   end
 end

@@ -85,14 +85,6 @@ module FHIR
           'language' => {'type'=>'string', 'path'=>'Condition.language', 'min'=>0, 'max'=>1},
           'expression' => {'type'=>'string', 'path'=>'Condition.expression', 'min'=>0, 'max'=>1}
         }
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :kind              # 1-1 code
-        attr_accessor :description       # 0-1 string
-        attr_accessor :language          # 0-1 string
-        attr_accessor :expression        # 0-1 string
       end
 
       class RelatedAction < FHIR::Model
@@ -108,14 +100,6 @@ module FHIR
           'offsetDuration' => {'type'=>'Duration', 'path'=>'RelatedAction.offset[x]', 'min'=>0, 'max'=>1},
           'offsetRange' => {'type'=>'Range', 'path'=>'RelatedAction.offset[x]', 'min'=>0, 'max'=>1}
         }
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :actionIdentifier  # 1-1 Identifier
-        attr_accessor :relationship      # 1-1 code
-        attr_accessor :offsetDuration    # 0-1 Duration
-        attr_accessor :offsetRange       # 0-1 Range
       end
 
       class DynamicValue < FHIR::Model
@@ -128,85 +112,7 @@ module FHIR
           'language' => {'type'=>'string', 'path'=>'DynamicValue.language', 'min'=>0, 'max'=>1},
           'expression' => {'type'=>'string', 'path'=>'DynamicValue.expression', 'min'=>0, 'max'=>1}
         }
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :description       # 0-1 string
-        attr_accessor :path              # 0-1 string
-        attr_accessor :language          # 0-1 string
-        attr_accessor :expression        # 0-1 string
       end
-
-      attr_accessor :id                  # 0-1 string
-      attr_accessor :extension           # 0-* [ Extension ]
-      attr_accessor :modifierExtension   # 0-* [ Extension ]
-      attr_accessor :actionIdentifier    # 0-1 Identifier
-      attr_accessor :label               # 0-1 string
-      attr_accessor :title               # 0-1 string
-      attr_accessor :description         # 0-1 string
-      attr_accessor :textEquivalent      # 0-1 string
-      attr_accessor :code                # 0-* [ CodeableConcept ]
-      attr_accessor :documentation       # 0-* [ RelatedArtifact ]
-      attr_accessor :triggerDefinition   # 0-* [ TriggerDefinition ]
-      attr_accessor :condition           # 0-* [ PlanDefinition::ActionDefinition::Condition ]
-      attr_accessor :input               # 0-* [ DataRequirement ]
-      attr_accessor :output              # 0-* [ DataRequirement ]
-      attr_accessor :relatedAction       # 0-* [ PlanDefinition::ActionDefinition::RelatedAction ]
-      attr_accessor :timingDateTime      # 0-1 dateTime
-      attr_accessor :timingPeriod        # 0-1 Period
-      attr_accessor :timingDuration      # 0-1 Duration
-      attr_accessor :timingRange         # 0-1 Range
-      attr_accessor :timingTiming        # 0-1 Timing
-      attr_accessor :participantType     # 0-* [ code ]
-      attr_accessor :type                # 0-1 Coding
-      attr_accessor :groupingBehavior    # 0-1 code
-      attr_accessor :selectionBehavior   # 0-1 code
-      attr_accessor :requiredBehavior    # 0-1 code
-      attr_accessor :precheckBehavior    # 0-1 code
-      attr_accessor :cardinalityBehavior # 0-1 code
-      attr_accessor :activityDefinition  # 0-1 Reference(ActivityDefinition)
-      attr_accessor :transform           # 0-1 Reference(StructureMap)
-      attr_accessor :dynamicValue        # 0-* [ PlanDefinition::ActionDefinition::DynamicValue ]
-      attr_accessor :actionDefinition    # 0-* [ PlanDefinition::ActionDefinition ]
-    end
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :url               # 0-1 uri
-    attr_accessor :identifier        # 0-* [ Identifier ]
-    attr_accessor :version           # 0-1 string
-    attr_accessor :name              # 0-1 string
-    attr_accessor :title             # 0-1 string
-    attr_accessor :type              # 0-1 CodeableConcept
-    attr_accessor :status            # 1-1 code
-    attr_accessor :experimental      # 0-1 boolean
-    attr_accessor :date              # 0-1 dateTime
-    attr_accessor :description       # 0-1 markdown
-    attr_accessor :purpose           # 0-1 markdown
-    attr_accessor :usage             # 0-1 string
-    attr_accessor :approvalDate      # 0-1 date
-    attr_accessor :lastReviewDate    # 0-1 date
-    attr_accessor :effectivePeriod   # 0-1 Period
-    attr_accessor :useContext        # 0-* [ UsageContext ]
-    attr_accessor :jurisdiction      # 0-* [ CodeableConcept ]
-    attr_accessor :topic             # 0-* [ CodeableConcept ]
-    attr_accessor :contributor       # 0-* [ Contributor ]
-    attr_accessor :publisher         # 0-1 string
-    attr_accessor :contact           # 0-* [ ContactDetail ]
-    attr_accessor :copyright         # 0-1 markdown
-    attr_accessor :relatedArtifact   # 0-* [ RelatedArtifact ]
-    attr_accessor :library           # 0-* [ Reference(Library) ]
-    attr_accessor :actionDefinition  # 0-* [ PlanDefinition::ActionDefinition ]
-
-    def resourceType
-      'PlanDefinition'
     end
   end
 end

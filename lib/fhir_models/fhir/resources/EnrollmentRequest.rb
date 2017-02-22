@@ -19,26 +19,5 @@ module FHIR
       'subject' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Patient'], 'type'=>'Reference', 'path'=>'EnrollmentRequest.subject', 'min'=>0, 'max'=>1},
       'coverage' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Coverage'], 'type'=>'Reference', 'path'=>'EnrollmentRequest.coverage', 'min'=>0, 'max'=>1}
     }
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :identifier        # 0-* [ Identifier ]
-    attr_accessor :status            # 0-1 code
-    attr_accessor :created           # 0-1 dateTime
-    attr_accessor :insurer           # 0-1 Reference(Organization)
-    attr_accessor :provider          # 0-1 Reference(Practitioner)
-    attr_accessor :organization      # 0-1 Reference(Organization)
-    attr_accessor :subject           # 0-1 Reference(Patient)
-    attr_accessor :coverage          # 0-1 Reference(Coverage)
-
-    def resourceType
-      'EnrollmentRequest'
-    end
   end
 end

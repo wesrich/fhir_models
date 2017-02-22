@@ -48,50 +48,6 @@ module FHIR
         'exposureRoute' => {'valid_codes'=>{'http://snomed.info/sct'=>['6064005', '10547007', '12130007', '16857009', '26643006', '34206005', '37161004', '37737002', '37839007', '38239002', '45890007', '46713006', '47625008', '54471007', '54485002', '58100008', '60213007', '62226000', '72607000', '78421000', '90028008', '127490009', '127491008', '127492001', '372449004', '372450004', '372451000', '372452007', '372453002', '372454008', '372457001', '372458006', '372459003', '372460008', '372461007', '372463005', '372464004', '372465003', '372466002', '372467006', '372468001', '372469009', '372470005', '372471009', '372473007', '372474001', '372475000', '372476004', '404815008', '404818005', '404819002', '404820008', '416174007', '417070009', '417255000', '417950001', '417985001', '417989007', '418091004', '418114005', '418133000', '418136008', '418162004', '418204005', '418287000', '418321004', '418331006', '418401004', '418418000', '418441008', '418511008', '418586008', '418608002', '418664002', '418722009', '418730005', '418743005', '418813001', '418821007', '418851001', '418877009', '418887008', '418892005', '418947002', '418987007', '419021003', '419165009', '419231003', '419243002', '419320008', '419396008', '419601003', '419631009', '419684008', '419762003', '419778001', '419810008', '419874009', '419894000', '419954003', '419993007', '420047004', '420163009', '420168000', '420185003', '420201002', '420204005', '420218003', '420254004', '420287000', '420719007', '428191002', '429817007', '445752009', '445754005', '445755006', '445756007', '445767008', '445768003', '445769006', '445771006', '445913005', '445941009', '446105004', '446407004', '446435000', '446442000', '446540005', '447026006', '447052000', '447080003', '447081004', '447121004', '447122006', '447227007', '447229005', '447694001', '447964005', '448077001', '448491004', '448492006', '448598008', '697971008', '711360002', '711378007', '714743009', '718329006', '1611000175109']}, 'type'=>'CodeableConcept', 'path'=>'Reaction.exposureRoute', 'min'=>0, 'max'=>1, 'binding'=>{'strength'=>'example', 'uri'=>'http://hl7.org/fhir/ValueSet/route-codes'}},
         'note' => {'type'=>'Annotation', 'path'=>'Reaction.note', 'min'=>0, 'max'=>Float::INFINITY}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :substance         # 0-1 CodeableConcept
-      attr_accessor :certainty         # 0-1 code
-      attr_accessor :manifestation     # 1-* [ CodeableConcept ]
-      attr_accessor :description       # 0-1 string
-      attr_accessor :onset             # 0-1 dateTime
-      attr_accessor :severity          # 0-1 code
-      attr_accessor :exposureRoute     # 0-1 CodeableConcept
-      attr_accessor :note              # 0-* [ Annotation ]
-    end
-
-    attr_accessor :id                 # 0-1 id
-    attr_accessor :meta               # 0-1 Meta
-    attr_accessor :implicitRules      # 0-1 uri
-    attr_accessor :language           # 0-1 code
-    attr_accessor :text               # 0-1 Narrative
-    attr_accessor :contained          # 0-* [ Resource ]
-    attr_accessor :extension          # 0-* [ Extension ]
-    attr_accessor :modifierExtension  # 0-* [ Extension ]
-    attr_accessor :identifier         # 0-* [ Identifier ]
-    attr_accessor :clinicalStatus     # 0-1 code
-    attr_accessor :verificationStatus # 1-1 code
-    attr_accessor :type               # 0-1 code
-    attr_accessor :category           # 0-* [ code ]
-    attr_accessor :criticality        # 0-1 code
-    attr_accessor :code               # 0-1 CodeableConcept
-    attr_accessor :patient            # 1-1 Reference(Patient)
-    attr_accessor :onsetDateTime      # 0-1 dateTime
-    attr_accessor :onsetAge           # 0-1 Age
-    attr_accessor :onsetPeriod        # 0-1 Period
-    attr_accessor :onsetRange         # 0-1 Range
-    attr_accessor :onsetString        # 0-1 string
-    attr_accessor :assertedDate       # 0-1 dateTime
-    attr_accessor :recorder           # 0-1 Reference(Practitioner|Patient)
-    attr_accessor :asserter           # 0-1 Reference(Patient|RelatedPerson|Practitioner)
-    attr_accessor :lastOccurrence     # 0-1 dateTime
-    attr_accessor :note               # 0-* [ Annotation ]
-    attr_accessor :reaction           # 0-* [ AllergyIntolerance::Reaction ]
-
-    def resourceType
-      'AllergyIntolerance'
     end
   end
 end

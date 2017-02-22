@@ -35,37 +35,5 @@ module FHIR
       'orderer' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Practitioner', 'http://hl7.org/fhir/StructureDefinition/Patient', 'http://hl7.org/fhir/StructureDefinition/RelatedPerson', 'http://hl7.org/fhir/StructureDefinition/Device'], 'type'=>'Reference', 'path'=>'ProcedureRequest.orderer', 'min'=>0, 'max'=>1},
       'priority' => {'valid_codes'=>{'http://hl7.org/fhir/procedure-request-priority'=>['routine', 'urgent', 'stat', 'asap', 'routine', 'urgent', 'stat', 'asap']}, 'type'=>'code', 'path'=>'ProcedureRequest.priority', 'min'=>0, 'max'=>1, 'binding'=>{'strength'=>'required', 'uri'=>'http://hl7.org/fhir/ValueSet/procedure-request-priority'}}
     }
-
-    attr_accessor :id                      # 0-1 id
-    attr_accessor :meta                    # 0-1 Meta
-    attr_accessor :implicitRules           # 0-1 uri
-    attr_accessor :language                # 0-1 code
-    attr_accessor :text                    # 0-1 Narrative
-    attr_accessor :contained               # 0-* [ Resource ]
-    attr_accessor :extension               # 0-* [ Extension ]
-    attr_accessor :modifierExtension       # 0-* [ Extension ]
-    attr_accessor :identifier              # 0-* [ Identifier ]
-    attr_accessor :subject                 # 1-1 Reference(Patient|Group)
-    attr_accessor :code                    # 1-1 CodeableConcept
-    attr_accessor :bodySite                # 0-* [ CodeableConcept ]
-    attr_accessor :reasonCodeableConcept   # 0-1 CodeableConcept
-    attr_accessor :reasonReference         # 0-1 Reference(Condition)
-    attr_accessor :scheduledDateTime       # 0-1 dateTime
-    attr_accessor :scheduledPeriod         # 0-1 Period
-    attr_accessor :scheduledTiming         # 0-1 Timing
-    attr_accessor :encounter               # 0-1 Reference(Encounter)
-    attr_accessor :performer               # 0-1 Reference(Practitioner|Organization|Patient|RelatedPerson)
-    attr_accessor :status                  # 0-1 code
-    attr_accessor :supportingInfo          # 0-* [ Reference(Resource) ]
-    attr_accessor :notes                   # 0-* [ Annotation ]
-    attr_accessor :asNeededBoolean         # 0-1 boolean
-    attr_accessor :asNeededCodeableConcept # 0-1 CodeableConcept
-    attr_accessor :orderedOn               # 0-1 dateTime
-    attr_accessor :orderer                 # 0-1 Reference(Practitioner|Patient|RelatedPerson|Device)
-    attr_accessor :priority                # 0-1 code
-
-    def resourceType
-      'ProcedureRequest'
-    end
   end
 end

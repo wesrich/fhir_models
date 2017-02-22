@@ -1,6 +1,6 @@
 module FHIR
   class Parameters < FHIR::Model
-    SEARCH_PARAMS = 
+    SEARCH_PARAMS =
     METADATA = {
       'id' => {'type'=>'id', 'path'=>'Parameters.id', 'min'=>0, 'max'=>1},
       'meta' => {'type'=>'Meta', 'path'=>'Parameters.meta', 'min'=>0, 'max'=>1},
@@ -59,61 +59,6 @@ module FHIR
         'resource' => {'type'=>'Resource', 'path'=>'Parameter.resource', 'min'=>0, 'max'=>1},
         'part' => {'type'=>'Parameters::Parameter', 'path'=>'Parameter.part', 'min'=>0, 'max'=>Float::INFINITY}
       }
-
-      attr_accessor :id                   # 0-1 string
-      attr_accessor :extension            # 0-* [ Extension ]
-      attr_accessor :modifierExtension    # 0-* [ Extension ]
-      attr_accessor :name                 # 1-1 string
-      attr_accessor :valueBase64Binary    # 0-1 base64Binary
-      attr_accessor :valueBoolean         # 0-1 boolean
-      attr_accessor :valueCode            # 0-1 code
-      attr_accessor :valueDate            # 0-1 date
-      attr_accessor :valueDateTime        # 0-1 dateTime
-      attr_accessor :valueDecimal         # 0-1 decimal
-      attr_accessor :valueId              # 0-1 id
-      attr_accessor :valueInstant         # 0-1 instant
-      attr_accessor :valueInteger         # 0-1 integer
-      attr_accessor :valueMarkdown        # 0-1 markdown
-      attr_accessor :valueOid             # 0-1 oid
-      attr_accessor :valuePositiveInt     # 0-1 positiveInt
-      attr_accessor :valueString          # 0-1 string
-      attr_accessor :valueTime            # 0-1 time
-      attr_accessor :valueUnsignedInt     # 0-1 unsignedInt
-      attr_accessor :valueUri             # 0-1 uri
-      attr_accessor :valueAddress         # 0-1 Address
-      attr_accessor :valueAge             # 0-1 Age
-      attr_accessor :valueAnnotation      # 0-1 Annotation
-      attr_accessor :valueAttachment      # 0-1 Attachment
-      attr_accessor :valueCodeableConcept # 0-1 CodeableConcept
-      attr_accessor :valueCoding          # 0-1 Coding
-      attr_accessor :valueContactPoint    # 0-1 ContactPoint
-      attr_accessor :valueCount           # 0-1 Count
-      attr_accessor :valueDistance        # 0-1 Distance
-      attr_accessor :valueDuration        # 0-1 Duration
-      attr_accessor :valueHumanName       # 0-1 HumanName
-      attr_accessor :valueIdentifier      # 0-1 Identifier
-      attr_accessor :valueMoney           # 0-1 Money
-      attr_accessor :valuePeriod          # 0-1 Period
-      attr_accessor :valueQuantity        # 0-1 Quantity
-      attr_accessor :valueRange           # 0-1 Range
-      attr_accessor :valueRatio           # 0-1 Ratio
-      attr_accessor :valueReference       # 0-1 Reference()
-      attr_accessor :valueSampledData     # 0-1 SampledData
-      attr_accessor :valueSignature       # 0-1 Signature
-      attr_accessor :valueTiming          # 0-1 Timing
-      attr_accessor :valueMeta            # 0-1 Meta
-      attr_accessor :resource             # 0-1 Resource
-      attr_accessor :part                 # 0-* [ Parameters::Parameter ]
-    end
-
-    attr_accessor :id            # 0-1 id
-    attr_accessor :meta          # 0-1 Meta
-    attr_accessor :implicitRules # 0-1 uri
-    attr_accessor :language      # 0-1 code
-    attr_accessor :parameter     # 0-* [ Parameters::Parameter ]
-
-    def resourceType
-      'Parameters'
     end
   end
 end

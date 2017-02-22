@@ -30,35 +30,6 @@ module FHIR
         'target' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Patient', 'http://hl7.org/fhir/StructureDefinition/Practitioner', 'http://hl7.org/fhir/StructureDefinition/RelatedPerson', 'http://hl7.org/fhir/StructureDefinition/Person'], 'type'=>'Reference', 'path'=>'Link.target', 'min'=>1, 'max'=>1},
         'assurance' => {'valid_codes'=>{'http://hl7.org/fhir/identity-assuranceLevel'=>['level1', 'level2', 'level3', 'level4', 'level1', 'level2', 'level3', 'level4']}, 'type'=>'code', 'path'=>'Link.assurance', 'min'=>0, 'max'=>1, 'binding'=>{'strength'=>'required', 'uri'=>'http://hl7.org/fhir/ValueSet/identity-assuranceLevel'}}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :target            # 1-1 Reference(Patient|Practitioner|RelatedPerson|Person)
-      attr_accessor :assurance         # 0-1 code
-    end
-
-    attr_accessor :id                   # 0-1 id
-    attr_accessor :meta                 # 0-1 Meta
-    attr_accessor :implicitRules        # 0-1 uri
-    attr_accessor :language             # 0-1 code
-    attr_accessor :text                 # 0-1 Narrative
-    attr_accessor :contained            # 0-* [ Resource ]
-    attr_accessor :extension            # 0-* [ Extension ]
-    attr_accessor :modifierExtension    # 0-* [ Extension ]
-    attr_accessor :identifier           # 0-* [ Identifier ]
-    attr_accessor :name                 # 0-* [ HumanName ]
-    attr_accessor :telecom              # 0-* [ ContactPoint ]
-    attr_accessor :gender               # 0-1 code
-    attr_accessor :birthDate            # 0-1 date
-    attr_accessor :address              # 0-* [ Address ]
-    attr_accessor :photo                # 0-1 Attachment
-    attr_accessor :managingOrganization # 0-1 Reference(Organization)
-    attr_accessor :active               # 0-1 boolean
-    attr_accessor :link                 # 0-* [ Person::Link ]
-
-    def resourceType
-      'Person'
     end
   end
 end

@@ -40,42 +40,6 @@ module FHIR
         'contentAttachment' => {'type'=>'Attachment', 'path'=>'Payload.content[x]', 'min'=>1, 'max'=>1},
         'contentReference' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Resource'], 'type'=>'Reference', 'path'=>'Payload.content[x]', 'min'=>1, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :contentString     # 1-1 string
-      attr_accessor :contentAttachment # 1-1 Attachment
-      attr_accessor :contentReference  # 1-1 Reference(Resource)
-    end
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :identifier        # 0-* [ Identifier ]
-    attr_accessor :basedOn           # 0-* [ Reference(Resource) ]
-    attr_accessor :parent            # 0-* [ Reference(Resource) ]
-    attr_accessor :status            # 0-1 code
-    attr_accessor :category          # 0-1 CodeableConcept
-    attr_accessor :medium            # 0-* [ CodeableConcept ]
-    attr_accessor :subject           # 0-1 Reference(Patient|Group)
-    attr_accessor :topic             # 0-* [ Reference(Resource) ]
-    attr_accessor :context           # 0-1 Reference(Encounter|EpisodeOfCare)
-    attr_accessor :sent              # 0-1 dateTime
-    attr_accessor :received          # 0-1 dateTime
-    attr_accessor :sender            # 0-1 Reference(Device|Organization|Patient|Practitioner|RelatedPerson)
-    attr_accessor :recipient         # 0-* [ Reference(Device|Organization|Patient|Practitioner|RelatedPerson|Group) ]
-    attr_accessor :reason            # 0-* [ CodeableConcept ]
-    attr_accessor :payload           # 0-* [ Communication::Payload ]
-    attr_accessor :note              # 0-* [ Annotation ]
-
-    def resourceType
-      'Communication'
     end
   end
 end

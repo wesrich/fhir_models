@@ -37,12 +37,6 @@ module FHIR
         'code' => {'valid_codes'=>{'http://hl7.org/fhir/care-plan-relationship'=>['includes', 'replaces', 'fulfills', 'includes', 'replaces', 'fulfills']}, 'type'=>'code', 'path'=>'RelatedPlan.code', 'min'=>0, 'max'=>1, 'binding'=>{'strength'=>'required', 'uri'=>'http://hl7.org/fhir/ValueSet/care-plan-relationship'}},
         'plan' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/CarePlan'], 'type'=>'Reference', 'path'=>'RelatedPlan.plan', 'min'=>1, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :code              # 0-1 code
-      attr_accessor :plan              # 1-1 Reference(CarePlan)
     end
 
     class Activity < FHIR::Model
@@ -86,66 +80,8 @@ module FHIR
           'quantity' => {'type'=>'Quantity', 'path'=>'Detail.quantity', 'min'=>0, 'max'=>1},
           'description' => {'type'=>'string', 'path'=>'Detail.description', 'min'=>0, 'max'=>1}
         }
-
-        attr_accessor :id                     # 0-1 string
-        attr_accessor :extension              # 0-* [ Extension ]
-        attr_accessor :modifierExtension      # 0-* [ Extension ]
-        attr_accessor :category               # 0-1 CodeableConcept
-        attr_accessor :definition             # 0-1 Reference(PlanDefinition|Questionnaire)
-        attr_accessor :code                   # 0-1 CodeableConcept
-        attr_accessor :reasonCode             # 0-* [ CodeableConcept ]
-        attr_accessor :reasonReference        # 0-* [ Reference(Condition) ]
-        attr_accessor :goal                   # 0-* [ Reference(Goal) ]
-        attr_accessor :status                 # 1-1 code
-        attr_accessor :statusReason           # 0-1 CodeableConcept
-        attr_accessor :prohibited             # 0-1 boolean
-        attr_accessor :scheduledTiming        # 0-1 Timing
-        attr_accessor :scheduledPeriod        # 0-1 Period
-        attr_accessor :scheduledString        # 0-1 string
-        attr_accessor :location               # 0-1 Reference(Location)
-        attr_accessor :performer              # 0-* [ Reference(Practitioner|Organization|RelatedPerson|Patient) ]
-        attr_accessor :productCodeableConcept # 0-1 CodeableConcept
-        attr_accessor :productReference       # 0-1 Reference(Medication|Substance)
-        attr_accessor :dailyAmount            # 0-1 Quantity
-        attr_accessor :quantity               # 0-1 Quantity
-        attr_accessor :description            # 0-1 string
       end
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :actionResulting   # 0-* [ Reference(Resource) ]
-      attr_accessor :outcome           # 0-1 CodeableConcept
-      attr_accessor :progress          # 0-* [ Annotation ]
-      attr_accessor :reference         # 0-1 Reference(Appointment|CommunicationRequest|DeviceUseRequest|DiagnosticRequest|MedicationRequest|NutritionRequest|ProcedureRequest|ProcessRequest|ReferralRequest|VisionPrescription)
-      attr_accessor :detail            # 0-1 CarePlan::Activity::Detail
     end
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :identifier        # 0-* [ Identifier ]
-    attr_accessor :status            # 1-1 code
-    attr_accessor :category          # 0-* [ CodeableConcept ]
-    attr_accessor :description       # 0-1 string
-    attr_accessor :subject           # 1-1 Reference(Patient|Group)
-    attr_accessor :context           # 0-1 Reference(Encounter|EpisodeOfCare)
-    attr_accessor :period            # 0-1 Period
-    attr_accessor :modified          # 0-1 dateTime
-    attr_accessor :author            # 0-* [ Reference(Patient|Practitioner|RelatedPerson|Organization) ]
-    attr_accessor :careTeam          # 0-* [ Reference(CareTeam) ]
-    attr_accessor :addresses         # 0-* [ Reference(Condition) ]
-    attr_accessor :support           # 0-* [ Reference(Resource) ]
-    attr_accessor :definition        # 0-1 Reference(PlanDefinition|Questionnaire)
-    attr_accessor :relatedPlan       # 0-* [ CarePlan::RelatedPlan ]
-    attr_accessor :goal              # 0-* [ Reference(Goal) ]
-    attr_accessor :activity          # 0-* [ CarePlan::Activity ]
-    attr_accessor :note              # 0-1 Annotation
 
     def resourceType
       'CarePlan'

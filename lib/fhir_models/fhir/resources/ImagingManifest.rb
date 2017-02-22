@@ -38,12 +38,6 @@ module FHIR
           'type' => {'valid_codes'=>{'http://hl7.org/fhir/dWebType'=>['WADO-RS', 'WADO-URI', 'IID', 'WADO-RS', 'WADO-URI', 'IID']}, 'type'=>'Coding', 'path'=>'BaseLocation.type', 'min'=>1, 'max'=>1, 'binding'=>{'strength'=>'extensible', 'uri'=>'http://hl7.org/fhir/ValueSet/dWebType'}},
           'url' => {'type'=>'uri', 'path'=>'BaseLocation.url', 'min'=>1, 'max'=>1}
         }
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :type              # 1-1 Coding
-        attr_accessor :url               # 1-1 uri
       end
 
       class Series < FHIR::Model
@@ -64,12 +58,6 @@ module FHIR
             'type' => {'valid_codes'=>{'http://hl7.org/fhir/dWebType'=>['WADO-RS', 'WADO-URI', 'IID', 'WADO-RS', 'WADO-URI', 'IID']}, 'type'=>'Coding', 'path'=>'BaseLocation.type', 'min'=>1, 'max'=>1, 'binding'=>{'strength'=>'extensible', 'uri'=>'http://hl7.org/fhir/ValueSet/dWebType'}},
             'url' => {'type'=>'uri', 'path'=>'BaseLocation.url', 'min'=>1, 'max'=>1}
           }
-
-          attr_accessor :id                # 0-1 string
-          attr_accessor :extension         # 0-* [ Extension ]
-          attr_accessor :modifierExtension # 0-* [ Extension ]
-          attr_accessor :type              # 1-1 Coding
-          attr_accessor :url               # 1-1 uri
         end
 
         class Instance < FHIR::Model
@@ -80,49 +68,8 @@ module FHIR
             'sopClass' => {'type'=>'oid', 'path'=>'Instance.sopClass', 'min'=>1, 'max'=>1},
             'uid' => {'type'=>'oid', 'path'=>'Instance.uid', 'min'=>1, 'max'=>1}
           }
-
-          attr_accessor :id                # 0-1 string
-          attr_accessor :extension         # 0-* [ Extension ]
-          attr_accessor :modifierExtension # 0-* [ Extension ]
-          attr_accessor :sopClass          # 1-1 oid
-          attr_accessor :uid               # 1-1 oid
         end
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :uid               # 1-1 oid
-        attr_accessor :baseLocation      # 0-* [ ImagingManifest::Study::Series::BaseLocation ]
-        attr_accessor :instance          # 1-* [ ImagingManifest::Study::Series::Instance ]
       end
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :uid               # 1-1 oid
-      attr_accessor :imagingStudy      # 0-1 Reference(ImagingStudy)
-      attr_accessor :baseLocation      # 0-* [ ImagingManifest::Study::BaseLocation ]
-      attr_accessor :series            # 1-* [ ImagingManifest::Study::Series ]
-    end
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :uid               # 0-1 oid
-    attr_accessor :patient           # 1-1 Reference(Patient)
-    attr_accessor :authoringTime     # 0-1 dateTime
-    attr_accessor :author            # 0-1 Reference(Practitioner|Device|Organization|Patient|RelatedPerson)
-    attr_accessor :title             # 1-1 CodeableConcept
-    attr_accessor :description       # 0-1 string
-    attr_accessor :study             # 1-* [ ImagingManifest::Study ]
-
-    def resourceType
-      'ImagingManifest'
     end
   end
 end

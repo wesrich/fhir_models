@@ -38,12 +38,6 @@ module FHIR
         'type' => {'valid_codes'=>{'http://hl7.org/fhir/dWebType'=>['WADO-RS', 'WADO-URI', 'IID', 'WADO-RS', 'WADO-URI', 'IID']}, 'type'=>'Coding', 'path'=>'BaseLocation.type', 'min'=>1, 'max'=>1, 'binding'=>{'strength'=>'extensible', 'uri'=>'http://hl7.org/fhir/ValueSet/dWebType'}},
         'url' => {'type'=>'uri', 'path'=>'BaseLocation.url', 'min'=>1, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :type              # 1-1 Coding
-      attr_accessor :url               # 1-1 uri
     end
 
     class Series < FHIR::Model
@@ -72,12 +66,6 @@ module FHIR
           'type' => {'valid_codes'=>{'http://hl7.org/fhir/dWebType'=>['WADO-RS', 'WADO-URI', 'IID', 'WADO-RS', 'WADO-URI', 'IID']}, 'type'=>'Coding', 'path'=>'BaseLocation.type', 'min'=>1, 'max'=>1, 'binding'=>{'strength'=>'extensible', 'uri'=>'http://hl7.org/fhir/ValueSet/dWebType'}},
           'url' => {'type'=>'uri', 'path'=>'BaseLocation.url', 'min'=>1, 'max'=>1}
         }
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :type              # 1-1 Coding
-        attr_accessor :url               # 1-1 uri
       end
 
       class Instance < FHIR::Model
@@ -90,61 +78,7 @@ module FHIR
           'sopClass' => {'type'=>'oid', 'path'=>'Instance.sopClass', 'min'=>1, 'max'=>1},
           'title' => {'type'=>'string', 'path'=>'Instance.title', 'min'=>0, 'max'=>1}
         }
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :uid               # 1-1 oid
-        attr_accessor :number            # 0-1 unsignedInt
-        attr_accessor :sopClass          # 1-1 oid
-        attr_accessor :title             # 0-1 string
       end
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :uid               # 1-1 oid
-      attr_accessor :number            # 0-1 unsignedInt
-      attr_accessor :modality          # 1-1 Coding
-      attr_accessor :description       # 0-1 string
-      attr_accessor :numberOfInstances # 1-1 unsignedInt
-      attr_accessor :availability      # 0-1 code
-      attr_accessor :baseLocation      # 0-* [ ImagingStudy::Series::BaseLocation ]
-      attr_accessor :bodySite          # 0-1 Coding
-      attr_accessor :laterality        # 0-1 Coding
-      attr_accessor :started           # 0-1 dateTime
-      attr_accessor :instance          # 0-* [ ImagingStudy::Series::Instance ]
-    end
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :uid               # 1-1 oid
-    attr_accessor :accession         # 0-1 Identifier
-    attr_accessor :identifier        # 0-* [ Identifier ]
-    attr_accessor :availability      # 0-1 code
-    attr_accessor :modalityList      # 0-* [ Coding ]
-    attr_accessor :patient           # 1-1 Reference(Patient)
-    attr_accessor :context           # 0-1 Reference(Encounter|EpisodeOfCare)
-    attr_accessor :started           # 0-1 dateTime
-    attr_accessor :basedOn           # 0-* [ Reference(ReferralRequest|CarePlan|DiagnosticRequest|ProcedureRequest) ]
-    attr_accessor :referrer          # 0-1 Reference(Practitioner)
-    attr_accessor :interpreter       # 0-* [ Reference(Practitioner) ]
-    attr_accessor :baseLocation      # 0-* [ ImagingStudy::BaseLocation ]
-    attr_accessor :numberOfSeries    # 1-1 unsignedInt
-    attr_accessor :numberOfInstances # 1-1 unsignedInt
-    attr_accessor :procedure         # 0-* [ Reference(Procedure) ]
-    attr_accessor :reason            # 0-1 CodeableConcept
-    attr_accessor :description       # 0-1 string
-    attr_accessor :series            # 0-* [ ImagingStudy::Series ]
-
-    def resourceType
-      'ImagingStudy'
     end
   end
 end

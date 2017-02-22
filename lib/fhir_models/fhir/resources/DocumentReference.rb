@@ -37,12 +37,6 @@ module FHIR
         'code' => {'valid_codes'=>{'http://hl7.org/fhir/document-relationship-type'=>['replaces', 'transforms', 'signs', 'appends', 'replaces', 'transforms', 'signs', 'appends']}, 'type'=>'code', 'path'=>'RelatesTo.code', 'min'=>1, 'max'=>1, 'binding'=>{'strength'=>'required', 'uri'=>'http://hl7.org/fhir/ValueSet/document-relationship-type'}},
         'target' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/DocumentReference'], 'type'=>'Reference', 'path'=>'RelatesTo.target', 'min'=>1, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :code              # 1-1 code
-      attr_accessor :target            # 1-1 Reference(DocumentReference)
     end
 
     class Content < FHIR::Model
@@ -53,12 +47,6 @@ module FHIR
         'attachment' => {'type'=>'Attachment', 'path'=>'Content.attachment', 'min'=>1, 'max'=>1},
         'format' => {'type'=>'Coding', 'path'=>'Content.format', 'min'=>0, 'max'=>Float::INFINITY, 'binding'=>{'strength'=>'preferred', 'uri'=>'http://hl7.org/fhir/ValueSet/formatcodes'}}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :attachment        # 1-1 Attachment
-      attr_accessor :format            # 0-* [ Coding ]
     end
 
     class Context < FHIR::Model
@@ -83,54 +71,7 @@ module FHIR
           'identifier' => {'type'=>'Identifier', 'path'=>'Related.identifier', 'min'=>0, 'max'=>1},
           'ref' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Resource'], 'type'=>'Reference', 'path'=>'Related.ref', 'min'=>0, 'max'=>1}
         }
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :identifier        # 0-1 Identifier
-        attr_accessor :ref               # 0-1 Reference(Resource)
       end
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :encounter         # 0-1 Reference(Encounter)
-      attr_accessor :event             # 0-* [ CodeableConcept ]
-      attr_accessor :period            # 0-1 Period
-      attr_accessor :facilityType      # 0-1 CodeableConcept
-      attr_accessor :practiceSetting   # 0-1 CodeableConcept
-      attr_accessor :sourcePatientInfo # 0-1 Reference(Patient)
-      attr_accessor :related           # 0-* [ DocumentReference::Context::Related ]
-    end
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :masterIdentifier  # 0-1 Identifier
-    attr_accessor :identifier        # 0-* [ Identifier ]
-    attr_accessor :subject           # 0-1 Reference(Patient|Practitioner|Group|Device)
-    attr_accessor :type              # 1-1 CodeableConcept
-    attr_accessor :local_class       # 0-1 CodeableConcept
-    attr_accessor :author            # 0-* [ Reference(Practitioner|Organization|Device|Patient|RelatedPerson) ]
-    attr_accessor :custodian         # 0-1 Reference(Organization)
-    attr_accessor :authenticator     # 0-1 Reference(Practitioner|Organization)
-    attr_accessor :created           # 0-1 dateTime
-    attr_accessor :indexed           # 1-1 instant
-    attr_accessor :status            # 1-1 code
-    attr_accessor :docStatus         # 0-1 CodeableConcept
-    attr_accessor :relatesTo         # 0-* [ DocumentReference::RelatesTo ]
-    attr_accessor :description       # 0-1 string
-    attr_accessor :securityLabel     # 0-* [ CodeableConcept ]
-    attr_accessor :content           # 1-* [ DocumentReference::Content ]
-    attr_accessor :context           # 0-1 DocumentReference::Context
-
-    def resourceType
-      'DocumentReference'
     end
   end
 end

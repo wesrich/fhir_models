@@ -51,12 +51,6 @@ module FHIR
         'agent' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Device', 'http://hl7.org/fhir/StructureDefinition/Organization', 'http://hl7.org/fhir/StructureDefinition/Patient', 'http://hl7.org/fhir/StructureDefinition/Practitioner', 'http://hl7.org/fhir/StructureDefinition/RelatedPerson'], 'type'=>'Reference', 'path'=>'Requester.agent', 'min'=>1, 'max'=>1},
         'onBehalfOf' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Organization'], 'type'=>'Reference', 'path'=>'Requester.onBehalfOf', 'min'=>0, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :agent             # 1-1 Reference(Device|Organization|Patient|Practitioner|RelatedPerson)
-      attr_accessor :onBehalfOf        # 0-1 Reference(Organization)
     end
 
     class Restriction < FHIR::Model
@@ -68,13 +62,6 @@ module FHIR
         'period' => {'type'=>'Period', 'path'=>'Restriction.period', 'min'=>0, 'max'=>1},
         'recipient' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Patient', 'http://hl7.org/fhir/StructureDefinition/Practitioner', 'http://hl7.org/fhir/StructureDefinition/RelatedPerson', 'http://hl7.org/fhir/StructureDefinition/Group', 'http://hl7.org/fhir/StructureDefinition/Organization'], 'type'=>'Reference', 'path'=>'Restriction.recipient', 'min'=>0, 'max'=>Float::INFINITY}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :repetitions       # 0-1 positiveInt
-      attr_accessor :period            # 0-1 Period
-      attr_accessor :recipient         # 0-* [ Reference(Patient|Practitioner|RelatedPerson|Group|Organization) ]
     end
 
     class Input < FHIR::Model
@@ -125,49 +112,6 @@ module FHIR
         'valueTiming' => {'type'=>'Timing', 'path'=>'Input.value[x]', 'min'=>1, 'max'=>1},
         'valueMeta' => {'type'=>'Meta', 'path'=>'Input.value[x]', 'min'=>1, 'max'=>1}
       }
-
-      attr_accessor :id                   # 0-1 string
-      attr_accessor :extension            # 0-* [ Extension ]
-      attr_accessor :modifierExtension    # 0-* [ Extension ]
-      attr_accessor :type                 # 1-1 CodeableConcept
-      attr_accessor :valueBase64Binary    # 1-1 base64Binary
-      attr_accessor :valueBoolean         # 1-1 boolean
-      attr_accessor :valueCode            # 1-1 code
-      attr_accessor :valueDate            # 1-1 date
-      attr_accessor :valueDateTime        # 1-1 dateTime
-      attr_accessor :valueDecimal         # 1-1 decimal
-      attr_accessor :valueId              # 1-1 id
-      attr_accessor :valueInstant         # 1-1 instant
-      attr_accessor :valueInteger         # 1-1 integer
-      attr_accessor :valueMarkdown        # 1-1 markdown
-      attr_accessor :valueOid             # 1-1 oid
-      attr_accessor :valuePositiveInt     # 1-1 positiveInt
-      attr_accessor :valueString          # 1-1 string
-      attr_accessor :valueTime            # 1-1 time
-      attr_accessor :valueUnsignedInt     # 1-1 unsignedInt
-      attr_accessor :valueUri             # 1-1 uri
-      attr_accessor :valueAddress         # 1-1 Address
-      attr_accessor :valueAge             # 1-1 Age
-      attr_accessor :valueAnnotation      # 1-1 Annotation
-      attr_accessor :valueAttachment      # 1-1 Attachment
-      attr_accessor :valueCodeableConcept # 1-1 CodeableConcept
-      attr_accessor :valueCoding          # 1-1 Coding
-      attr_accessor :valueContactPoint    # 1-1 ContactPoint
-      attr_accessor :valueCount           # 1-1 Count
-      attr_accessor :valueDistance        # 1-1 Distance
-      attr_accessor :valueDuration        # 1-1 Duration
-      attr_accessor :valueHumanName       # 1-1 HumanName
-      attr_accessor :valueIdentifier      # 1-1 Identifier
-      attr_accessor :valueMoney           # 1-1 Money
-      attr_accessor :valuePeriod          # 1-1 Period
-      attr_accessor :valueQuantity        # 1-1 Quantity
-      attr_accessor :valueRange           # 1-1 Range
-      attr_accessor :valueRatio           # 1-1 Ratio
-      attr_accessor :valueReference       # 1-1 Reference()
-      attr_accessor :valueSampledData     # 1-1 SampledData
-      attr_accessor :valueSignature       # 1-1 Signature
-      attr_accessor :valueTiming          # 1-1 Timing
-      attr_accessor :valueMeta            # 1-1 Meta
     end
 
     class Output < FHIR::Model
@@ -218,90 +162,6 @@ module FHIR
         'valueTiming' => {'type'=>'Timing', 'path'=>'Output.value[x]', 'min'=>1, 'max'=>1},
         'valueMeta' => {'type'=>'Meta', 'path'=>'Output.value[x]', 'min'=>1, 'max'=>1}
       }
-
-      attr_accessor :id                   # 0-1 string
-      attr_accessor :extension            # 0-* [ Extension ]
-      attr_accessor :modifierExtension    # 0-* [ Extension ]
-      attr_accessor :type                 # 1-1 CodeableConcept
-      attr_accessor :valueBase64Binary    # 1-1 base64Binary
-      attr_accessor :valueBoolean         # 1-1 boolean
-      attr_accessor :valueCode            # 1-1 code
-      attr_accessor :valueDate            # 1-1 date
-      attr_accessor :valueDateTime        # 1-1 dateTime
-      attr_accessor :valueDecimal         # 1-1 decimal
-      attr_accessor :valueId              # 1-1 id
-      attr_accessor :valueInstant         # 1-1 instant
-      attr_accessor :valueInteger         # 1-1 integer
-      attr_accessor :valueMarkdown        # 1-1 markdown
-      attr_accessor :valueOid             # 1-1 oid
-      attr_accessor :valuePositiveInt     # 1-1 positiveInt
-      attr_accessor :valueString          # 1-1 string
-      attr_accessor :valueTime            # 1-1 time
-      attr_accessor :valueUnsignedInt     # 1-1 unsignedInt
-      attr_accessor :valueUri             # 1-1 uri
-      attr_accessor :valueAddress         # 1-1 Address
-      attr_accessor :valueAge             # 1-1 Age
-      attr_accessor :valueAnnotation      # 1-1 Annotation
-      attr_accessor :valueAttachment      # 1-1 Attachment
-      attr_accessor :valueCodeableConcept # 1-1 CodeableConcept
-      attr_accessor :valueCoding          # 1-1 Coding
-      attr_accessor :valueContactPoint    # 1-1 ContactPoint
-      attr_accessor :valueCount           # 1-1 Count
-      attr_accessor :valueDistance        # 1-1 Distance
-      attr_accessor :valueDuration        # 1-1 Duration
-      attr_accessor :valueHumanName       # 1-1 HumanName
-      attr_accessor :valueIdentifier      # 1-1 Identifier
-      attr_accessor :valueMoney           # 1-1 Money
-      attr_accessor :valuePeriod          # 1-1 Period
-      attr_accessor :valueQuantity        # 1-1 Quantity
-      attr_accessor :valueRange           # 1-1 Range
-      attr_accessor :valueRatio           # 1-1 Ratio
-      attr_accessor :valueReference       # 1-1 Reference()
-      attr_accessor :valueSampledData     # 1-1 SampledData
-      attr_accessor :valueSignature       # 1-1 Signature
-      attr_accessor :valueTiming          # 1-1 Timing
-      attr_accessor :valueMeta            # 1-1 Meta
-    end
-
-    attr_accessor :id                  # 0-1 id
-    attr_accessor :meta                # 0-1 Meta
-    attr_accessor :implicitRules       # 0-1 uri
-    attr_accessor :language            # 0-1 code
-    attr_accessor :text                # 0-1 Narrative
-    attr_accessor :contained           # 0-* [ Resource ]
-    attr_accessor :extension           # 0-* [ Extension ]
-    attr_accessor :modifierExtension   # 0-* [ Extension ]
-    attr_accessor :identifier          # 0-* [ Identifier ]
-    attr_accessor :definitionUri       # 0-1 uri
-    attr_accessor :definitionReference # 0-1 Reference(ActivityDefinition)
-    attr_accessor :basedOn             # 0-* [ Reference(Resource) ]
-    attr_accessor :groupIdentifier     # 0-1 Identifier
-    attr_accessor :partOf              # 0-* [ Reference(Task) ]
-    attr_accessor :status              # 1-1 code
-    attr_accessor :statusReason        # 0-1 CodeableConcept
-    attr_accessor :businessStatus      # 0-1 CodeableConcept
-    attr_accessor :intent              # 1-1 code
-    attr_accessor :priority            # 0-1 code
-    attr_accessor :code                # 0-1 CodeableConcept
-    attr_accessor :description         # 0-1 string
-    attr_accessor :focus               # 0-1 Reference(Resource)
-    attr_accessor :for                 # 0-1 Reference(Resource)
-    attr_accessor :context             # 0-1 Reference(Encounter|EpisodeOfCare)
-    attr_accessor :executionPeriod     # 0-1 Period
-    attr_accessor :authoredOn          # 0-1 dateTime
-    attr_accessor :lastModified        # 0-1 dateTime
-    attr_accessor :requester           # 0-1 Task::Requester
-    attr_accessor :performerType       # 0-* [ CodeableConcept ]
-    attr_accessor :owner               # 0-1 Reference(Device|Organization|Patient|Practitioner|RelatedPerson)
-    attr_accessor :reason              # 0-1 CodeableConcept
-    attr_accessor :note                # 0-* [ Annotation ]
-    attr_accessor :relevantHistory     # 0-* [ Reference(Provenance) ]
-    attr_accessor :restriction         # 0-1 Task::Restriction
-    attr_accessor :input               # 0-* [ Task::Input ]
-    attr_accessor :output              # 0-* [ Task::Output ]
-
-    def resourceType
-      'Task'
     end
   end
 end

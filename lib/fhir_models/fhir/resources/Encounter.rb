@@ -40,12 +40,6 @@ module FHIR
         'status' => {'valid_codes'=>{'http://hl7.org/fhir/encounter-status'=>['planned', 'arrived', 'in-progress', 'onleave', 'finished', 'cancelled', 'entered-in-error', 'planned', 'arrived', 'in-progress', 'onleave', 'finished', 'cancelled', 'entered-in-error']}, 'type'=>'code', 'path'=>'StatusHistory.status', 'min'=>1, 'max'=>1, 'binding'=>{'strength'=>'required', 'uri'=>'http://hl7.org/fhir/ValueSet/encounter-status'}},
         'period' => {'type'=>'Period', 'path'=>'StatusHistory.period', 'min'=>1, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :status            # 1-1 code
-      attr_accessor :period            # 1-1 Period
     end
 
     class Participant < FHIR::Model
@@ -57,13 +51,6 @@ module FHIR
         'period' => {'type'=>'Period', 'path'=>'Participant.period', 'min'=>0, 'max'=>1},
         'individual' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Practitioner', 'http://hl7.org/fhir/StructureDefinition/RelatedPerson'], 'type'=>'Reference', 'path'=>'Participant.individual', 'min'=>0, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :type              # 0-* [ CodeableConcept ]
-      attr_accessor :period            # 0-1 Period
-      attr_accessor :individual        # 0-1 Reference(Practitioner|RelatedPerson)
     end
 
     class Hospitalization < FHIR::Model
@@ -83,21 +70,6 @@ module FHIR
         'dischargeDisposition' => {'valid_codes'=>{'http://hl7.org/fhir/discharge-disposition'=>['home', 'other-hcf', 'hosp', 'long', 'aadvice', 'exp', 'psy', 'rehab', 'snf', 'oth', 'home', 'other-hcf', 'hosp', 'long', 'aadvice', 'exp', 'psy', 'rehab', 'snf', 'oth']}, 'type'=>'CodeableConcept', 'path'=>'Hospitalization.dischargeDisposition', 'min'=>0, 'max'=>1, 'binding'=>{'strength'=>'example', 'uri'=>'http://hl7.org/fhir/ValueSet/encounter-discharge-disposition'}},
         'dischargeDiagnosis' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Condition'], 'type'=>'Reference', 'path'=>'Hospitalization.dischargeDiagnosis', 'min'=>0, 'max'=>Float::INFINITY}
       }
-
-      attr_accessor :id                     # 0-1 string
-      attr_accessor :extension              # 0-* [ Extension ]
-      attr_accessor :modifierExtension      # 0-* [ Extension ]
-      attr_accessor :preAdmissionIdentifier # 0-1 Identifier
-      attr_accessor :origin                 # 0-1 Reference(Location)
-      attr_accessor :admitSource            # 0-1 CodeableConcept
-      attr_accessor :admittingDiagnosis     # 0-* [ Reference(Condition) ]
-      attr_accessor :reAdmission            # 0-1 CodeableConcept
-      attr_accessor :dietPreference         # 0-* [ CodeableConcept ]
-      attr_accessor :specialCourtesy        # 0-* [ CodeableConcept ]
-      attr_accessor :specialArrangement     # 0-* [ CodeableConcept ]
-      attr_accessor :destination            # 0-1 Reference(Location)
-      attr_accessor :dischargeDisposition   # 0-1 CodeableConcept
-      attr_accessor :dischargeDiagnosis     # 0-* [ Reference(Condition) ]
     end
 
     class Location < FHIR::Model
@@ -109,46 +81,6 @@ module FHIR
         'status' => {'valid_codes'=>{'http://hl7.org/fhir/encounter-location-status'=>['planned', 'active', 'reserved', 'completed', 'planned', 'active', 'reserved', 'completed']}, 'type'=>'code', 'path'=>'Location.status', 'min'=>0, 'max'=>1, 'binding'=>{'strength'=>'required', 'uri'=>'http://hl7.org/fhir/ValueSet/encounter-location-status'}},
         'period' => {'type'=>'Period', 'path'=>'Location.period', 'min'=>0, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :location          # 1-1 Reference(Location)
-      attr_accessor :status            # 0-1 code
-      attr_accessor :period            # 0-1 Period
-    end
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :identifier        # 0-* [ Identifier ]
-    attr_accessor :status            # 1-1 code
-    attr_accessor :statusHistory     # 0-* [ Encounter::StatusHistory ]
-    attr_accessor :local_class       # 0-1 Coding
-    attr_accessor :type              # 0-* [ CodeableConcept ]
-    attr_accessor :priority          # 0-1 CodeableConcept
-    attr_accessor :patient           # 0-1 Reference(Patient)
-    attr_accessor :episodeOfCare     # 0-* [ Reference(EpisodeOfCare) ]
-    attr_accessor :incomingReferral  # 0-* [ Reference(ReferralRequest) ]
-    attr_accessor :participant       # 0-* [ Encounter::Participant ]
-    attr_accessor :appointment       # 0-1 Reference(Appointment)
-    attr_accessor :period            # 0-1 Period
-    attr_accessor :length            # 0-1 Duration
-    attr_accessor :reason            # 0-* [ CodeableConcept ]
-    attr_accessor :indication        # 0-* [ Reference(Condition|Procedure) ]
-    attr_accessor :account           # 0-* [ Reference(Account) ]
-    attr_accessor :hospitalization   # 0-1 Encounter::Hospitalization
-    attr_accessor :location          # 0-* [ Encounter::Location ]
-    attr_accessor :serviceProvider   # 0-1 Reference(Organization)
-    attr_accessor :partOf            # 0-1 Reference(Encounter)
-
-    def resourceType
-      'Encounter'
     end
   end
 end

@@ -22,12 +22,6 @@ module FHIR
         'relation' => {'type'=>'string', 'path'=>'Link.relation', 'min'=>1, 'max'=>1},
         'url' => {'type'=>'uri', 'path'=>'Link.url', 'min'=>1, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :relation          # 1-1 string
-      attr_accessor :url               # 1-1 uri
     end
 
     class Entry < FHIR::Model
@@ -51,12 +45,6 @@ module FHIR
           'mode' => {'valid_codes'=>{'http://hl7.org/fhir/search-entry-mode'=>['match', 'include', 'outcome', 'match', 'include', 'outcome']}, 'type'=>'code', 'path'=>'Search.mode', 'min'=>0, 'max'=>1, 'binding'=>{'strength'=>'required', 'uri'=>'http://hl7.org/fhir/ValueSet/search-entry-mode'}},
           'score' => {'type'=>'decimal', 'path'=>'Search.score', 'min'=>0, 'max'=>1}
         }
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :mode              # 0-1 code
-        attr_accessor :score             # 0-1 decimal
       end
 
       class Request < FHIR::Model
@@ -71,16 +59,6 @@ module FHIR
           'ifMatch' => {'type'=>'string', 'path'=>'Request.ifMatch', 'min'=>0, 'max'=>1},
           'ifNoneExist' => {'type'=>'string', 'path'=>'Request.ifNoneExist', 'min'=>0, 'max'=>1}
         }
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :local_method      # 1-1 code
-        attr_accessor :url               # 1-1 uri
-        attr_accessor :ifNoneMatch       # 0-1 string
-        attr_accessor :ifModifiedSince   # 0-1 instant
-        attr_accessor :ifMatch           # 0-1 string
-        attr_accessor :ifNoneExist       # 0-1 string
       end
 
       class Response < FHIR::Model
@@ -94,41 +72,7 @@ module FHIR
           'lastModified' => {'type'=>'instant', 'path'=>'Response.lastModified', 'min'=>0, 'max'=>1},
           'outcome' => {'type'=>'Resource', 'path'=>'Response.outcome', 'min'=>0, 'max'=>1}
         }
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :status            # 1-1 string
-        attr_accessor :location          # 0-1 uri
-        attr_accessor :etag              # 0-1 string
-        attr_accessor :lastModified      # 0-1 instant
-        attr_accessor :outcome           # 0-1 Resource
       end
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :link              # 0-* [ Bundle::Link ]
-      attr_accessor :fullUrl           # 0-1 uri
-      attr_accessor :resource          # 0-1 Resource
-      attr_accessor :search            # 0-1 Bundle::Entry::Search
-      attr_accessor :request           # 0-1 Bundle::Entry::Request
-      attr_accessor :response          # 0-1 Bundle::Entry::Response
-    end
-
-    attr_accessor :id            # 0-1 id
-    attr_accessor :meta          # 0-1 Meta
-    attr_accessor :implicitRules # 0-1 uri
-    attr_accessor :language      # 0-1 code
-    attr_accessor :type          # 1-1 code
-    attr_accessor :identifier    # 0-1 Identifier
-    attr_accessor :total         # 0-1 unsignedInt
-    attr_accessor :link          # 0-* [ Bundle::Link ]
-    attr_accessor :entry         # 0-* [ Bundle::Entry ]
-    attr_accessor :signature     # 0-1 Signature
-
-    def resourceType
-      'Bundle'
     end
   end
 end

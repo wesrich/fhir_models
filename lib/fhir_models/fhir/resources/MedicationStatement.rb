@@ -32,35 +32,5 @@ module FHIR
       'category' => {'valid_codes'=>{'http://hl7.org/fhir/medication-statement-category'=>['inpatient', 'outpatient', 'community', 'patientspecified', 'inpatient', 'outpatient', 'community', 'patientspecified']}, 'type'=>'code', 'path'=>'MedicationStatement.category', 'min'=>0, 'max'=>1, 'binding'=>{'strength'=>'example', 'uri'=>'http://hl7.org/fhir/ValueSet/medication-statement-category'}},
       'dosage' => {'type'=>'DosageInstruction', 'path'=>'MedicationStatement.dosage', 'min'=>0, 'max'=>Float::INFINITY}
     }
-
-    attr_accessor :id                          # 0-1 id
-    attr_accessor :meta                        # 0-1 Meta
-    attr_accessor :implicitRules               # 0-1 uri
-    attr_accessor :language                    # 0-1 code
-    attr_accessor :text                        # 0-1 Narrative
-    attr_accessor :contained                   # 0-* [ Resource ]
-    attr_accessor :extension                   # 0-* [ Extension ]
-    attr_accessor :modifierExtension           # 0-* [ Extension ]
-    attr_accessor :identifier                  # 0-* [ Identifier ]
-    attr_accessor :status                      # 1-1 code
-    attr_accessor :medicationCodeableConcept   # 1-1 CodeableConcept
-    attr_accessor :medicationReference         # 1-1 Reference(Medication)
-    attr_accessor :subject                     # 1-1 Reference(Patient|Group)
-    attr_accessor :effectiveDateTime           # 0-1 dateTime
-    attr_accessor :effectivePeriod             # 0-1 Period
-    attr_accessor :informationSource           # 0-1 Reference(Patient|Practitioner|RelatedPerson|Organization)
-    attr_accessor :derivedFrom                 # 0-* [ Reference(Resource) ]
-    attr_accessor :dateAsserted                # 0-1 dateTime
-    attr_accessor :notTaken                    # 0-1 code
-    attr_accessor :reasonNotTaken              # 0-* [ CodeableConcept ]
-    attr_accessor :reasonForUseCodeableConcept # 0-* [ CodeableConcept ]
-    attr_accessor :reasonForUseReference       # 0-* [ Reference(Condition|Observation) ]
-    attr_accessor :note                        # 0-* [ Annotation ]
-    attr_accessor :category                    # 0-1 code
-    attr_accessor :dosage                      # 0-* [ DosageInstruction ]
-
-    def resourceType
-      'MedicationStatement'
-    end
   end
 end

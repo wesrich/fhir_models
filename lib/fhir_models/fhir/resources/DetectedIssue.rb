@@ -31,36 +31,6 @@ module FHIR
         'date' => {'type'=>'dateTime', 'path'=>'Mitigation.date', 'min'=>0, 'max'=>1},
         'author' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Practitioner'], 'type'=>'Reference', 'path'=>'Mitigation.author', 'min'=>0, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :action            # 1-1 CodeableConcept
-      attr_accessor :date              # 0-1 dateTime
-      attr_accessor :author            # 0-1 Reference(Practitioner)
-    end
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :patient           # 0-1 Reference(Patient)
-    attr_accessor :category          # 0-1 CodeableConcept
-    attr_accessor :severity          # 0-1 code
-    attr_accessor :implicated        # 0-* [ Reference(Resource) ]
-    attr_accessor :detail            # 0-1 string
-    attr_accessor :date              # 0-1 dateTime
-    attr_accessor :author            # 0-1 Reference(Practitioner|Device)
-    attr_accessor :identifier        # 0-1 Identifier
-    attr_accessor :reference         # 0-1 uri
-    attr_accessor :mitigation        # 0-* [ DetectedIssue::Mitigation ]
-
-    def resourceType
-      'DetectedIssue'
     end
   end
 end

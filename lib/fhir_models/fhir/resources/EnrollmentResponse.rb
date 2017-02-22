@@ -20,27 +20,5 @@ module FHIR
       'requestProvider' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Practitioner'], 'type'=>'Reference', 'path'=>'EnrollmentResponse.requestProvider', 'min'=>0, 'max'=>1},
       'requestOrganization' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Organization'], 'type'=>'Reference', 'path'=>'EnrollmentResponse.requestOrganization', 'min'=>0, 'max'=>1}
     }
-
-    attr_accessor :id                  # 0-1 id
-    attr_accessor :meta                # 0-1 Meta
-    attr_accessor :implicitRules       # 0-1 uri
-    attr_accessor :language            # 0-1 code
-    attr_accessor :text                # 0-1 Narrative
-    attr_accessor :contained           # 0-* [ Resource ]
-    attr_accessor :extension           # 0-* [ Extension ]
-    attr_accessor :modifierExtension   # 0-* [ Extension ]
-    attr_accessor :identifier          # 0-* [ Identifier ]
-    attr_accessor :status              # 0-1 code
-    attr_accessor :request             # 0-1 Reference(EnrollmentRequest)
-    attr_accessor :outcome             # 0-1 CodeableConcept
-    attr_accessor :disposition         # 0-1 string
-    attr_accessor :created             # 0-1 dateTime
-    attr_accessor :organization        # 0-1 Reference(Organization)
-    attr_accessor :requestProvider     # 0-1 Reference(Practitioner)
-    attr_accessor :requestOrganization # 0-1 Reference(Organization)
-
-    def resourceType
-      'EnrollmentResponse'
-    end
   end
 end

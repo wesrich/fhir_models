@@ -41,43 +41,6 @@ module FHIR
         'comment' => {'type'=>'string', 'path'=>'Image.comment', 'min'=>0, 'max'=>1},
         'link' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Media'], 'type'=>'Reference', 'path'=>'Image.link', 'min'=>1, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :comment           # 0-1 string
-      attr_accessor :link              # 1-1 Reference(Media)
-    end
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :identifier        # 0-* [ Identifier ]
-    attr_accessor :status            # 1-1 code
-    attr_accessor :category          # 0-1 CodeableConcept
-    attr_accessor :code              # 1-1 CodeableConcept
-    attr_accessor :subject           # 0-1 Reference(Patient|Group|Device|Location)
-    attr_accessor :encounter         # 0-1 Reference(Encounter)
-    attr_accessor :effectiveDateTime # 0-1 dateTime
-    attr_accessor :effectivePeriod   # 0-1 Period
-    attr_accessor :issued            # 0-1 instant
-    attr_accessor :performer         # 0-* [ Reference(Practitioner|Organization) ]
-    attr_accessor :request           # 0-* [ Reference(DiagnosticRequest|ProcedureRequest|ReferralRequest) ]
-    attr_accessor :specimen          # 0-* [ Reference(Specimen) ]
-    attr_accessor :result            # 0-* [ Reference(Observation) ]
-    attr_accessor :imagingStudy      # 0-* [ Reference(ImagingStudy|ImagingManifest) ]
-    attr_accessor :image             # 0-* [ DiagnosticReport::Image ]
-    attr_accessor :conclusion        # 0-1 string
-    attr_accessor :codedDiagnosis    # 0-* [ CodeableConcept ]
-    attr_accessor :presentedForm     # 0-* [ Attachment ]
-
-    def resourceType
-      'DiagnosticReport'
     end
   end
 end

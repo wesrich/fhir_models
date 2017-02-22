@@ -23,30 +23,5 @@ module FHIR
       'duration' => {'type'=>'unsignedInt', 'path'=>'Media.duration', 'min'=>0, 'max'=>1},
       'content' => {'type'=>'Attachment', 'path'=>'Media.content', 'min'=>1, 'max'=>1}
     }
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :identifier        # 0-* [ Identifier ]
-    attr_accessor :type              # 1-1 code
-    attr_accessor :subtype           # 0-1 CodeableConcept
-    attr_accessor :view              # 0-1 CodeableConcept
-    attr_accessor :subject           # 0-1 Reference(Patient|Practitioner|Group|Device|Specimen)
-    attr_accessor :operator          # 0-1 Reference(Practitioner)
-    attr_accessor :deviceName        # 0-1 string
-    attr_accessor :height            # 0-1 positiveInt
-    attr_accessor :width             # 0-1 positiveInt
-    attr_accessor :frames            # 0-1 positiveInt
-    attr_accessor :duration          # 0-1 unsignedInt
-    attr_accessor :content           # 1-1 Attachment
-
-    def resourceType
-      'Media'
-    end
   end
 end

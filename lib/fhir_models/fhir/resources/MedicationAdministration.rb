@@ -51,46 +51,7 @@ module FHIR
         'rateRatio' => {'type'=>'Ratio', 'path'=>'Dosage.rate[x]', 'min'=>0, 'max'=>1},
         'rateQuantity' => {'type'=>'Quantity', 'path'=>'Dosage.rate[x]', 'min'=>0, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :text              # 0-1 string
-      attr_accessor :site              # 0-1 CodeableConcept
-      attr_accessor :route             # 0-1 CodeableConcept
-      attr_accessor :local_method      # 0-1 CodeableConcept
-      attr_accessor :dose              # 0-1 Quantity
-      attr_accessor :rateRatio         # 0-1 Ratio
-      attr_accessor :rateQuantity      # 0-1 Quantity
     end
-
-    attr_accessor :id                        # 0-1 id
-    attr_accessor :meta                      # 0-1 Meta
-    attr_accessor :implicitRules             # 0-1 uri
-    attr_accessor :language                  # 0-1 code
-    attr_accessor :text                      # 0-1 Narrative
-    attr_accessor :contained                 # 0-* [ Resource ]
-    attr_accessor :extension                 # 0-* [ Extension ]
-    attr_accessor :modifierExtension         # 0-* [ Extension ]
-    attr_accessor :identifier                # 0-* [ Identifier ]
-    attr_accessor :status                    # 1-1 code
-    attr_accessor :medicationCodeableConcept # 1-1 CodeableConcept
-    attr_accessor :medicationReference       # 1-1 Reference(Medication)
-    attr_accessor :patient                   # 1-1 Reference(Patient)
-    attr_accessor :encounter                 # 0-1 Reference(Encounter)
-    attr_accessor :supportingInformation     # 0-* [ Reference(Resource) ]
-    attr_accessor :effectiveDateTime         # 1-1 dateTime
-    attr_accessor :effectivePeriod           # 1-1 Period
-    attr_accessor :performer                 # 0-1 Reference(Practitioner|Patient|RelatedPerson)
-    attr_accessor :reasonReference           # 0-* [ Reference(Condition|Observation) ]
-    attr_accessor :prescription              # 0-1 Reference(MedicationRequest)
-    attr_accessor :notGiven                  # 0-1 boolean
-    attr_accessor :reasonNotGiven            # 0-* [ CodeableConcept ]
-    attr_accessor :reasonGiven               # 0-* [ CodeableConcept ]
-    attr_accessor :device                    # 0-* [ Reference(Device) ]
-    attr_accessor :note                      # 0-* [ Annotation ]
-    attr_accessor :dosage                    # 0-1 MedicationAdministration::Dosage
-    attr_accessor :eventHistory              # 0-* [ Reference(Provenance) ]
 
     def resourceType
       'MedicationAdministration'

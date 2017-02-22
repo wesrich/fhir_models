@@ -37,42 +37,6 @@ module FHIR
         'comment' => {'type'=>'string', 'path'=>'UniqueId.comment', 'min'=>0, 'max'=>1},
         'period' => {'type'=>'Period', 'path'=>'UniqueId.period', 'min'=>0, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :type              # 1-1 code
-      attr_accessor :value             # 1-1 string
-      attr_accessor :preferred         # 0-1 boolean
-      attr_accessor :comment           # 0-1 string
-      attr_accessor :period            # 0-1 Period
-    end
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :name              # 1-1 string
-    attr_accessor :status            # 1-1 code
-    attr_accessor :kind              # 1-1 code
-    attr_accessor :date              # 1-1 dateTime
-    attr_accessor :publisher         # 0-1 string
-    attr_accessor :contact           # 0-* [ ContactDetail ]
-    attr_accessor :responsible       # 0-1 string
-    attr_accessor :type              # 0-1 CodeableConcept
-    attr_accessor :description       # 0-1 markdown
-    attr_accessor :useContext        # 0-* [ UsageContext ]
-    attr_accessor :jurisdiction      # 0-* [ CodeableConcept ]
-    attr_accessor :usage             # 0-1 string
-    attr_accessor :uniqueId          # 1-* [ NamingSystem::UniqueId ]
-    attr_accessor :replacedBy        # 0-1 Reference(NamingSystem)
-
-    def resourceType
-      'NamingSystem'
     end
   end
 end

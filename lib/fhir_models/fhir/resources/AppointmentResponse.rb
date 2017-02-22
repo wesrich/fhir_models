@@ -19,26 +19,5 @@ module FHIR
       'participantStatus' => {'valid_codes'=>{'http://hl7.org/fhir/participationstatus'=>['accepted', 'declined', 'tentative', 'needs-action', 'accepted', 'declined', 'tentative', 'needs-action']}, 'type'=>'code', 'path'=>'AppointmentResponse.participantStatus', 'min'=>1, 'max'=>1, 'binding'=>{'strength'=>'required', 'uri'=>'http://hl7.org/fhir/ValueSet/participationstatus'}},
       'comment' => {'type'=>'string', 'path'=>'AppointmentResponse.comment', 'min'=>0, 'max'=>1}
     }
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :identifier        # 0-* [ Identifier ]
-    attr_accessor :appointment       # 1-1 Reference(Appointment)
-    attr_accessor :start             # 0-1 instant
-    attr_accessor :end               # 0-1 instant
-    attr_accessor :participantType   # 0-* [ CodeableConcept ]
-    attr_accessor :actor             # 0-1 Reference(Patient|Practitioner|RelatedPerson|Device|HealthcareService|Location)
-    attr_accessor :participantStatus # 1-1 code
-    attr_accessor :comment           # 0-1 string
-
-    def resourceType
-      'AppointmentResponse'
-    end
   end
 end

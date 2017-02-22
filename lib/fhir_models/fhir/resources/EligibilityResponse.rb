@@ -67,38 +67,8 @@ module FHIR
             'benefitUsedUnsignedInt' => {'type'=>'unsignedInt', 'path'=>'Financial.benefitUsed[x]', 'min'=>0, 'max'=>1},
             'benefitUsedMoney' => {'type'=>'Money', 'path'=>'Financial.benefitUsed[x]', 'min'=>0, 'max'=>1}
           }
-
-          attr_accessor :id                     # 0-1 string
-          attr_accessor :extension              # 0-* [ Extension ]
-          attr_accessor :modifierExtension      # 0-* [ Extension ]
-          attr_accessor :type                   # 1-1 CodeableConcept
-          attr_accessor :benefitUnsignedInt     # 0-1 unsignedInt
-          attr_accessor :benefitString          # 0-1 string
-          attr_accessor :benefitMoney           # 0-1 Money
-          attr_accessor :benefitUsedUnsignedInt # 0-1 unsignedInt
-          attr_accessor :benefitUsedMoney       # 0-1 Money
         end
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :category          # 1-1 CodeableConcept
-        attr_accessor :subCategory       # 0-1 CodeableConcept
-        attr_accessor :excluded          # 0-1 boolean
-        attr_accessor :name              # 0-1 string
-        attr_accessor :description       # 0-1 string
-        attr_accessor :network           # 0-1 CodeableConcept
-        attr_accessor :unit              # 0-1 CodeableConcept
-        attr_accessor :term              # 0-1 CodeableConcept
-        attr_accessor :financial         # 0-* [ EligibilityResponse::Insurance::BenefitBalance::Financial ]
       end
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :coverage          # 0-1 Reference(Coverage)
-      attr_accessor :contract          # 0-1 Reference(Contract)
-      attr_accessor :benefitBalance    # 0-* [ EligibilityResponse::Insurance::BenefitBalance ]
     end
 
     class Error < FHIR::Model
@@ -108,37 +78,6 @@ module FHIR
         'modifierExtension' => {'type'=>'Extension', 'path'=>'Error.modifierExtension', 'min'=>0, 'max'=>Float::INFINITY},
         'code' => {'valid_codes'=>{'http://hl7.org/fhir/adjudication-error'=>['a001', 'a002', 'a001', 'a002']}, 'type'=>'CodeableConcept', 'path'=>'Error.code', 'min'=>1, 'max'=>1, 'binding'=>{'strength'=>'required', 'uri'=>'http://hl7.org/fhir/ValueSet/adjudication-error'}}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :code              # 1-1 CodeableConcept
-    end
-
-    attr_accessor :id                  # 0-1 id
-    attr_accessor :meta                # 0-1 Meta
-    attr_accessor :implicitRules       # 0-1 uri
-    attr_accessor :language            # 0-1 code
-    attr_accessor :text                # 0-1 Narrative
-    attr_accessor :contained           # 0-* [ Resource ]
-    attr_accessor :extension           # 0-* [ Extension ]
-    attr_accessor :modifierExtension   # 0-* [ Extension ]
-    attr_accessor :identifier          # 0-* [ Identifier ]
-    attr_accessor :status              # 0-1 code
-    attr_accessor :created             # 0-1 dateTime
-    attr_accessor :requestProvider     # 0-1 Reference(Practitioner)
-    attr_accessor :requestOrganization # 0-1 Reference(Organization)
-    attr_accessor :request             # 0-1 Reference(EligibilityRequest)
-    attr_accessor :outcome             # 0-1 CodeableConcept
-    attr_accessor :disposition         # 0-1 string
-    attr_accessor :insurer             # 0-1 Reference(Organization)
-    attr_accessor :inforce             # 0-1 boolean
-    attr_accessor :insurance           # 0-* [ EligibilityResponse::Insurance ]
-    attr_accessor :form                # 0-1 CodeableConcept
-    attr_accessor :error               # 0-* [ EligibilityResponse::Error ]
-
-    def resourceType
-      'EligibilityResponse'
     end
   end
 end

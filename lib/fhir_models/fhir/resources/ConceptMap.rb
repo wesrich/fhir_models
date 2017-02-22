@@ -78,73 +78,9 @@ module FHIR
               'system' => {'type'=>'uri', 'path'=>'DependsOn.system', 'min'=>0, 'max'=>1},
               'code' => {'type'=>'string', 'path'=>'DependsOn.code', 'min'=>1, 'max'=>1}
             }
-
-            attr_accessor :id                # 0-1 string
-            attr_accessor :extension         # 0-* [ Extension ]
-            attr_accessor :modifierExtension # 0-* [ Extension ]
-            attr_accessor :property          # 1-1 uri
-            attr_accessor :system            # 0-1 uri
-            attr_accessor :code              # 1-1 string
           end
-
-          attr_accessor :id                # 0-1 string
-          attr_accessor :extension         # 0-* [ Extension ]
-          attr_accessor :modifierExtension # 0-* [ Extension ]
-          attr_accessor :code              # 0-1 code
-          attr_accessor :equivalence       # 0-1 code
-          attr_accessor :comments          # 0-1 string
-          attr_accessor :dependsOn         # 0-* [ ConceptMap::Group::Element::Target::DependsOn ]
-          attr_accessor :product           # 0-* [ ConceptMap::Group::Element::Target::DependsOn ]
         end
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :code              # 0-1 code
-        attr_accessor :target            # 0-* [ ConceptMap::Group::Element::Target ]
       end
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :source            # 1-1 uri
-      attr_accessor :sourceVersion     # 0-1 string
-      attr_accessor :target            # 0-1 uri
-      attr_accessor :targetVersion     # 0-1 string
-      attr_accessor :element           # 1-* [ ConceptMap::Group::Element ]
-    end
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :url               # 0-1 uri
-    attr_accessor :identifier        # 0-1 Identifier
-    attr_accessor :version           # 0-1 string
-    attr_accessor :name              # 0-1 string
-    attr_accessor :title             # 0-1 string
-    attr_accessor :status            # 1-1 code
-    attr_accessor :experimental      # 0-1 boolean
-    attr_accessor :publisher         # 0-1 string
-    attr_accessor :contact           # 0-* [ ContactDetail ]
-    attr_accessor :date              # 0-1 dateTime
-    attr_accessor :description       # 0-1 markdown
-    attr_accessor :useContext        # 0-* [ UsageContext ]
-    attr_accessor :jurisdiction      # 0-* [ CodeableConcept ]
-    attr_accessor :purpose           # 0-1 markdown
-    attr_accessor :copyright         # 0-1 markdown
-    attr_accessor :sourceUri         # 0-1 uri
-    attr_accessor :sourceReference   # 0-1 Reference(ValueSet)
-    attr_accessor :targetUri         # 0-1 uri
-    attr_accessor :targetReference   # 0-1 Reference(ValueSet)
-    attr_accessor :group             # 0-* [ ConceptMap::Group ]
-
-    def resourceType
-      'ConceptMap'
     end
   end
 end

@@ -59,59 +59,7 @@ module FHIR
           'valueReference' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Resource'], 'type'=>'Reference', 'path'=>'Answer.value[x]', 'min'=>0, 'max'=>1},
           'item' => {'type'=>'QuestionnaireResponse::Item', 'path'=>'Answer.item', 'min'=>0, 'max'=>Float::INFINITY}
         }
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :valueBoolean      # 0-1 boolean
-        attr_accessor :valueDecimal      # 0-1 decimal
-        attr_accessor :valueInteger      # 0-1 integer
-        attr_accessor :valueDate         # 0-1 date
-        attr_accessor :valueDateTime     # 0-1 dateTime
-        attr_accessor :valueInstant      # 0-1 instant
-        attr_accessor :valueTime         # 0-1 time
-        attr_accessor :valueString       # 0-1 string
-        attr_accessor :valueUri          # 0-1 uri
-        attr_accessor :valueAttachment   # 0-1 Attachment
-        attr_accessor :valueCoding       # 0-1 Coding
-        attr_accessor :valueQuantity     # 0-1 Quantity
-        attr_accessor :valueReference    # 0-1 Reference(Resource)
-        attr_accessor :item              # 0-* [ QuestionnaireResponse::Item ]
       end
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :linkId            # 1-1 string
-      attr_accessor :definition        # 0-1 uri
-      attr_accessor :text              # 0-1 string
-      attr_accessor :subject           # 0-1 Reference(Resource)
-      attr_accessor :answer            # 0-* [ QuestionnaireResponse::Item::Answer ]
-      attr_accessor :item              # 0-* [ QuestionnaireResponse::Item ]
-    end
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :identifier        # 0-1 Identifier
-    attr_accessor :basedOn           # 0-* [ Reference(DiagnosticRequest|ReferralRequest|CarePlan) ]
-    attr_accessor :parent            # 0-* [ Reference(Observation|Procedure) ]
-    attr_accessor :questionnaire     # 0-1 Reference(Questionnaire)
-    attr_accessor :status            # 1-1 code
-    attr_accessor :subject           # 0-1 Reference(Resource)
-    attr_accessor :context           # 0-1 Reference(Encounter|EpisodeOfCare)
-    attr_accessor :author            # 0-1 Reference(Device|Practitioner|Patient|RelatedPerson)
-    attr_accessor :authored          # 0-1 dateTime
-    attr_accessor :source            # 0-1 Reference(Patient|Practitioner|RelatedPerson)
-    attr_accessor :item              # 0-* [ QuestionnaireResponse::Item ]
-
-    def resourceType
-      'QuestionnaireResponse'
     end
   end
 end

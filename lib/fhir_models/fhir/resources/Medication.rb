@@ -39,13 +39,6 @@ module FHIR
           'itemReference' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Substance', 'http://hl7.org/fhir/StructureDefinition/Medication'], 'type'=>'Reference', 'path'=>'Ingredient.item[x]', 'min'=>1, 'max'=>1},
           'amount' => {'type'=>'Ratio', 'path'=>'Ingredient.amount', 'min'=>0, 'max'=>1}
         }
-
-        attr_accessor :id                  # 0-1 string
-        attr_accessor :extension           # 0-* [ Extension ]
-        attr_accessor :modifierExtension   # 0-* [ Extension ]
-        attr_accessor :itemCodeableConcept # 1-1 CodeableConcept
-        attr_accessor :itemReference       # 1-1 Reference(Substance|Medication)
-        attr_accessor :amount              # 0-1 Ratio
       end
 
       class Batch < FHIR::Model
@@ -56,20 +49,7 @@ module FHIR
           'lotNumber' => {'type'=>'string', 'path'=>'Batch.lotNumber', 'min'=>0, 'max'=>1},
           'expirationDate' => {'type'=>'dateTime', 'path'=>'Batch.expirationDate', 'min'=>0, 'max'=>1}
         }
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :lotNumber         # 0-1 string
-        attr_accessor :expirationDate    # 0-1 dateTime
       end
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :form              # 0-1 CodeableConcept
-      attr_accessor :ingredient        # 0-* [ Medication::Product::Ingredient ]
-      attr_accessor :batch             # 0-* [ Medication::Product::Batch ]
     end
 
     class Package < FHIR::Model
@@ -93,35 +73,8 @@ module FHIR
           'itemReference' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Medication'], 'type'=>'Reference', 'path'=>'Content.item[x]', 'min'=>1, 'max'=>1},
           'amount' => {'type'=>'Quantity', 'path'=>'Content.amount', 'min'=>0, 'max'=>1}
         }
-
-        attr_accessor :id                  # 0-1 string
-        attr_accessor :extension           # 0-* [ Extension ]
-        attr_accessor :modifierExtension   # 0-* [ Extension ]
-        attr_accessor :itemCodeableConcept # 1-1 CodeableConcept
-        attr_accessor :itemReference       # 1-1 Reference(Medication)
-        attr_accessor :amount              # 0-1 Quantity
       end
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :container         # 0-1 CodeableConcept
-      attr_accessor :content           # 0-* [ Medication::Package::Content ]
     end
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :code              # 0-1 CodeableConcept
-    attr_accessor :isBrand           # 0-1 boolean
-    attr_accessor :manufacturer      # 0-1 Reference(Organization)
-    attr_accessor :product           # 0-1 Medication::Product
-    attr_accessor :package           # 0-1 Medication::Package
 
     def resourceType
       'Medication'

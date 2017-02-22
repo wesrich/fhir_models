@@ -36,14 +36,6 @@ module FHIR
         'availableStartTime' => {'type'=>'time', 'path'=>'AvailableTime.availableStartTime', 'min'=>0, 'max'=>1},
         'availableEndTime' => {'type'=>'time', 'path'=>'AvailableTime.availableEndTime', 'min'=>0, 'max'=>1}
       }
-
-      attr_accessor :id                 # 0-1 string
-      attr_accessor :extension          # 0-* [ Extension ]
-      attr_accessor :modifierExtension  # 0-* [ Extension ]
-      attr_accessor :daysOfWeek         # 0-* [ code ]
-      attr_accessor :allDay             # 0-1 boolean
-      attr_accessor :availableStartTime # 0-1 time
-      attr_accessor :availableEndTime   # 0-1 time
     end
 
     class NotAvailable < FHIR::Model
@@ -54,39 +46,6 @@ module FHIR
         'description' => {'type'=>'string', 'path'=>'NotAvailable.description', 'min'=>1, 'max'=>1},
         'during' => {'type'=>'Period', 'path'=>'NotAvailable.during', 'min'=>0, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :description       # 1-1 string
-      attr_accessor :during            # 0-1 Period
-    end
-
-    attr_accessor :id                     # 0-1 id
-    attr_accessor :meta                   # 0-1 Meta
-    attr_accessor :implicitRules          # 0-1 uri
-    attr_accessor :language               # 0-1 code
-    attr_accessor :text                   # 0-1 Narrative
-    attr_accessor :contained              # 0-* [ Resource ]
-    attr_accessor :extension              # 0-* [ Extension ]
-    attr_accessor :modifierExtension      # 0-* [ Extension ]
-    attr_accessor :identifier             # 0-* [ Identifier ]
-    attr_accessor :active                 # 0-1 boolean
-    attr_accessor :practitioner           # 0-1 Reference(Practitioner)
-    attr_accessor :organization           # 0-1 Reference(Organization)
-    attr_accessor :code                   # 0-* [ CodeableConcept ]
-    attr_accessor :specialty              # 0-* [ CodeableConcept ]
-    attr_accessor :location               # 0-* [ Reference(Location) ]
-    attr_accessor :healthcareService      # 0-* [ Reference(HealthcareService) ]
-    attr_accessor :telecom                # 0-* [ ContactPoint ]
-    attr_accessor :period                 # 0-1 Period
-    attr_accessor :availableTime          # 0-* [ PractitionerRole::AvailableTime ]
-    attr_accessor :notAvailable           # 0-* [ PractitionerRole::NotAvailable ]
-    attr_accessor :availabilityExceptions # 0-1 string
-    attr_accessor :endpoint               # 0-* [ Reference(Endpoint) ]
-
-    def resourceType
-      'PractitionerRole'
     end
   end
 end

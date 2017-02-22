@@ -39,13 +39,6 @@ module FHIR
         'mode' => {'valid_codes'=>{'http://hl7.org/fhir/map-model-mode'=>['source', 'queried', 'target', 'produced', 'source', 'queried', 'target', 'produced']}, 'type'=>'code', 'path'=>'Structure.mode', 'min'=>1, 'max'=>1, 'binding'=>{'strength'=>'required', 'uri'=>'http://hl7.org/fhir/ValueSet/map-model-mode'}},
         'documentation' => {'type'=>'string', 'path'=>'Structure.documentation', 'min'=>0, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :url               # 1-1 uri
-      attr_accessor :mode              # 1-1 code
-      attr_accessor :documentation     # 0-1 string
     end
 
     class Group < FHIR::Model
@@ -70,14 +63,6 @@ module FHIR
           'mode' => {'valid_codes'=>{'http://hl7.org/fhir/map-input-mode'=>['source', 'target', 'source', 'target']}, 'type'=>'code', 'path'=>'Input.mode', 'min'=>1, 'max'=>1, 'binding'=>{'strength'=>'required', 'uri'=>'http://hl7.org/fhir/ValueSet/map-input-mode'}},
           'documentation' => {'type'=>'string', 'path'=>'Input.documentation', 'min'=>0, 'max'=>1}
         }
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :name              # 1-1 id
-        attr_accessor :type              # 0-1 string
-        attr_accessor :mode              # 1-1 code
-        attr_accessor :documentation     # 0-1 string
       end
 
       class Rule < FHIR::Model
@@ -110,21 +95,6 @@ module FHIR
             'condition' => {'type'=>'string', 'path'=>'Source.condition', 'min'=>0, 'max'=>1},
             'check' => {'type'=>'string', 'path'=>'Source.check', 'min'=>0, 'max'=>1}
           }
-
-          attr_accessor :id                # 0-1 string
-          attr_accessor :extension         # 0-* [ Extension ]
-          attr_accessor :modifierExtension # 0-* [ Extension ]
-          attr_accessor :required          # 1-1 boolean
-          attr_accessor :context           # 1-1 id
-          attr_accessor :contextType       # 1-1 code
-          attr_accessor :min               # 0-1 integer
-          attr_accessor :max               # 0-1 string
-          attr_accessor :type              # 0-1 string
-          attr_accessor :element           # 0-1 string
-          attr_accessor :listMode          # 0-1 code
-          attr_accessor :variable          # 0-1 id
-          attr_accessor :condition         # 0-1 string
-          attr_accessor :check             # 0-1 string
         end
 
         class Target < FHIR::Model
@@ -156,28 +126,7 @@ module FHIR
               'valueInteger' => {'type'=>'integer', 'path'=>'Parameter.value[x]', 'min'=>1, 'max'=>1},
               'valueDecimal' => {'type'=>'decimal', 'path'=>'Parameter.value[x]', 'min'=>1, 'max'=>1}
             }
-
-            attr_accessor :id                # 0-1 string
-            attr_accessor :extension         # 0-* [ Extension ]
-            attr_accessor :modifierExtension # 0-* [ Extension ]
-            attr_accessor :valueId           # 1-1 id
-            attr_accessor :valueString       # 1-1 string
-            attr_accessor :valueBoolean      # 1-1 boolean
-            attr_accessor :valueInteger      # 1-1 integer
-            attr_accessor :valueDecimal      # 1-1 decimal
           end
-
-          attr_accessor :id                # 0-1 string
-          attr_accessor :extension         # 0-* [ Extension ]
-          attr_accessor :modifierExtension # 0-* [ Extension ]
-          attr_accessor :context           # 0-1 id
-          attr_accessor :contextType       # 0-1 code
-          attr_accessor :element           # 0-1 string
-          attr_accessor :variable          # 0-1 id
-          attr_accessor :listMode          # 0-* [ code ]
-          attr_accessor :listRuleId        # 0-1 id
-          attr_accessor :transform         # 0-1 code
-          attr_accessor :parameter         # 0-* [ StructureMap::Group::Rule::Target::Parameter ]
         end
 
         class Dependent < FHIR::Model
@@ -188,64 +137,8 @@ module FHIR
             'name' => {'type'=>'id', 'path'=>'Dependent.name', 'min'=>1, 'max'=>1},
             'variable' => {'type'=>'string', 'path'=>'Dependent.variable', 'min'=>1, 'max'=>Float::INFINITY}
           }
-
-          attr_accessor :id                # 0-1 string
-          attr_accessor :extension         # 0-* [ Extension ]
-          attr_accessor :modifierExtension # 0-* [ Extension ]
-          attr_accessor :name              # 1-1 id
-          attr_accessor :variable          # 1-* [ string ]
         end
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :name              # 1-1 id
-        attr_accessor :source            # 1-* [ StructureMap::Group::Rule::Source ]
-        attr_accessor :target            # 0-* [ StructureMap::Group::Rule::Target ]
-        attr_accessor :rule              # 0-* [ StructureMap::Group::Rule ]
-        attr_accessor :dependent         # 0-* [ StructureMap::Group::Rule::Dependent ]
-        attr_accessor :documentation     # 0-1 string
       end
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :name              # 1-1 id
-      attr_accessor :extends           # 0-1 id
-      attr_accessor :documentation     # 0-1 string
-      attr_accessor :input             # 1-* [ StructureMap::Group::Input ]
-      attr_accessor :rule              # 1-* [ StructureMap::Group::Rule ]
-    end
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :url               # 1-1 uri
-    attr_accessor :identifier        # 0-* [ Identifier ]
-    attr_accessor :version           # 0-1 string
-    attr_accessor :name              # 1-1 string
-    attr_accessor :title             # 0-1 string
-    attr_accessor :status            # 1-1 code
-    attr_accessor :experimental      # 0-1 boolean
-    attr_accessor :publisher         # 0-1 string
-    attr_accessor :contact           # 0-* [ ContactDetail ]
-    attr_accessor :date              # 0-1 dateTime
-    attr_accessor :description       # 0-1 markdown
-    attr_accessor :useContext        # 0-* [ UsageContext ]
-    attr_accessor :jurisdiction      # 0-* [ CodeableConcept ]
-    attr_accessor :purpose           # 0-1 markdown
-    attr_accessor :copyright         # 0-1 markdown
-    attr_accessor :structure         # 0-* [ StructureMap::Structure ]
-    attr_accessor :import            # 0-* [ uri ]
-    attr_accessor :group             # 1-* [ StructureMap::Group ]
-
-    def resourceType
-      'StructureMap'
     end
   end
 end

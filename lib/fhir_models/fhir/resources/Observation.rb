@@ -57,15 +57,6 @@ module FHIR
         'age' => {'type'=>'Range', 'path'=>'ReferenceRange.age', 'min'=>0, 'max'=>1},
         'text' => {'type'=>'string', 'path'=>'ReferenceRange.text', 'min'=>0, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :low               # 0-1 Quantity
-      attr_accessor :high              # 0-1 Quantity
-      attr_accessor :meaning           # 0-* [ CodeableConcept ]
-      attr_accessor :age               # 0-1 Range
-      attr_accessor :text              # 0-1 string
     end
 
     class Related < FHIR::Model
@@ -76,12 +67,6 @@ module FHIR
         'type' => {'valid_codes'=>{'http://hl7.org/fhir/observation-relationshiptypes'=>['has-member', 'derived-from', 'sequel-to', 'replaces', 'qualified-by', 'interfered-by', 'has-member', 'derived-from', 'sequel-to', 'replaces', 'qualified-by', 'interfered-by']}, 'type'=>'code', 'path'=>'Related.type', 'min'=>0, 'max'=>1, 'binding'=>{'strength'=>'required', 'uri'=>'http://hl7.org/fhir/ValueSet/observation-relationshiptypes'}},
         'target' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Observation', 'http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse', 'http://hl7.org/fhir/StructureDefinition/Sequence'], 'type'=>'Reference', 'path'=>'Related.target', 'min'=>1, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :type              # 0-1 code
-      attr_accessor :target            # 1-1 Reference(Observation|QuestionnaireResponse|Sequence)
     end
 
     class Component < FHIR::Model
@@ -107,67 +92,6 @@ module FHIR
         'interpretation' => {'valid_codes'=>{'http://hl7.org/fhir/v2/0078'=>['<', '>', 'A', 'AA', 'AC', 'B', 'D', 'DET', 'H', 'HH', 'HM', 'HU', 'I', 'IE', 'IND', 'L', 'LL', 'LU', 'MS', 'N', 'ND', 'NEG', 'NR', 'NS', 'null', 'OBX', 'POS', 'QCF', 'R', 'RR', 'S', 'SDD', 'SYN-R', 'SYN-S', 'TOX', 'U', 'VS', 'W', 'WR']}, 'type'=>'CodeableConcept', 'path'=>'Component.interpretation', 'min'=>0, 'max'=>1, 'binding'=>{'strength'=>'extensible', 'uri'=>'http://hl7.org/fhir/ValueSet/observation-interpretation'}},
         'referenceRange' => {'type'=>'Observation::ReferenceRange', 'path'=>'Component.referenceRange', 'min'=>0, 'max'=>Float::INFINITY}
       }
-
-      attr_accessor :id                   # 0-1 string
-      attr_accessor :extension            # 0-* [ Extension ]
-      attr_accessor :modifierExtension    # 0-* [ Extension ]
-      attr_accessor :code                 # 1-1 CodeableConcept
-      attr_accessor :valueQuantity        # 0-1 Quantity
-      attr_accessor :valueCodeableConcept # 0-1 CodeableConcept
-      attr_accessor :valueString          # 0-1 string
-      attr_accessor :valueRange           # 0-1 Range
-      attr_accessor :valueRatio           # 0-1 Ratio
-      attr_accessor :valueSampledData     # 0-1 SampledData
-      attr_accessor :valueAttachment      # 0-1 Attachment
-      attr_accessor :valueTime            # 0-1 time
-      attr_accessor :valueDateTime        # 0-1 dateTime
-      attr_accessor :valuePeriod          # 0-1 Period
-      attr_accessor :dataAbsentReason     # 0-1 CodeableConcept
-      attr_accessor :interpretation       # 0-1 CodeableConcept
-      attr_accessor :referenceRange       # 0-* [ Observation::ReferenceRange ]
-    end
-
-    attr_accessor :id                   # 0-1 id
-    attr_accessor :meta                 # 0-1 Meta
-    attr_accessor :implicitRules        # 0-1 uri
-    attr_accessor :language             # 0-1 code
-    attr_accessor :text                 # 0-1 Narrative
-    attr_accessor :contained            # 0-* [ Resource ]
-    attr_accessor :extension            # 0-* [ Extension ]
-    attr_accessor :modifierExtension    # 0-* [ Extension ]
-    attr_accessor :identifier           # 0-* [ Identifier ]
-    attr_accessor :status               # 1-1 code
-    attr_accessor :category             # 0-* [ CodeableConcept ]
-    attr_accessor :code                 # 1-1 CodeableConcept
-    attr_accessor :subject              # 0-1 Reference(Patient|Group|Device|Location)
-    attr_accessor :encounter            # 0-1 Reference(Encounter)
-    attr_accessor :effectiveDateTime    # 0-1 dateTime
-    attr_accessor :effectivePeriod      # 0-1 Period
-    attr_accessor :issued               # 0-1 instant
-    attr_accessor :performer            # 0-* [ Reference(Practitioner|Organization|Patient|RelatedPerson) ]
-    attr_accessor :valueQuantity        # 0-1 Quantity
-    attr_accessor :valueCodeableConcept # 0-1 CodeableConcept
-    attr_accessor :valueString          # 0-1 string
-    attr_accessor :valueRange           # 0-1 Range
-    attr_accessor :valueRatio           # 0-1 Ratio
-    attr_accessor :valueSampledData     # 0-1 SampledData
-    attr_accessor :valueAttachment      # 0-1 Attachment
-    attr_accessor :valueTime            # 0-1 time
-    attr_accessor :valueDateTime        # 0-1 dateTime
-    attr_accessor :valuePeriod          # 0-1 Period
-    attr_accessor :dataAbsentReason     # 0-1 CodeableConcept
-    attr_accessor :interpretation       # 0-1 CodeableConcept
-    attr_accessor :comment              # 0-1 string
-    attr_accessor :bodySite             # 0-1 CodeableConcept
-    attr_accessor :local_method         # 0-1 CodeableConcept
-    attr_accessor :specimen             # 0-1 Reference(Specimen)
-    attr_accessor :device               # 0-1 Reference(Device|DeviceMetric)
-    attr_accessor :referenceRange       # 0-* [ Observation::ReferenceRange ]
-    attr_accessor :related              # 0-* [ Observation::Related ]
-    attr_accessor :component            # 0-* [ Observation::Component ]
-
-    def resourceType
-      'Observation'
     end
   end
 end

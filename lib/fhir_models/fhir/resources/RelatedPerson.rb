@@ -22,29 +22,5 @@ module FHIR
       'photo' => {'type'=>'Attachment', 'path'=>'RelatedPerson.photo', 'min'=>0, 'max'=>Float::INFINITY},
       'period' => {'type'=>'Period', 'path'=>'RelatedPerson.period', 'min'=>0, 'max'=>1}
     }
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :identifier        # 0-* [ Identifier ]
-    attr_accessor :active            # 0-1 boolean
-    attr_accessor :patient           # 1-1 Reference(Patient)
-    attr_accessor :relationship      # 0-1 CodeableConcept
-    attr_accessor :name              # 0-* [ HumanName ]
-    attr_accessor :telecom           # 0-* [ ContactPoint ]
-    attr_accessor :gender            # 0-1 code
-    attr_accessor :birthDate         # 0-1 date
-    attr_accessor :address           # 0-* [ Address ]
-    attr_accessor :photo             # 0-* [ Attachment ]
-    attr_accessor :period            # 0-1 Period
-
-    def resourceType
-      'RelatedPerson'
-    end
   end
 end

@@ -32,37 +32,6 @@ module FHIR
         'telecom' => {'type'=>'ContactPoint', 'path'=>'Contact.telecom', 'min'=>0, 'max'=>Float::INFINITY},
         'address' => {'type'=>'Address', 'path'=>'Contact.address', 'min'=>0, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :purpose           # 0-1 CodeableConcept
-      attr_accessor :name              # 0-1 HumanName
-      attr_accessor :telecom           # 0-* [ ContactPoint ]
-      attr_accessor :address           # 0-1 Address
-    end
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :identifier        # 0-* [ Identifier ]
-    attr_accessor :active            # 0-1 boolean
-    attr_accessor :type              # 0-1 CodeableConcept
-    attr_accessor :name              # 0-1 string
-    attr_accessor :alias             # 0-* [ string ]
-    attr_accessor :telecom           # 0-* [ ContactPoint ]
-    attr_accessor :address           # 0-* [ Address ]
-    attr_accessor :partOf            # 0-1 Reference(Organization)
-    attr_accessor :contact           # 0-* [ Organization::Contact ]
-    attr_accessor :endpoint          # 0-* [ Reference(Endpoint) ]
-
-    def resourceType
-      'Organization'
     end
   end
 end

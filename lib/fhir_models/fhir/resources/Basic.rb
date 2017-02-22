@@ -16,23 +16,5 @@ module FHIR
       'created' => {'type'=>'date', 'path'=>'Basic.created', 'min'=>0, 'max'=>1},
       'author' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Practitioner', 'http://hl7.org/fhir/StructureDefinition/Patient', 'http://hl7.org/fhir/StructureDefinition/RelatedPerson'], 'type'=>'Reference', 'path'=>'Basic.author', 'min'=>0, 'max'=>1}
     }
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :identifier        # 0-* [ Identifier ]
-    attr_accessor :code              # 1-1 CodeableConcept
-    attr_accessor :subject           # 0-1 Reference(Resource)
-    attr_accessor :created           # 0-1 date
-    attr_accessor :author            # 0-1 Reference(Practitioner|Patient|RelatedPerson)
-
-    def resourceType
-      'Basic'
-    end
   end
 end

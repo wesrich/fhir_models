@@ -32,13 +32,6 @@ module FHIR
         'code' => {'valid_codes'=>{'http://hl7.org/fhir/response-code'=>['ok', 'transient-error', 'fatal-error', 'ok', 'transient-error', 'fatal-error']}, 'type'=>'code', 'path'=>'Response.code', 'min'=>1, 'max'=>1, 'binding'=>{'strength'=>'required', 'uri'=>'http://hl7.org/fhir/ValueSet/response-code'}},
         'details' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/OperationOutcome'], 'type'=>'Reference', 'path'=>'Response.details', 'min'=>0, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :identifier        # 1-1 id
-      attr_accessor :code              # 1-1 code
-      attr_accessor :details           # 0-1 Reference(OperationOutcome)
     end
 
     class Source < FHIR::Model
@@ -52,15 +45,6 @@ module FHIR
         'contact' => {'type'=>'ContactPoint', 'path'=>'Source.contact', 'min'=>0, 'max'=>1},
         'endpoint' => {'type'=>'uri', 'path'=>'Source.endpoint', 'min'=>1, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :name              # 0-1 string
-      attr_accessor :software          # 0-1 string
-      attr_accessor :version           # 0-1 string
-      attr_accessor :contact           # 0-1 ContactPoint
-      attr_accessor :endpoint          # 1-1 uri
     end
 
     class Destination < FHIR::Model
@@ -72,37 +56,6 @@ module FHIR
         'target' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Device'], 'type'=>'Reference', 'path'=>'Destination.target', 'min'=>0, 'max'=>1},
         'endpoint' => {'type'=>'uri', 'path'=>'Destination.endpoint', 'min'=>1, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :name              # 0-1 string
-      attr_accessor :target            # 0-1 Reference(Device)
-      attr_accessor :endpoint          # 1-1 uri
-    end
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :timestamp         # 1-1 instant
-    attr_accessor :event             # 1-1 Coding
-    attr_accessor :response          # 0-1 MessageHeader::Response
-    attr_accessor :source            # 1-1 MessageHeader::Source
-    attr_accessor :destination       # 0-* [ MessageHeader::Destination ]
-    attr_accessor :enterer           # 0-1 Reference(Practitioner)
-    attr_accessor :author            # 0-1 Reference(Practitioner)
-    attr_accessor :receiver          # 0-1 Reference(Practitioner|Organization)
-    attr_accessor :responsible       # 0-1 Reference(Practitioner|Organization)
-    attr_accessor :reason            # 0-1 CodeableConcept
-    attr_accessor :data              # 0-* [ Reference(Resource) ]
-
-    def resourceType
-      'MessageHeader'
     end
   end
 end

@@ -10,17 +10,5 @@ module FHIR
       'securityContext' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Resource'], 'type'=>'Reference', 'path'=>'Binary.securityContext', 'min'=>0, 'max'=>1},
       'content' => {'type'=>'base64Binary', 'path'=>'Binary.content', 'min'=>1, 'max'=>1}
     }
-
-    attr_accessor :id              # 0-1 id
-    attr_accessor :meta            # 0-1 Meta
-    attr_accessor :implicitRules   # 0-1 uri
-    attr_accessor :language        # 0-1 code
-    attr_accessor :contentType     # 1-1 code
-    attr_accessor :securityContext # 0-1 Reference(Resource)
-    attr_accessor :content         # 1-1 base64Binary
-
-    def resourceType
-      'Binary'
-    end
   end
 end

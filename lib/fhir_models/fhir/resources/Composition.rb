@@ -35,13 +35,6 @@ module FHIR
         'time' => {'type'=>'dateTime', 'path'=>'Attester.time', 'min'=>0, 'max'=>1},
         'party' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Patient', 'http://hl7.org/fhir/StructureDefinition/Practitioner', 'http://hl7.org/fhir/StructureDefinition/Organization'], 'type'=>'Reference', 'path'=>'Attester.party', 'min'=>0, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :mode              # 1-* [ code ]
-      attr_accessor :time              # 0-1 dateTime
-      attr_accessor :party             # 0-1 Reference(Patient|Practitioner|Organization)
     end
 
     class Event < FHIR::Model
@@ -53,13 +46,6 @@ module FHIR
         'period' => {'type'=>'Period', 'path'=>'Event.period', 'min'=>0, 'max'=>1},
         'detail' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Resource'], 'type'=>'Reference', 'path'=>'Event.detail', 'min'=>0, 'max'=>Float::INFINITY}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :code              # 0-* [ CodeableConcept ]
-      attr_accessor :period            # 0-1 Period
-      attr_accessor :detail            # 0-* [ Reference(Resource) ]
     end
 
     class Section < FHIR::Model
@@ -76,45 +62,6 @@ module FHIR
         'emptyReason' => {'valid_codes'=>{'http://hl7.org/fhir/list-empty-reason'=>['nilknown', 'notasked', 'withheld', 'unavailable', 'notstarted', 'closed', 'nilknown', 'notasked', 'withheld', 'unavailable', 'notstarted', 'closed']}, 'type'=>'CodeableConcept', 'path'=>'Section.emptyReason', 'min'=>0, 'max'=>1, 'binding'=>{'strength'=>'preferred', 'uri'=>'http://hl7.org/fhir/ValueSet/list-empty-reason'}},
         'section' => {'type'=>'Composition::Section', 'path'=>'Section.section', 'min'=>0, 'max'=>Float::INFINITY}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :title             # 0-1 string
-      attr_accessor :code              # 0-1 CodeableConcept
-      attr_accessor :text              # 0-1 Narrative
-      attr_accessor :mode              # 0-1 code
-      attr_accessor :orderedBy         # 0-1 CodeableConcept
-      attr_accessor :entry             # 0-* [ Reference(Resource) ]
-      attr_accessor :emptyReason       # 0-1 CodeableConcept
-      attr_accessor :section           # 0-* [ Composition::Section ]
-    end
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :identifier        # 0-1 Identifier
-    attr_accessor :date              # 1-1 dateTime
-    attr_accessor :type              # 1-1 CodeableConcept
-    attr_accessor :local_class       # 0-1 CodeableConcept
-    attr_accessor :title             # 1-1 string
-    attr_accessor :status            # 1-1 code
-    attr_accessor :confidentiality   # 0-1 code
-    attr_accessor :subject           # 1-1 Reference(Resource)
-    attr_accessor :author            # 1-* [ Reference(Practitioner|Device|Patient|RelatedPerson) ]
-    attr_accessor :attester          # 0-* [ Composition::Attester ]
-    attr_accessor :custodian         # 0-1 Reference(Organization)
-    attr_accessor :event             # 0-* [ Composition::Event ]
-    attr_accessor :encounter         # 0-1 Reference(Encounter)
-    attr_accessor :section           # 0-* [ Composition::Section ]
-
-    def resourceType
-      'Composition'
     end
   end
 end

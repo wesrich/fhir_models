@@ -31,36 +31,6 @@ module FHIR
         'componentId' => {'type'=>'Identifier', 'path'=>'ProductionSpecification.componentId', 'min'=>0, 'max'=>1},
         'productionSpec' => {'type'=>'string', 'path'=>'ProductionSpecification.productionSpec', 'min'=>0, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :specType          # 0-1 CodeableConcept
-      attr_accessor :componentId       # 0-1 Identifier
-      attr_accessor :productionSpec    # 0-1 string
-    end
-
-    attr_accessor :id                      # 0-1 id
-    attr_accessor :meta                    # 0-1 Meta
-    attr_accessor :implicitRules           # 0-1 uri
-    attr_accessor :language                # 0-1 code
-    attr_accessor :text                    # 0-1 Narrative
-    attr_accessor :contained               # 0-* [ Resource ]
-    attr_accessor :extension               # 0-* [ Extension ]
-    attr_accessor :modifierExtension       # 0-* [ Extension ]
-    attr_accessor :type                    # 1-1 CodeableConcept
-    attr_accessor :identifier              # 1-1 Identifier
-    attr_accessor :lastSystemChange        # 1-1 instant
-    attr_accessor :source                  # 0-1 Reference(Device)
-    attr_accessor :parent                  # 0-1 Reference(DeviceComponent)
-    attr_accessor :operationalStatus       # 0-* [ CodeableConcept ]
-    attr_accessor :parameterGroup          # 0-1 CodeableConcept
-    attr_accessor :measurementPrinciple    # 0-1 code
-    attr_accessor :productionSpecification # 0-* [ DeviceComponent::ProductionSpecification ]
-    attr_accessor :languageCode            # 0-1 CodeableConcept
-
-    def resourceType
-      'DeviceComponent'
     end
   end
 end

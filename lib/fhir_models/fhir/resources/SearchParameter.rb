@@ -44,49 +44,6 @@ module FHIR
         'definition' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/SearchParameter'], 'type'=>'Reference', 'path'=>'Component.definition', 'min'=>1, 'max'=>1},
         'expression' => {'type'=>'string', 'path'=>'Component.expression', 'min'=>1, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :definition        # 1-1 Reference(SearchParameter)
-      attr_accessor :expression        # 1-1 string
-    end
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :url               # 1-1 uri
-    attr_accessor :version           # 0-1 string
-    attr_accessor :name              # 1-1 string
-    attr_accessor :status            # 1-1 code
-    attr_accessor :experimental      # 0-1 boolean
-    attr_accessor :date              # 0-1 dateTime
-    attr_accessor :publisher         # 0-1 string
-    attr_accessor :contact           # 0-* [ ContactDetail ]
-    attr_accessor :useContext        # 0-* [ UsageContext ]
-    attr_accessor :jurisdiction      # 0-* [ CodeableConcept ]
-    attr_accessor :purpose           # 0-1 markdown
-    attr_accessor :code              # 1-1 code
-    attr_accessor :base              # 1-* [ code ]
-    attr_accessor :type              # 1-1 code
-    attr_accessor :derivedFrom       # 0-1 uri
-    attr_accessor :description       # 1-1 markdown
-    attr_accessor :expression        # 0-1 string
-    attr_accessor :xpath             # 0-1 string
-    attr_accessor :xpathUsage        # 0-1 code
-    attr_accessor :target            # 0-* [ code ]
-    attr_accessor :comparator        # 0-* [ code ]
-    attr_accessor :modifier          # 0-* [ code ]
-    attr_accessor :chain             # 0-* [ string ]
-    attr_accessor :component         # 0-* [ SearchParameter::Component ]
-
-    def resourceType
-      'SearchParameter'
     end
   end
 end

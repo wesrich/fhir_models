@@ -27,34 +27,5 @@ module FHIR
       'url' => {'type'=>'uri', 'path'=>'Device.url', 'min'=>0, 'max'=>1},
       'note' => {'type'=>'Annotation', 'path'=>'Device.note', 'min'=>0, 'max'=>Float::INFINITY}
     }
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :identifier        # 0-* [ Identifier ]
-    attr_accessor :udiCarrier        # 0-1 Identifier
-    attr_accessor :status            # 0-1 code
-    attr_accessor :type              # 0-1 CodeableConcept
-    attr_accessor :lotNumber         # 0-1 string
-    attr_accessor :manufacturer      # 0-1 string
-    attr_accessor :manufactureDate   # 0-1 dateTime
-    attr_accessor :expirationDate    # 0-1 dateTime
-    attr_accessor :model             # 0-1 string
-    attr_accessor :version           # 0-1 string
-    attr_accessor :patient           # 0-1 Reference(Patient)
-    attr_accessor :owner             # 0-1 Reference(Organization)
-    attr_accessor :contact           # 0-* [ ContactPoint ]
-    attr_accessor :location          # 0-1 Reference(Location)
-    attr_accessor :url               # 0-1 uri
-    attr_accessor :note              # 0-* [ Annotation ]
-
-    def resourceType
-      'Device'
-    end
   end
 end

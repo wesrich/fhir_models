@@ -85,25 +85,6 @@ module FHIR
           'answerQuantity' => {'type'=>'Quantity', 'path'=>'EnableWhen.answer[x]', 'min'=>0, 'max'=>1},
           'answerReference' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Resource'], 'type'=>'Reference', 'path'=>'EnableWhen.answer[x]', 'min'=>0, 'max'=>1}
         }
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :question          # 1-1 string
-        attr_accessor :hasAnswer         # 0-1 boolean
-        attr_accessor :answerBoolean     # 0-1 boolean
-        attr_accessor :answerDecimal     # 0-1 decimal
-        attr_accessor :answerInteger     # 0-1 integer
-        attr_accessor :answerDate        # 0-1 date
-        attr_accessor :answerDateTime    # 0-1 dateTime
-        attr_accessor :answerInstant     # 0-1 instant
-        attr_accessor :answerTime        # 0-1 time
-        attr_accessor :answerString      # 0-1 string
-        attr_accessor :answerUri         # 0-1 uri
-        attr_accessor :answerAttachment  # 0-1 Attachment
-        attr_accessor :answerCoding      # 0-1 Coding
-        attr_accessor :answerQuantity    # 0-1 Quantity
-        attr_accessor :answerReference   # 0-1 Reference(Resource)
       end
 
       class Option < FHIR::Model
@@ -120,72 +101,7 @@ module FHIR
           'valueString' => {'type'=>'string', 'path'=>'Option.value[x]', 'min'=>1, 'max'=>1},
           'valueCoding' => {'valid_codes'=>{'http://snomed.info/sct'=>[]}, 'type'=>'Coding', 'path'=>'Option.value[x]', 'min'=>1, 'max'=>1, 'binding'=>{'strength'=>'example', 'uri'=>'http://hl7.org/fhir/ValueSet/questionnaire-answers'}}
         }
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :valueInteger      # 1-1 integer
-        attr_accessor :valueDate         # 1-1 date
-        attr_accessor :valueTime         # 1-1 time
-        attr_accessor :valueString       # 1-1 string
-        attr_accessor :valueCoding       # 1-1 Coding
       end
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :linkId            # 1-1 string
-      attr_accessor :definition        # 0-1 uri
-      attr_accessor :concept           # 0-* [ Coding ]
-      attr_accessor :prefix            # 0-1 string
-      attr_accessor :text              # 0-1 string
-      attr_accessor :type              # 0-1 code
-      attr_accessor :enableWhen        # 0-* [ Questionnaire::Item::EnableWhen ]
-      attr_accessor :required          # 0-1 boolean
-      attr_accessor :repeats           # 0-1 boolean
-      attr_accessor :readOnly          # 0-1 boolean
-      attr_accessor :maxLength         # 0-1 integer
-      attr_accessor :options           # 0-1 Reference(ValueSet)
-      attr_accessor :option            # 0-* [ Questionnaire::Item::Option ]
-      attr_accessor :initialBoolean    # 0-1 boolean
-      attr_accessor :initialDecimal    # 0-1 decimal
-      attr_accessor :initialInteger    # 0-1 integer
-      attr_accessor :initialDate       # 0-1 date
-      attr_accessor :initialDateTime   # 0-1 dateTime
-      attr_accessor :initialInstant    # 0-1 instant
-      attr_accessor :initialTime       # 0-1 time
-      attr_accessor :initialString     # 0-1 string
-      attr_accessor :initialUri        # 0-1 uri
-      attr_accessor :initialAttachment # 0-1 Attachment
-      attr_accessor :initialCoding     # 0-1 Coding
-      attr_accessor :initialQuantity   # 0-1 Quantity
-      attr_accessor :initialReference  # 0-1 Reference(Resource)
-      attr_accessor :item              # 0-* [ Questionnaire::Item ]
-    end
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :url               # 0-1 uri
-    attr_accessor :identifier        # 0-* [ Identifier ]
-    attr_accessor :version           # 0-1 string
-    attr_accessor :status            # 1-1 code
-    attr_accessor :date              # 0-1 dateTime
-    attr_accessor :publisher         # 0-1 string
-    attr_accessor :telecom           # 0-* [ ContactPoint ]
-    attr_accessor :useContext        # 0-* [ CodeableConcept ]
-    attr_accessor :title             # 0-1 string
-    attr_accessor :concept           # 0-* [ Coding ]
-    attr_accessor :subjectType       # 0-* [ code ]
-    attr_accessor :item              # 0-* [ Questionnaire::Item ]
-
-    def resourceType
-      'Questionnaire'
     end
   end
 end

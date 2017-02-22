@@ -39,44 +39,6 @@ module FHIR
         'required' => {'valid_codes'=>{'http://hl7.org/fhir/participantrequired'=>['required', 'optional', 'information-only', 'required', 'optional', 'information-only']}, 'type'=>'code', 'path'=>'Participant.required', 'min'=>0, 'max'=>1, 'binding'=>{'strength'=>'required', 'uri'=>'http://hl7.org/fhir/ValueSet/participantrequired'}},
         'status' => {'valid_codes'=>{'http://hl7.org/fhir/participationstatus'=>['accepted', 'declined', 'tentative', 'needs-action', 'accepted', 'declined', 'tentative', 'needs-action']}, 'type'=>'code', 'path'=>'Participant.status', 'min'=>1, 'max'=>1, 'binding'=>{'strength'=>'required', 'uri'=>'http://hl7.org/fhir/ValueSet/participationstatus'}}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :type              # 0-* [ CodeableConcept ]
-      attr_accessor :actor             # 0-1 Reference(Patient|Practitioner|RelatedPerson|Device|HealthcareService|Location)
-      attr_accessor :required          # 0-1 code
-      attr_accessor :status            # 1-1 code
-    end
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :identifier        # 0-* [ Identifier ]
-    attr_accessor :status            # 1-1 code
-    attr_accessor :serviceCategory   # 0-1 CodeableConcept
-    attr_accessor :serviceType       # 0-* [ CodeableConcept ]
-    attr_accessor :specialty         # 0-* [ CodeableConcept ]
-    attr_accessor :appointmentType   # 0-1 CodeableConcept
-    attr_accessor :reason            # 0-1 CodeableConcept
-    attr_accessor :priority          # 0-1 unsignedInt
-    attr_accessor :description       # 0-1 string
-    attr_accessor :start             # 0-1 instant
-    attr_accessor :end               # 0-1 instant
-    attr_accessor :minutesDuration   # 0-1 positiveInt
-    attr_accessor :slot              # 0-* [ Reference(Slot) ]
-    attr_accessor :created           # 0-1 dateTime
-    attr_accessor :comment           # 0-1 string
-    attr_accessor :participant       # 1-* [ Appointment::Participant ]
-    attr_accessor :requestedPeriod   # 0-* [ Period ]
-
-    def resourceType
-      'Appointment'
     end
   end
 end

@@ -31,36 +31,6 @@ module FHIR
         'state' => {'valid_codes'=>{'http://hl7.org/fhir/metric-calibration-state'=>['not-calibrated', 'calibration-required', 'calibrated', 'unspecified', 'not-calibrated', 'calibration-required', 'calibrated', 'unspecified']}, 'type'=>'code', 'path'=>'Calibration.state', 'min'=>0, 'max'=>1, 'binding'=>{'strength'=>'required', 'uri'=>'http://hl7.org/fhir/ValueSet/metric-calibration-state'}},
         'time' => {'type'=>'instant', 'path'=>'Calibration.time', 'min'=>0, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :type              # 0-1 code
-      attr_accessor :state             # 0-1 code
-      attr_accessor :time              # 0-1 instant
-    end
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :type              # 1-1 CodeableConcept
-    attr_accessor :identifier        # 1-1 Identifier
-    attr_accessor :unit              # 0-1 CodeableConcept
-    attr_accessor :source            # 0-1 Reference(Device)
-    attr_accessor :parent            # 0-1 Reference(DeviceComponent)
-    attr_accessor :operationalStatus # 0-1 code
-    attr_accessor :color             # 0-1 code
-    attr_accessor :category          # 1-1 code
-    attr_accessor :measurementPeriod # 0-1 Timing
-    attr_accessor :calibration       # 0-* [ DeviceMetric::Calibration ]
-
-    def resourceType
-      'DeviceMetric'
     end
   end
 end

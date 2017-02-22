@@ -38,43 +38,6 @@ module FHIR
         'name' => {'type'=>'string', 'path'=>'Mapping.name', 'min'=>0, 'max'=>1},
         'comment' => {'type'=>'string', 'path'=>'Mapping.comment', 'min'=>0, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :identity          # 1-1 id
-      attr_accessor :uri               # 0-1 uri
-      attr_accessor :name              # 0-1 string
-      attr_accessor :comment           # 0-1 string
-    end
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :url               # 0-1 uri
-    attr_accessor :identifier        # 0-* [ Identifier ]
-    attr_accessor :version           # 0-1 string
-    attr_accessor :status            # 1-1 code
-    attr_accessor :experimental      # 0-1 boolean
-    attr_accessor :publisher         # 0-1 string
-    attr_accessor :date              # 0-1 dateTime
-    attr_accessor :name              # 0-1 string
-    attr_accessor :title             # 0-1 string
-    attr_accessor :contact           # 0-* [ ContactDetail ]
-    attr_accessor :useContext        # 0-* [ UsageContext ]
-    attr_accessor :jurisdiction      # 0-* [ CodeableConcept ]
-    attr_accessor :copyright         # 0-1 markdown
-    attr_accessor :stringency        # 0-1 code
-    attr_accessor :mapping           # 0-* [ DataElement::Mapping ]
-    attr_accessor :element           # 1-* [ ElementDefinition ]
-
-    def resourceType
-      'DataElement'
     end
   end
 end

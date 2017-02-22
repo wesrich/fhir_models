@@ -17,24 +17,5 @@ module FHIR
       'description' => {'type'=>'string', 'path'=>'BodySite.description', 'min'=>0, 'max'=>1},
       'image' => {'type'=>'Attachment', 'path'=>'BodySite.image', 'min'=>0, 'max'=>Float::INFINITY}
     }
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :patient           # 1-1 Reference(Patient)
-    attr_accessor :identifier        # 0-* [ Identifier ]
-    attr_accessor :code              # 0-1 CodeableConcept
-    attr_accessor :modifier          # 0-* [ CodeableConcept ]
-    attr_accessor :description       # 0-1 string
-    attr_accessor :image             # 0-* [ Attachment ]
-
-    def resourceType
-      'BodySite'
-    end
   end
 end

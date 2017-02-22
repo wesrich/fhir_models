@@ -41,46 +41,6 @@ module FHIR
         'code' => {'type'=>'CodeableConcept', 'path'=>'Arm.code', 'min'=>0, 'max'=>1},
         'description' => {'type'=>'string', 'path'=>'Arm.description', 'min'=>0, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :name              # 1-1 string
-      attr_accessor :code              # 0-1 CodeableConcept
-      attr_accessor :description       # 0-1 string
-    end
-
-    attr_accessor :id                    # 0-1 id
-    attr_accessor :meta                  # 0-1 Meta
-    attr_accessor :implicitRules         # 0-1 uri
-    attr_accessor :language              # 0-1 code
-    attr_accessor :text                  # 0-1 Narrative
-    attr_accessor :contained             # 0-* [ Resource ]
-    attr_accessor :extension             # 0-* [ Extension ]
-    attr_accessor :modifierExtension     # 0-* [ Extension ]
-    attr_accessor :identifier            # 0-* [ Identifier ]
-    attr_accessor :title                 # 0-1 string
-    attr_accessor :protocol              # 0-* [ Reference(PlanDefinition) ]
-    attr_accessor :partOf                # 0-* [ Reference(ResearchStudy) ]
-    attr_accessor :status                # 1-1 code
-    attr_accessor :category              # 0-* [ CodeableConcept ]
-    attr_accessor :focus                 # 0-* [ CodeableConcept ]
-    attr_accessor :contact               # 0-* [ ContactDetail ]
-    attr_accessor :relatedArtifact       # 0-* [ RelatedArtifact ]
-    attr_accessor :keyword               # 0-* [ CodeableConcept ]
-    attr_accessor :jurisdiction          # 0-* [ CodeableConcept ]
-    attr_accessor :description           # 0-1 markdown
-    attr_accessor :enrollment            # 0-* [ Reference(Group) ]
-    attr_accessor :period                # 0-1 Period
-    attr_accessor :sponsor               # 0-1 Reference(Organization)
-    attr_accessor :principalInvestigator # 0-1 Reference(Practitioner)
-    attr_accessor :site                  # 0-* [ Reference(Location) ]
-    attr_accessor :reasonStopped         # 0-1 CodeableConcept
-    attr_accessor :note                  # 0-* [ Annotation ]
-    attr_accessor :arm                   # 0-* [ ResearchStudy::Arm ]
-
-    def resourceType
-      'ResearchStudy'
     end
   end
 end

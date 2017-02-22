@@ -43,41 +43,6 @@ module FHIR
         'resultCodeableConcept' => {'type'=>'CodeableConcept', 'path'=>'Outcome.result[x]', 'min'=>0, 'max'=>1, 'binding'=>{'strength'=>'example', 'uri'=>nil}},
         'resultReference' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Observation'], 'type'=>'Reference', 'path'=>'Outcome.result[x]', 'min'=>0, 'max'=>1}
       }
-
-      attr_accessor :id                    # 0-1 string
-      attr_accessor :extension             # 0-* [ Extension ]
-      attr_accessor :modifierExtension     # 0-* [ Extension ]
-      attr_accessor :resultCodeableConcept # 0-1 CodeableConcept
-      attr_accessor :resultReference       # 0-1 Reference(Observation)
-    end
-
-    attr_accessor :id                   # 0-1 id
-    attr_accessor :meta                 # 0-1 Meta
-    attr_accessor :implicitRules        # 0-1 uri
-    attr_accessor :language             # 0-1 code
-    attr_accessor :text                 # 0-1 Narrative
-    attr_accessor :contained            # 0-* [ Resource ]
-    attr_accessor :extension            # 0-* [ Extension ]
-    attr_accessor :modifierExtension    # 0-* [ Extension ]
-    attr_accessor :identifier           # 0-* [ Identifier ]
-    attr_accessor :status               # 1-1 code
-    attr_accessor :category             # 0-* [ CodeableConcept ]
-    attr_accessor :priority             # 0-1 CodeableConcept
-    attr_accessor :description          # 1-1 CodeableConcept
-    attr_accessor :subject              # 0-1 Reference(Patient|Group|Organization)
-    attr_accessor :startDate            # 0-1 date
-    attr_accessor :startCodeableConcept # 0-1 CodeableConcept
-    attr_accessor :targetDate           # 0-1 date
-    attr_accessor :targetDuration       # 0-1 Duration
-    attr_accessor :statusDate           # 0-1 date
-    attr_accessor :statusReason         # 0-* [ CodeableConcept ]
-    attr_accessor :expressedBy          # 0-1 Reference(Patient|Practitioner|RelatedPerson)
-    attr_accessor :addresses            # 0-* [ Reference(Condition|Observation|MedicationStatement|NutritionRequest|ProcedureRequest|RiskAssessment) ]
-    attr_accessor :note                 # 0-* [ Annotation ]
-    attr_accessor :outcome              # 0-* [ Goal::Outcome ]
-
-    def resourceType
-      'Goal'
     end
   end
 end

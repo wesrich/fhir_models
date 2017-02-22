@@ -55,14 +55,6 @@ module FHIR
           'amount' => {'type'=>'Money', 'path'=>'Adjudication.amount', 'min'=>0, 'max'=>1},
           'value' => {'type'=>'decimal', 'path'=>'Adjudication.value', 'min'=>0, 'max'=>1}
         }
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :category          # 1-1 CodeableConcept
-        attr_accessor :reason            # 0-1 CodeableConcept
-        attr_accessor :amount            # 0-1 Money
-        attr_accessor :value             # 0-1 decimal
       end
 
       class Detail < FHIR::Model
@@ -85,31 +77,8 @@ module FHIR
             'noteNumber' => {'type'=>'positiveInt', 'path'=>'SubDetail.noteNumber', 'min'=>0, 'max'=>Float::INFINITY},
             'adjudication' => {'type'=>'ClaimResponse::Item::Adjudication', 'path'=>'SubDetail.adjudication', 'min'=>0, 'max'=>Float::INFINITY}
           }
-
-          attr_accessor :id                # 0-1 string
-          attr_accessor :extension         # 0-* [ Extension ]
-          attr_accessor :modifierExtension # 0-* [ Extension ]
-          attr_accessor :sequenceLinkId    # 1-1 positiveInt
-          attr_accessor :noteNumber        # 0-* [ positiveInt ]
-          attr_accessor :adjudication      # 0-* [ ClaimResponse::Item::Adjudication ]
         end
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :sequenceLinkId    # 1-1 positiveInt
-        attr_accessor :noteNumber        # 0-* [ positiveInt ]
-        attr_accessor :adjudication      # 0-* [ ClaimResponse::Item::Adjudication ]
-        attr_accessor :subDetail         # 0-* [ ClaimResponse::Item::Detail::SubDetail ]
       end
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :sequenceLinkId    # 1-1 positiveInt
-      attr_accessor :noteNumber        # 0-* [ positiveInt ]
-      attr_accessor :adjudication      # 0-* [ ClaimResponse::Item::Adjudication ]
-      attr_accessor :detail            # 0-* [ ClaimResponse::Item::Detail ]
     end
 
     class AddItem < FHIR::Model
@@ -141,31 +110,7 @@ module FHIR
           'noteNumber' => {'type'=>'positiveInt', 'path'=>'Detail.noteNumber', 'min'=>0, 'max'=>Float::INFINITY},
           'adjudication' => {'type'=>'ClaimResponse::Item::Adjudication', 'path'=>'Detail.adjudication', 'min'=>0, 'max'=>Float::INFINITY}
         }
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :revenue           # 0-1 CodeableConcept
-        attr_accessor :category          # 0-1 CodeableConcept
-        attr_accessor :service           # 0-1 CodeableConcept
-        attr_accessor :modifier          # 0-* [ CodeableConcept ]
-        attr_accessor :fee               # 0-1 Money
-        attr_accessor :noteNumber        # 0-* [ positiveInt ]
-        attr_accessor :adjudication      # 0-* [ ClaimResponse::Item::Adjudication ]
       end
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :sequenceLinkId    # 0-* [ positiveInt ]
-      attr_accessor :revenue           # 0-1 CodeableConcept
-      attr_accessor :category          # 0-1 CodeableConcept
-      attr_accessor :service           # 0-1 CodeableConcept
-      attr_accessor :modifier          # 0-* [ CodeableConcept ]
-      attr_accessor :fee               # 0-1 Money
-      attr_accessor :noteNumber        # 0-* [ positiveInt ]
-      attr_accessor :adjudication      # 0-* [ ClaimResponse::Item::Adjudication ]
-      attr_accessor :detail            # 0-* [ ClaimResponse::AddItem::Detail ]
     end
 
     class Error < FHIR::Model
@@ -178,14 +123,6 @@ module FHIR
         'subdetailSequenceLinkId' => {'type'=>'positiveInt', 'path'=>'Error.subdetailSequenceLinkId', 'min'=>0, 'max'=>1},
         'code' => {'valid_codes'=>{'http://hl7.org/fhir/adjudication-error'=>['a001', 'a002', 'a001', 'a002']}, 'type'=>'CodeableConcept', 'path'=>'Error.code', 'min'=>1, 'max'=>1, 'binding'=>{'strength'=>'extensible', 'uri'=>'http://hl7.org/fhir/ValueSet/adjudication-error'}}
       }
-
-      attr_accessor :id                      # 0-1 string
-      attr_accessor :extension               # 0-* [ Extension ]
-      attr_accessor :modifierExtension       # 0-* [ Extension ]
-      attr_accessor :sequenceLinkId          # 0-1 positiveInt
-      attr_accessor :detailSequenceLinkId    # 0-1 positiveInt
-      attr_accessor :subdetailSequenceLinkId # 0-1 positiveInt
-      attr_accessor :code                    # 1-1 CodeableConcept
     end
 
     class Payment < FHIR::Model
@@ -200,16 +137,6 @@ module FHIR
         'amount' => {'type'=>'Money', 'path'=>'Payment.amount', 'min'=>0, 'max'=>1},
         'identifier' => {'type'=>'Identifier', 'path'=>'Payment.identifier', 'min'=>0, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :type              # 0-1 CodeableConcept
-      attr_accessor :adjustment        # 0-1 Money
-      attr_accessor :adjustmentReason  # 0-1 CodeableConcept
-      attr_accessor :date              # 0-1 date
-      attr_accessor :amount            # 0-1 Money
-      attr_accessor :identifier        # 0-1 Identifier
     end
 
     class Note < FHIR::Model
@@ -222,14 +149,6 @@ module FHIR
         'text' => {'type'=>'string', 'path'=>'Note.text', 'min'=>0, 'max'=>1},
         'language' => {'valid_codes'=>{'urn:ietf:bcp:47'=>['bn', 'cs', 'da', 'de', 'de-AT', 'de-CH', 'de-DE', 'el', 'en', 'en-AU', 'en-CA', 'en-GB', 'en-IN', 'en-NZ', 'en-SG', 'en-US', 'es', 'es-AR', 'es-ES', 'es-UY', 'fi', 'fr', 'fr-BE', 'fr-CH', 'fr-FR', 'fy', 'fy-NL', 'hr', 'it', 'it-CH', 'it-IT', 'ja', 'ko', 'nl', 'nl-BE', 'nl-NL', 'no', 'no-NO', 'pt', 'pt-BR', 'ru', 'ru-RU', 'sr', 'sr-SP', 'sv', 'sv-SE', 'te', 'zh', 'zh-CN', 'zh-HK', 'zh-SG', 'zh-TW']}, 'type'=>'CodeableConcept', 'path'=>'Note.language', 'min'=>0, 'max'=>1, 'binding'=>{'strength'=>'extensible', 'uri'=>'http://hl7.org/fhir/ValueSet/languages'}}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :number            # 0-1 positiveInt
-      attr_accessor :type              # 0-1 CodeableConcept
-      attr_accessor :text              # 0-1 string
-      attr_accessor :language          # 0-1 CodeableConcept
     end
 
     class Insurance < FHIR::Model
@@ -244,51 +163,6 @@ module FHIR
         'preAuthRef' => {'type'=>'string', 'path'=>'Insurance.preAuthRef', 'min'=>0, 'max'=>Float::INFINITY},
         'claimResponse' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/ClaimResponse'], 'type'=>'Reference', 'path'=>'Insurance.claimResponse', 'min'=>0, 'max'=>1}
       }
-
-      attr_accessor :id                  # 0-1 string
-      attr_accessor :extension           # 0-* [ Extension ]
-      attr_accessor :modifierExtension   # 0-* [ Extension ]
-      attr_accessor :sequence            # 1-1 positiveInt
-      attr_accessor :focal               # 1-1 boolean
-      attr_accessor :coverage            # 1-1 Reference(Coverage)
-      attr_accessor :businessArrangement # 0-1 string
-      attr_accessor :preAuthRef          # 0-* [ string ]
-      attr_accessor :claimResponse       # 0-1 Reference(ClaimResponse)
-    end
-
-    attr_accessor :id                   # 0-1 id
-    attr_accessor :meta                 # 0-1 Meta
-    attr_accessor :implicitRules        # 0-1 uri
-    attr_accessor :language             # 0-1 code
-    attr_accessor :text                 # 0-1 Narrative
-    attr_accessor :contained            # 0-* [ Resource ]
-    attr_accessor :extension            # 0-* [ Extension ]
-    attr_accessor :modifierExtension    # 0-* [ Extension ]
-    attr_accessor :identifier           # 0-* [ Identifier ]
-    attr_accessor :status               # 0-1 code
-    attr_accessor :created              # 0-1 dateTime
-    attr_accessor :insurer              # 0-1 Reference(Organization)
-    attr_accessor :requestProvider      # 0-1 Reference(Practitioner)
-    attr_accessor :requestOrganization  # 0-1 Reference(Organization)
-    attr_accessor :request              # 0-1 Reference(Claim)
-    attr_accessor :outcome              # 0-1 CodeableConcept
-    attr_accessor :disposition          # 0-1 string
-    attr_accessor :payeeType            # 0-1 CodeableConcept
-    attr_accessor :item                 # 0-* [ ClaimResponse::Item ]
-    attr_accessor :addItem              # 0-* [ ClaimResponse::AddItem ]
-    attr_accessor :error                # 0-* [ ClaimResponse::Error ]
-    attr_accessor :totalCost            # 0-1 Money
-    attr_accessor :unallocDeductable    # 0-1 Money
-    attr_accessor :totalBenefit         # 0-1 Money
-    attr_accessor :payment              # 0-1 ClaimResponse::Payment
-    attr_accessor :reserved             # 0-1 Coding
-    attr_accessor :form                 # 0-1 CodeableConcept
-    attr_accessor :note                 # 0-* [ ClaimResponse::Note ]
-    attr_accessor :communicationRequest # 0-* [ Reference(CommunicationRequest) ]
-    attr_accessor :insurance            # 0-* [ ClaimResponse::Insurance ]
-
-    def resourceType
-      'ClaimResponse'
     end
   end
 end

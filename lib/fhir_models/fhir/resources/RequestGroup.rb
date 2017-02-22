@@ -67,14 +67,6 @@ module FHIR
           'language' => {'type'=>'string', 'path'=>'Condition.language', 'min'=>0, 'max'=>1},
           'expression' => {'type'=>'string', 'path'=>'Condition.expression', 'min'=>0, 'max'=>1}
         }
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :kind              # 1-1 code
-        attr_accessor :description       # 0-1 string
-        attr_accessor :language          # 0-1 string
-        attr_accessor :expression        # 0-1 string
       end
 
       class RelatedAction < FHIR::Model
@@ -90,64 +82,7 @@ module FHIR
           'offsetDuration' => {'type'=>'Duration', 'path'=>'RelatedAction.offset[x]', 'min'=>0, 'max'=>1},
           'offsetRange' => {'type'=>'Range', 'path'=>'RelatedAction.offset[x]', 'min'=>0, 'max'=>1}
         }
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :actionIdentifier  # 1-1 Identifier
-        attr_accessor :relationship      # 1-1 code
-        attr_accessor :offsetDuration    # 0-1 Duration
-        attr_accessor :offsetRange       # 0-1 Range
       end
-
-      attr_accessor :id                  # 0-1 string
-      attr_accessor :extension           # 0-* [ Extension ]
-      attr_accessor :modifierExtension   # 0-* [ Extension ]
-      attr_accessor :actionIdentifier    # 0-1 Identifier
-      attr_accessor :label               # 0-1 string
-      attr_accessor :title               # 0-1 string
-      attr_accessor :description         # 0-1 string
-      attr_accessor :textEquivalent      # 0-1 string
-      attr_accessor :code                # 0-* [ CodeableConcept ]
-      attr_accessor :documentation       # 0-* [ RelatedArtifact ]
-      attr_accessor :condition           # 0-* [ RequestGroup::Action::Condition ]
-      attr_accessor :relatedAction       # 0-* [ RequestGroup::Action::RelatedAction ]
-      attr_accessor :timingDateTime      # 0-1 dateTime
-      attr_accessor :timingPeriod        # 0-1 Period
-      attr_accessor :timingDuration      # 0-1 Duration
-      attr_accessor :timingRange         # 0-1 Range
-      attr_accessor :timingTiming        # 0-1 Timing
-      attr_accessor :participant         # 0-* [ Reference(Patient|Person|Practitioner|RelatedPerson) ]
-      attr_accessor :type                # 0-1 Coding
-      attr_accessor :groupingBehavior    # 0-1 code
-      attr_accessor :selectionBehavior   # 0-1 code
-      attr_accessor :requiredBehavior    # 0-1 code
-      attr_accessor :precheckBehavior    # 0-1 code
-      attr_accessor :cardinalityBehavior # 0-1 code
-      attr_accessor :resource            # 0-1 Reference(Resource)
-      attr_accessor :action              # 0-* [ RequestGroup::Action ]
-    end
-
-    attr_accessor :id                    # 0-1 id
-    attr_accessor :meta                  # 0-1 Meta
-    attr_accessor :implicitRules         # 0-1 uri
-    attr_accessor :language              # 0-1 code
-    attr_accessor :text                  # 0-1 Narrative
-    attr_accessor :contained             # 0-* [ Resource ]
-    attr_accessor :extension             # 0-* [ Extension ]
-    attr_accessor :modifierExtension     # 0-* [ Extension ]
-    attr_accessor :identifier            # 0-1 Identifier
-    attr_accessor :subject               # 0-1 Reference(Patient|Group)
-    attr_accessor :context               # 0-1 Reference(Encounter|EpisodeOfCare)
-    attr_accessor :occurrenceDateTime    # 0-1 dateTime
-    attr_accessor :author                # 0-1 Reference(Device|Practitioner)
-    attr_accessor :reasonCodeableConcept # 0-1 CodeableConcept
-    attr_accessor :reasonReference       # 0-1 Reference(Resource)
-    attr_accessor :note                  # 0-* [ Annotation ]
-    attr_accessor :action                # 0-* [ RequestGroup::Action ]
-
-    def resourceType
-      'RequestGroup'
     end
   end
 end

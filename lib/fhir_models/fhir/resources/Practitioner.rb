@@ -38,19 +38,6 @@ module FHIR
         'healthcareService' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/HealthcareService'], 'type'=>'Reference', 'path'=>'Role.healthcareService', 'min'=>0, 'max'=>Float::INFINITY},
         'endpoint' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Endpoint'], 'type'=>'Reference', 'path'=>'Role.endpoint', 'min'=>0, 'max'=>Float::INFINITY}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :organization      # 0-1 Reference(Organization)
-      attr_accessor :code              # 0-1 CodeableConcept
-      attr_accessor :specialty         # 0-* [ CodeableConcept ]
-      attr_accessor :identifier        # 0-* [ Identifier ]
-      attr_accessor :telecom           # 0-* [ ContactPoint ]
-      attr_accessor :period            # 0-1 Period
-      attr_accessor :location          # 0-* [ Reference(Location) ]
-      attr_accessor :healthcareService # 0-* [ Reference(HealthcareService) ]
-      attr_accessor :endpoint          # 0-* [ Reference(Endpoint) ]
     end
 
     class Qualification < FHIR::Model
@@ -63,38 +50,6 @@ module FHIR
         'period' => {'type'=>'Period', 'path'=>'Qualification.period', 'min'=>0, 'max'=>1},
         'issuer' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Organization'], 'type'=>'Reference', 'path'=>'Qualification.issuer', 'min'=>0, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :identifier        # 0-* [ Identifier ]
-      attr_accessor :code              # 1-1 CodeableConcept
-      attr_accessor :period            # 0-1 Period
-      attr_accessor :issuer            # 0-1 Reference(Organization)
-    end
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :identifier        # 0-* [ Identifier ]
-    attr_accessor :active            # 0-1 boolean
-    attr_accessor :name              # 0-* [ HumanName ]
-    attr_accessor :telecom           # 0-* [ ContactPoint ]
-    attr_accessor :address           # 0-* [ Address ]
-    attr_accessor :gender            # 0-1 code
-    attr_accessor :birthDate         # 0-1 date
-    attr_accessor :photo             # 0-* [ Attachment ]
-    attr_accessor :role              # 0-* [ Practitioner::Role ]
-    attr_accessor :qualification     # 0-* [ Practitioner::Qualification ]
-    attr_accessor :communication     # 0-* [ CodeableConcept ]
-
-    def resourceType
-      'Practitioner'
     end
   end
 end

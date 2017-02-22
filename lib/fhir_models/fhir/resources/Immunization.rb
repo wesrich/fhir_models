@@ -42,12 +42,6 @@ module FHIR
         'reason' => {'valid_codes'=>{'http://snomed.info/sct'=>['429060002', '281657000']}, 'type'=>'CodeableConcept', 'path'=>'Explanation.reason', 'min'=>0, 'max'=>Float::INFINITY, 'binding'=>{'strength'=>'example', 'uri'=>'http://hl7.org/fhir/ValueSet/immunization-reason'}},
         'reasonNotGiven' => {'valid_codes'=>{'http://hl7.org/fhir/v3/ActReason'=>['IMMUNE', 'MEDPREC', 'OSTOCK', 'PATOBJ'], 'http://snomed.info/sct'=>['171257003', '171265000', '171266004', '171267008', '171268003', '171269006', '171270007', '171271006', '171272004', '171280006', '171283008', '171285001', '171286000', '171291004', '171292006', '171293001', '268559007', '310839003', '310840001', '314768003', '314769006', '314936001', '407598009']}, 'type'=>'CodeableConcept', 'path'=>'Explanation.reasonNotGiven', 'min'=>0, 'max'=>Float::INFINITY, 'binding'=>{'strength'=>'example', 'uri'=>'http://hl7.org/fhir/ValueSet/no-immunization-reason'}}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :reason            # 0-* [ CodeableConcept ]
-      attr_accessor :reasonNotGiven    # 0-* [ CodeableConcept ]
     end
 
     class Reaction < FHIR::Model
@@ -59,13 +53,6 @@ module FHIR
         'detail' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Observation'], 'type'=>'Reference', 'path'=>'Reaction.detail', 'min'=>0, 'max'=>1},
         'reported' => {'type'=>'boolean', 'path'=>'Reaction.reported', 'min'=>0, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :date              # 0-1 dateTime
-      attr_accessor :detail            # 0-1 Reference(Observation)
-      attr_accessor :reported          # 0-1 boolean
     end
 
     class VaccinationProtocol < FHIR::Model
@@ -82,53 +69,6 @@ module FHIR
         'doseStatus' => {'valid_codes'=>{'http://hl7.org/fhir/vaccination-protocol-dose-status'=>['count', 'nocount', 'count', 'nocount']}, 'type'=>'CodeableConcept', 'path'=>'VaccinationProtocol.doseStatus', 'min'=>1, 'max'=>1, 'binding'=>{'strength'=>'example', 'uri'=>'http://hl7.org/fhir/ValueSet/vaccination-protocol-dose-status'}},
         'doseStatusReason' => {'valid_codes'=>{'http://hl7.org/fhir/vaccination-protocol-dose-status-reason'=>['advstorage', 'coldchbrk', 'explot', 'outsidesched', 'prodrecall', 'advstorage', 'coldchbrk', 'explot', 'outsidesched', 'prodrecall']}, 'type'=>'CodeableConcept', 'path'=>'VaccinationProtocol.doseStatusReason', 'min'=>0, 'max'=>1, 'binding'=>{'strength'=>'example', 'uri'=>'http://hl7.org/fhir/ValueSet/vaccination-protocol-dose-status-reason'}}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :doseSequence      # 0-1 positiveInt
-      attr_accessor :description       # 0-1 string
-      attr_accessor :authority         # 0-1 Reference(Organization)
-      attr_accessor :series            # 0-1 string
-      attr_accessor :seriesDoses       # 0-1 positiveInt
-      attr_accessor :targetDisease     # 1-* [ CodeableConcept ]
-      attr_accessor :doseStatus        # 1-1 CodeableConcept
-      attr_accessor :doseStatusReason  # 0-1 CodeableConcept
-    end
-
-    attr_accessor :id                  # 0-1 id
-    attr_accessor :meta                # 0-1 Meta
-    attr_accessor :implicitRules       # 0-1 uri
-    attr_accessor :language            # 0-1 code
-    attr_accessor :text                # 0-1 Narrative
-    attr_accessor :contained           # 0-* [ Resource ]
-    attr_accessor :extension           # 0-* [ Extension ]
-    attr_accessor :modifierExtension   # 0-* [ Extension ]
-    attr_accessor :identifier          # 0-* [ Identifier ]
-    attr_accessor :status              # 1-1 code
-    attr_accessor :date                # 0-1 dateTime
-    attr_accessor :vaccineCode         # 1-1 CodeableConcept
-    attr_accessor :patient             # 1-1 Reference(Patient)
-    attr_accessor :wasNotGiven         # 1-1 boolean
-    attr_accessor :primarySource       # 1-1 boolean
-    attr_accessor :reportOrigin        # 0-1 CodeableConcept
-    attr_accessor :performer           # 0-1 Reference(Practitioner)
-    attr_accessor :requester           # 0-1 Reference(Practitioner)
-    attr_accessor :encounter           # 0-1 Reference(Encounter)
-    attr_accessor :manufacturer        # 0-1 Reference(Organization)
-    attr_accessor :location            # 0-1 Reference(Location)
-    attr_accessor :lotNumber           # 0-1 string
-    attr_accessor :expirationDate      # 0-1 date
-    attr_accessor :site                # 0-1 CodeableConcept
-    attr_accessor :route               # 0-1 CodeableConcept
-    attr_accessor :doseQuantity        # 0-1 Quantity
-    attr_accessor :note                # 0-* [ Annotation ]
-    attr_accessor :explanation         # 0-1 Immunization::Explanation
-    attr_accessor :reaction            # 0-* [ Immunization::Reaction ]
-    attr_accessor :vaccinationProtocol # 0-* [ Immunization::VaccinationProtocol ]
-
-    def resourceType
-      'Immunization'
     end
   end
 end

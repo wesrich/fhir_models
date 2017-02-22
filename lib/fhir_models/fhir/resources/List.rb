@@ -35,40 +35,6 @@ module FHIR
         'date' => {'type'=>'dateTime', 'path'=>'Entry.date', 'min'=>0, 'max'=>1},
         'item' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Resource'], 'type'=>'Reference', 'path'=>'Entry.item', 'min'=>1, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :flag              # 0-1 CodeableConcept
-      attr_accessor :deleted           # 0-1 boolean
-      attr_accessor :date              # 0-1 dateTime
-      attr_accessor :item              # 1-1 Reference(Resource)
-    end
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :identifier        # 0-* [ Identifier ]
-    attr_accessor :status            # 1-1 code
-    attr_accessor :mode              # 1-1 code
-    attr_accessor :title             # 0-1 string
-    attr_accessor :code              # 0-1 CodeableConcept
-    attr_accessor :subject           # 0-1 Reference(Patient|Group|Device|Location)
-    attr_accessor :encounter         # 0-1 Reference(Encounter)
-    attr_accessor :date              # 0-1 dateTime
-    attr_accessor :source            # 0-1 Reference(Practitioner|Patient|Device)
-    attr_accessor :orderedBy         # 0-1 CodeableConcept
-    attr_accessor :note              # 0-* [ Annotation ]
-    attr_accessor :entry             # 0-* [ List::Entry ]
-    attr_accessor :emptyReason       # 0-1 CodeableConcept
-
-    def resourceType
-      'List'
     end
   end
 end

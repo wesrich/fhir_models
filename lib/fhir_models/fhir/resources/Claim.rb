@@ -51,13 +51,6 @@ module FHIR
         'relationship' => {'valid_codes'=>{'http://hl7.org/fhir/ex-relatedclaimrelationship'=>['prior', 'associated', 'prior', 'associated']}, 'type'=>'CodeableConcept', 'path'=>'Related.relationship', 'min'=>0, 'max'=>1, 'binding'=>{'strength'=>'example', 'uri'=>'http://hl7.org/fhir/ValueSet/related-claim-relationship'}},
         'reference' => {'type'=>'Identifier', 'path'=>'Related.reference', 'min'=>0, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :claim             # 0-1 Reference(Claim)
-      attr_accessor :relationship      # 0-1 CodeableConcept
-      attr_accessor :reference         # 0-1 Identifier
     end
 
     class Payee < FHIR::Model
@@ -69,13 +62,6 @@ module FHIR
         'resourceType' => {'local_name'=>'local_resourceType', 'valid_codes'=>{'http://hl7.org/fhir/ex-payee-resource-type'=>['organization', 'patient', 'practitioner', 'relatedperson', 'organization', 'patient', 'practitioner', 'relatedperson']}, 'type'=>'Coding', 'path'=>'Payee.resourceType', 'min'=>0, 'max'=>1, 'binding'=>{'strength'=>'example', 'uri'=>'http://hl7.org/fhir/ValueSet/ex-payee-resource-type'}},
         'party' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Practitioner', 'http://hl7.org/fhir/StructureDefinition/Organization', 'http://hl7.org/fhir/StructureDefinition/Patient', 'http://hl7.org/fhir/StructureDefinition/RelatedPerson'], 'type'=>'Reference', 'path'=>'Payee.party', 'min'=>0, 'max'=>1}
       }
-
-      attr_accessor :id                 # 0-1 string
-      attr_accessor :extension          # 0-* [ Extension ]
-      attr_accessor :modifierExtension  # 0-* [ Extension ]
-      attr_accessor :type               # 1-1 CodeableConcept
-      attr_accessor :local_resourceType # 0-1 Coding
-      attr_accessor :party              # 0-1 Reference(Practitioner|Organization|Patient|RelatedPerson)
     end
 
     class CareTeam < FHIR::Model
@@ -89,15 +75,6 @@ module FHIR
         'role' => {'valid_codes'=>{'http://hl7.org/fhir/claimcareteamrole'=>['primary', 'assist', 'supervisor', 'other', 'primary', 'assist', 'supervisor', 'other']}, 'type'=>'CodeableConcept', 'path'=>'CareTeam.role', 'min'=>0, 'max'=>1, 'binding'=>{'strength'=>'example', 'uri'=>'http://hl7.org/fhir/ValueSet/claim-careteamrole'}},
         'qualification' => {'valid_codes'=>{'http://hl7.org/fhir/ex-providerqualification'=>['311405', '604215', '604210', '311405', '604215', '604210']}, 'type'=>'CodeableConcept', 'path'=>'CareTeam.qualification', 'min'=>0, 'max'=>1, 'binding'=>{'strength'=>'example', 'uri'=>'http://hl7.org/fhir/ValueSet/provider-qualification'}}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :sequence          # 1-1 positiveInt
-      attr_accessor :provider          # 1-1 Reference(Practitioner|Organization)
-      attr_accessor :responsible       # 0-1 boolean
-      attr_accessor :role              # 0-1 CodeableConcept
-      attr_accessor :qualification     # 0-1 CodeableConcept
     end
 
     class Information < FHIR::Model
@@ -119,19 +96,6 @@ module FHIR
         'valueReference' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Resource'], 'type'=>'Reference', 'path'=>'Information.value[x]', 'min'=>0, 'max'=>1},
         'reason' => {'valid_codes'=>{'http://hl7.org/fhir/missingtoothreason'=>['e', 'c', 'u', 'o', 'e', 'c', 'u', 'o']}, 'type'=>'CodeableConcept', 'path'=>'Information.reason', 'min'=>0, 'max'=>1, 'binding'=>{'strength'=>'example', 'uri'=>'http://hl7.org/fhir/ValueSet/missing-tooth-reason'}}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :category          # 1-1 CodeableConcept
-      attr_accessor :code              # 0-1 CodeableConcept
-      attr_accessor :timingDate        # 0-1 date
-      attr_accessor :timingPeriod      # 0-1 Period
-      attr_accessor :valueString       # 0-1 string
-      attr_accessor :valueQuantity     # 0-1 Quantity
-      attr_accessor :valueAttachment   # 0-1 Attachment
-      attr_accessor :valueReference    # 0-1 Reference(Resource)
-      attr_accessor :reason            # 0-1 CodeableConcept
     end
 
     class Diagnosis < FHIR::Model
@@ -148,15 +112,6 @@ module FHIR
         'type' => {'valid_codes'=>{'http://hl7.org/fhir/ex-diagnosistype'=>['admitting', 'clinical', 'differential', 'discharge', 'laboratory', 'nursing', 'prenatal', 'principal', 'radiology', 'remote', 'retrospective', 'self', 'admitting', 'clinical', 'differential', 'discharge', 'laboratory', 'nursing', 'prenatal', 'principal', 'radiology', 'remote', 'retrospective', 'self']}, 'type'=>'CodeableConcept', 'path'=>'Diagnosis.type', 'min'=>0, 'max'=>Float::INFINITY, 'binding'=>{'strength'=>'example', 'uri'=>'http://hl7.org/fhir/ValueSet/ex-diagnosistype'}},
         'packageCode' => {'valid_codes'=>{'http://hl7.org/fhir/ex-diagnosisrelatedgroup'=>['100', '101', '300', '100', '101', '300']}, 'type'=>'CodeableConcept', 'path'=>'Diagnosis.packageCode', 'min'=>0, 'max'=>1, 'binding'=>{'strength'=>'example', 'uri'=>'http://hl7.org/fhir/ValueSet/ex-diagnosisrelatedgroup'}}
       }
-
-      attr_accessor :id                       # 0-1 string
-      attr_accessor :extension                # 0-* [ Extension ]
-      attr_accessor :modifierExtension        # 0-* [ Extension ]
-      attr_accessor :sequence                 # 1-1 positiveInt
-      attr_accessor :diagnosisCodeableConcept # 1-1 CodeableConcept
-      attr_accessor :diagnosisReference       # 1-1 Reference(Condition)
-      attr_accessor :type                     # 0-* [ CodeableConcept ]
-      attr_accessor :packageCode              # 0-1 CodeableConcept
     end
 
     class Procedure < FHIR::Model
@@ -172,14 +127,6 @@ module FHIR
         'procedureCodeableConcept' => {'valid_codes'=>{'http://hl7.org/fhir/sid/ex-icd-10-procedures'=>['123001', '123002', '123003', '123001', '123002', '123003']}, 'type'=>'CodeableConcept', 'path'=>'Procedure.procedure[x]', 'min'=>1, 'max'=>1, 'binding'=>{'strength'=>'example', 'uri'=>'http://hl7.org/fhir/ValueSet/icd-10-procedures'}},
         'procedureReference' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Procedure'], 'type'=>'Reference', 'path'=>'Procedure.procedure[x]', 'min'=>1, 'max'=>1}
       }
-
-      attr_accessor :id                       # 0-1 string
-      attr_accessor :extension                # 0-* [ Extension ]
-      attr_accessor :modifierExtension        # 0-* [ Extension ]
-      attr_accessor :sequence                 # 1-1 positiveInt
-      attr_accessor :date                     # 0-1 dateTime
-      attr_accessor :procedureCodeableConcept # 1-1 CodeableConcept
-      attr_accessor :procedureReference       # 1-1 Reference(Procedure)
     end
 
     class Insurance < FHIR::Model
@@ -194,16 +141,6 @@ module FHIR
         'preAuthRef' => {'type'=>'string', 'path'=>'Insurance.preAuthRef', 'min'=>0, 'max'=>Float::INFINITY},
         'claimResponse' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/ClaimResponse'], 'type'=>'Reference', 'path'=>'Insurance.claimResponse', 'min'=>0, 'max'=>1}
       }
-
-      attr_accessor :id                  # 0-1 string
-      attr_accessor :extension           # 0-* [ Extension ]
-      attr_accessor :modifierExtension   # 0-* [ Extension ]
-      attr_accessor :sequence            # 1-1 positiveInt
-      attr_accessor :focal               # 1-1 boolean
-      attr_accessor :coverage            # 1-1 Reference(Coverage)
-      attr_accessor :businessArrangement # 0-1 string
-      attr_accessor :preAuthRef          # 0-* [ string ]
-      attr_accessor :claimResponse       # 0-1 Reference(ClaimResponse)
     end
 
     class Accident < FHIR::Model
@@ -219,14 +156,6 @@ module FHIR
         'locationAddress' => {'type'=>'Address', 'path'=>'Accident.location[x]', 'min'=>0, 'max'=>1},
         'locationReference' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Location'], 'type'=>'Reference', 'path'=>'Accident.location[x]', 'min'=>0, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :date              # 1-1 date
-      attr_accessor :type              # 0-1 CodeableConcept
-      attr_accessor :locationAddress   # 0-1 Address
-      attr_accessor :locationReference # 0-1 Reference(Location)
     end
 
     class Item < FHIR::Model
@@ -300,38 +229,7 @@ module FHIR
             'net' => {'type'=>'Money', 'path'=>'SubDetail.net', 'min'=>0, 'max'=>1},
             'udi' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Device'], 'type'=>'Reference', 'path'=>'SubDetail.udi', 'min'=>0, 'max'=>Float::INFINITY}
           }
-
-          attr_accessor :id                # 0-1 string
-          attr_accessor :extension         # 0-* [ Extension ]
-          attr_accessor :modifierExtension # 0-* [ Extension ]
-          attr_accessor :sequence          # 1-1 positiveInt
-          attr_accessor :revenue           # 0-1 CodeableConcept
-          attr_accessor :category          # 0-1 CodeableConcept
-          attr_accessor :service           # 0-1 CodeableConcept
-          attr_accessor :modifier          # 0-* [ CodeableConcept ]
-          attr_accessor :programCode       # 0-* [ CodeableConcept ]
-          attr_accessor :quantity          # 0-1 Quantity
-          attr_accessor :unitPrice         # 0-1 Money
-          attr_accessor :factor            # 0-1 decimal
-          attr_accessor :net               # 0-1 Money
-          attr_accessor :udi               # 0-* [ Reference(Device) ]
         end
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :sequence          # 1-1 positiveInt
-        attr_accessor :revenue           # 0-1 CodeableConcept
-        attr_accessor :category          # 0-1 CodeableConcept
-        attr_accessor :service           # 0-1 CodeableConcept
-        attr_accessor :modifier          # 0-* [ CodeableConcept ]
-        attr_accessor :programCode       # 0-* [ CodeableConcept ]
-        attr_accessor :quantity          # 0-1 Quantity
-        attr_accessor :unitPrice         # 0-1 Money
-        attr_accessor :factor            # 0-1 decimal
-        attr_accessor :net               # 0-1 Money
-        attr_accessor :udi               # 0-* [ Reference(Device) ]
-        attr_accessor :subDetail         # 0-* [ Claim::Item::Detail::SubDetail ]
       end
 
       class Prosthesis < FHIR::Model
@@ -343,85 +241,7 @@ module FHIR
           'priorDate' => {'type'=>'date', 'path'=>'Prosthesis.priorDate', 'min'=>0, 'max'=>1},
           'priorMaterial' => {'valid_codes'=>{'http://hl7.org/fhir/ex-oralprostho'=>['1', '2', '3', '4', '1', '2', '3', '4']}, 'type'=>'CodeableConcept', 'path'=>'Prosthesis.priorMaterial', 'min'=>0, 'max'=>1, 'binding'=>{'strength'=>'example', 'uri'=>'http://hl7.org/fhir/ValueSet/oral-prosthodontic-material'}}
         }
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :initial           # 0-1 boolean
-        attr_accessor :priorDate         # 0-1 date
-        attr_accessor :priorMaterial     # 0-1 CodeableConcept
       end
-
-      attr_accessor :id                      # 0-1 string
-      attr_accessor :extension               # 0-* [ Extension ]
-      attr_accessor :modifierExtension       # 0-* [ Extension ]
-      attr_accessor :sequence                # 1-1 positiveInt
-      attr_accessor :careTeamLinkId          # 0-* [ positiveInt ]
-      attr_accessor :diagnosisLinkId         # 0-* [ positiveInt ]
-      attr_accessor :procedureLinkId         # 0-* [ positiveInt ]
-      attr_accessor :informationLinkId       # 0-* [ positiveInt ]
-      attr_accessor :revenue                 # 0-1 CodeableConcept
-      attr_accessor :category                # 0-1 CodeableConcept
-      attr_accessor :service                 # 0-1 CodeableConcept
-      attr_accessor :modifier                # 0-* [ CodeableConcept ]
-      attr_accessor :programCode             # 0-* [ CodeableConcept ]
-      attr_accessor :servicedDate            # 0-1 date
-      attr_accessor :servicedPeriod          # 0-1 Period
-      attr_accessor :locationCodeableConcept # 0-1 CodeableConcept
-      attr_accessor :locationAddress         # 0-1 Address
-      attr_accessor :locationReference       # 0-1 Reference(Location)
-      attr_accessor :quantity                # 0-1 Quantity
-      attr_accessor :unitPrice               # 0-1 Money
-      attr_accessor :factor                  # 0-1 decimal
-      attr_accessor :net                     # 0-1 Money
-      attr_accessor :udi                     # 0-* [ Reference(Device) ]
-      attr_accessor :bodySite                # 0-1 CodeableConcept
-      attr_accessor :subSite                 # 0-* [ CodeableConcept ]
-      attr_accessor :detail                  # 0-* [ Claim::Item::Detail ]
-      attr_accessor :prosthesis              # 0-1 Claim::Item::Prosthesis
-    end
-
-    attr_accessor :id                   # 0-1 id
-    attr_accessor :meta                 # 0-1 Meta
-    attr_accessor :implicitRules        # 0-1 uri
-    attr_accessor :language             # 0-1 code
-    attr_accessor :text                 # 0-1 Narrative
-    attr_accessor :contained            # 0-* [ Resource ]
-    attr_accessor :extension            # 0-* [ Extension ]
-    attr_accessor :modifierExtension    # 0-* [ Extension ]
-    attr_accessor :identifier           # 0-* [ Identifier ]
-    attr_accessor :status               # 0-1 code
-    attr_accessor :type                 # 0-1 CodeableConcept
-    attr_accessor :subType              # 0-* [ CodeableConcept ]
-    attr_accessor :use                  # 0-1 code
-    attr_accessor :patient              # 0-1 Reference(Patient)
-    attr_accessor :billablePeriod       # 0-1 Period
-    attr_accessor :created              # 0-1 dateTime
-    attr_accessor :enterer              # 0-1 Reference(Practitioner)
-    attr_accessor :insurer              # 0-1 Reference(Organization)
-    attr_accessor :provider             # 0-1 Reference(Practitioner)
-    attr_accessor :organization         # 0-1 Reference(Organization)
-    attr_accessor :priority             # 0-1 CodeableConcept
-    attr_accessor :fundsReserve         # 0-1 CodeableConcept
-    attr_accessor :related              # 0-* [ Claim::Related ]
-    attr_accessor :prescription         # 0-1 Reference(MedicationRequest|VisionPrescription)
-    attr_accessor :originalPrescription # 0-1 Reference(MedicationRequest)
-    attr_accessor :payee                # 0-1 Claim::Payee
-    attr_accessor :referral             # 0-1 Reference(ReferralRequest)
-    attr_accessor :facility             # 0-1 Reference(Location)
-    attr_accessor :careTeam             # 0-* [ Claim::CareTeam ]
-    attr_accessor :information          # 0-* [ Claim::Information ]
-    attr_accessor :diagnosis            # 0-* [ Claim::Diagnosis ]
-    attr_accessor :procedure            # 0-* [ Claim::Procedure ]
-    attr_accessor :insurance            # 0-* [ Claim::Insurance ]
-    attr_accessor :accident             # 0-1 Claim::Accident
-    attr_accessor :employmentImpacted   # 0-1 Period
-    attr_accessor :hospitalization      # 0-1 Period
-    attr_accessor :item                 # 0-* [ Claim::Item ]
-    attr_accessor :total                # 0-1 Money
-
-    def resourceType
-      'Claim'
     end
   end
 end

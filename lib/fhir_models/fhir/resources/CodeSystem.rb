@@ -47,14 +47,6 @@ module FHIR
         'operator' => {'valid_codes'=>{'http://hl7.org/fhir/filter-operator'=>['=', 'is-a', 'descendent-of', 'is-not-a', 'regex', 'in', 'not-in', 'generalizes', 'exists', '=', 'is-a', 'descendent-of', 'is-not-a', 'regex', 'in', 'not-in', 'generalizes', 'exists']}, 'type'=>'code', 'path'=>'Filter.operator', 'min'=>1, 'max'=>Float::INFINITY, 'binding'=>{'strength'=>'required', 'uri'=>'http://hl7.org/fhir/ValueSet/filter-operator'}},
         'value' => {'type'=>'string', 'path'=>'Filter.value', 'min'=>1, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :code              # 1-1 code
-      attr_accessor :description       # 0-1 string
-      attr_accessor :operator          # 1-* [ code ]
-      attr_accessor :value             # 1-1 string
     end
 
     class Property < FHIR::Model
@@ -67,14 +59,6 @@ module FHIR
         'description' => {'type'=>'string', 'path'=>'Property.description', 'min'=>0, 'max'=>1},
         'type' => {'valid_codes'=>{'http://hl7.org/fhir/concept-property-type'=>['code', 'Coding', 'string', 'integer', 'boolean', 'dateTime', 'code', 'Coding', 'string', 'integer', 'boolean', 'dateTime']}, 'type'=>'code', 'path'=>'Property.type', 'min'=>1, 'max'=>1, 'binding'=>{'strength'=>'required', 'uri'=>'http://hl7.org/fhir/ValueSet/concept-property-type'}}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :code              # 1-1 code
-      attr_accessor :uri               # 0-1 uri
-      attr_accessor :description       # 0-1 string
-      attr_accessor :type              # 1-1 code
     end
 
     class Concept < FHIR::Model
@@ -99,13 +83,6 @@ module FHIR
           'use' => {'valid_codes'=>{'http://snomed.info/sct'=>['900000000000003001', '900000000000013009', '900000000000550004']}, 'type'=>'Coding', 'path'=>'Designation.use', 'min'=>0, 'max'=>1, 'binding'=>{'strength'=>'extensible', 'uri'=>'http://hl7.org/fhir/ValueSet/designation-use'}},
           'value' => {'type'=>'string', 'path'=>'Designation.value', 'min'=>1, 'max'=>1}
         }
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :language          # 0-1 code
-        attr_accessor :use               # 0-1 Coding
-        attr_accessor :value             # 1-1 string
       end
 
       class Property < FHIR::Model
@@ -124,66 +101,7 @@ module FHIR
           'valueBoolean' => {'type'=>'boolean', 'path'=>'Property.value[x]', 'min'=>1, 'max'=>1},
           'valueDateTime' => {'type'=>'dateTime', 'path'=>'Property.value[x]', 'min'=>1, 'max'=>1}
         }
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :code              # 1-1 code
-        attr_accessor :valueCode         # 1-1 code
-        attr_accessor :valueCoding       # 1-1 Coding
-        attr_accessor :valueString       # 1-1 string
-        attr_accessor :valueInteger      # 1-1 integer
-        attr_accessor :valueBoolean      # 1-1 boolean
-        attr_accessor :valueDateTime     # 1-1 dateTime
       end
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :code              # 1-1 code
-      attr_accessor :display           # 0-1 string
-      attr_accessor :definition        # 0-1 string
-      attr_accessor :designation       # 0-* [ CodeSystem::Concept::Designation ]
-      attr_accessor :property          # 0-* [ CodeSystem::Concept::Property ]
-      attr_accessor :concept           # 0-* [ CodeSystem::Concept ]
-    end
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :url               # 0-1 uri
-    attr_accessor :identifier        # 0-1 Identifier
-    attr_accessor :version           # 0-1 string
-    attr_accessor :name              # 0-1 string
-    attr_accessor :title             # 0-1 string
-    attr_accessor :status            # 1-1 code
-    attr_accessor :experimental      # 0-1 boolean
-    attr_accessor :publisher         # 0-1 string
-    attr_accessor :contact           # 0-* [ ContactDetail ]
-    attr_accessor :date              # 0-1 dateTime
-    attr_accessor :description       # 0-1 markdown
-    attr_accessor :useContext        # 0-* [ UsageContext ]
-    attr_accessor :jurisdiction      # 0-* [ CodeableConcept ]
-    attr_accessor :purpose           # 0-1 markdown
-    attr_accessor :copyright         # 0-1 markdown
-    attr_accessor :caseSensitive     # 0-1 boolean
-    attr_accessor :valueSet          # 0-1 uri
-    attr_accessor :hierarchyMeaning  # 0-1 code
-    attr_accessor :compositional     # 0-1 boolean
-    attr_accessor :versionNeeded     # 0-1 boolean
-    attr_accessor :content           # 1-1 code
-    attr_accessor :count             # 0-1 unsignedInt
-    attr_accessor :filter            # 0-* [ CodeSystem::Filter ]
-    attr_accessor :property          # 0-* [ CodeSystem::Property ]
-    attr_accessor :concept           # 0-* [ CodeSystem::Concept ]
-
-    def resourceType
-      'CodeSystem'
     end
   end
 end

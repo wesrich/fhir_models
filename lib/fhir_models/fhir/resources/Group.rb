@@ -37,17 +37,6 @@ module FHIR
         'exclude' => {'type'=>'boolean', 'path'=>'Characteristic.exclude', 'min'=>1, 'max'=>1},
         'period' => {'type'=>'Period', 'path'=>'Characteristic.period', 'min'=>0, 'max'=>1}
       }
-
-      attr_accessor :id                   # 0-1 string
-      attr_accessor :extension            # 0-* [ Extension ]
-      attr_accessor :modifierExtension    # 0-* [ Extension ]
-      attr_accessor :code                 # 1-1 CodeableConcept
-      attr_accessor :valueCodeableConcept # 1-1 CodeableConcept
-      attr_accessor :valueBoolean         # 1-1 boolean
-      attr_accessor :valueQuantity        # 1-1 Quantity
-      attr_accessor :valueRange           # 1-1 Range
-      attr_accessor :exclude              # 1-1 boolean
-      attr_accessor :period               # 0-1 Period
     end
 
     class Member < FHIR::Model
@@ -59,35 +48,6 @@ module FHIR
         'period' => {'type'=>'Period', 'path'=>'Member.period', 'min'=>0, 'max'=>1},
         'inactive' => {'type'=>'boolean', 'path'=>'Member.inactive', 'min'=>0, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :entity            # 1-1 Reference(Patient|Practitioner|Device|Medication|Substance)
-      attr_accessor :period            # 0-1 Period
-      attr_accessor :inactive          # 0-1 boolean
-    end
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :identifier        # 0-* [ Identifier ]
-    attr_accessor :type              # 1-1 code
-    attr_accessor :actual            # 1-1 boolean
-    attr_accessor :active            # 0-1 boolean
-    attr_accessor :code              # 0-1 CodeableConcept
-    attr_accessor :name              # 0-1 string
-    attr_accessor :quantity          # 0-1 unsignedInt
-    attr_accessor :characteristic    # 0-* [ Group::Characteristic ]
-    attr_accessor :member            # 0-* [ Group::Member ]
-
-    def resourceType
-      'Group'
     end
   end
 end

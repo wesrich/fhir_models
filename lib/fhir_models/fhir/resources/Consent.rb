@@ -54,12 +54,6 @@ module FHIR
           'role' => {'valid_codes'=>{'http://hl7.org/fhir/v3/ParticipationType'=>['REF', 'AUT', 'INF', 'SBJ', 'PRCP', 'CST']}, 'type'=>'CodeableConcept', 'path'=>'Actor.role', 'min'=>1, 'max'=>1, 'binding'=>{'strength'=>'extensible', 'uri'=>'http://hl7.org/fhir/ValueSet/consent-actor-role'}},
           'reference' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Device', 'http://hl7.org/fhir/StructureDefinition/Group', 'http://hl7.org/fhir/StructureDefinition/CareTeam', 'http://hl7.org/fhir/StructureDefinition/Organization', 'http://hl7.org/fhir/StructureDefinition/Patient', 'http://hl7.org/fhir/StructureDefinition/Practitioner', 'http://hl7.org/fhir/StructureDefinition/RelatedPerson'], 'type'=>'Reference', 'path'=>'Actor.reference', 'min'=>1, 'max'=>1}
         }
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :role              # 1-1 CodeableConcept
-        attr_accessor :reference         # 1-1 Reference(Device|Group|CareTeam|Organization|Patient|Practitioner|RelatedPerson)
       end
 
       class Data < FHIR::Model
@@ -70,54 +64,7 @@ module FHIR
           'meaning' => {'valid_codes'=>{'http://hl7.org/fhir/consent-data-meaning'=>['instance', 'related', 'dependents', 'instance', 'related', 'dependents']}, 'type'=>'code', 'path'=>'Data.meaning', 'min'=>1, 'max'=>1, 'binding'=>{'strength'=>'required', 'uri'=>'http://hl7.org/fhir/ValueSet/consent-data-meaning'}},
           'reference' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Resource'], 'type'=>'Reference', 'path'=>'Data.reference', 'min'=>1, 'max'=>1}
         }
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :meaning           # 1-1 code
-        attr_accessor :reference         # 1-1 Reference(Resource)
       end
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :type              # 1-1 code
-      attr_accessor :period            # 0-1 Period
-      attr_accessor :actor             # 0-* [ Consent::Except::Actor ]
-      attr_accessor :action            # 0-* [ CodeableConcept ]
-      attr_accessor :securityLabel     # 0-* [ Coding ]
-      attr_accessor :purpose           # 0-* [ Coding ]
-      attr_accessor :local_class       # 0-* [ Coding ]
-      attr_accessor :code              # 0-* [ Coding ]
-      attr_accessor :data              # 0-* [ Consent::Except::Data ]
-    end
-
-    attr_accessor :id                # 0-1 id
-    attr_accessor :meta              # 0-1 Meta
-    attr_accessor :implicitRules     # 0-1 uri
-    attr_accessor :language          # 0-1 code
-    attr_accessor :text              # 0-1 Narrative
-    attr_accessor :contained         # 0-* [ Resource ]
-    attr_accessor :extension         # 0-* [ Extension ]
-    attr_accessor :modifierExtension # 0-* [ Extension ]
-    attr_accessor :identifier        # 0-1 Identifier
-    attr_accessor :status            # 1-1 code
-    attr_accessor :category          # 0-* [ CodeableConcept ]
-    attr_accessor :dateTime          # 0-1 dateTime
-    attr_accessor :period            # 0-1 Period
-    attr_accessor :patient           # 1-1 Reference(Patient)
-    attr_accessor :consentor         # 0-* [ Reference(Organization|Patient|Practitioner|RelatedPerson) ]
-    attr_accessor :organization      # 0-1 Reference(Organization)
-    attr_accessor :sourceAttachment  # 0-1 Attachment
-    attr_accessor :sourceIdentifier  # 0-1 Identifier
-    attr_accessor :sourceReference   # 0-1 Reference(Consent|DocumentReference|Contract|QuestionnaireResponse)
-    attr_accessor :policy            # 1-1 uri
-    attr_accessor :recipient         # 0-* [ Reference(Device|Group|Organization|Patient|Practitioner|RelatedPerson|CareTeam) ]
-    attr_accessor :purpose           # 0-* [ Coding ]
-    attr_accessor :except            # 0-* [ Consent::Except ]
-
-    def resourceType
-      'Consent'
     end
   end
 end

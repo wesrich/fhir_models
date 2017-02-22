@@ -72,15 +72,6 @@ module FHIR
           'description' => {'type'=>'string', 'path'=>'Population.description', 'min'=>0, 'max'=>1},
           'criteria' => {'type'=>'string', 'path'=>'Population.criteria', 'min'=>1, 'max'=>1}
         }
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :type              # 1-1 code
-        attr_accessor :identifier        # 1-1 Identifier
-        attr_accessor :name              # 0-1 string
-        attr_accessor :description       # 0-1 string
-        attr_accessor :criteria          # 1-1 string
       end
 
       class Stratifier < FHIR::Model
@@ -92,23 +83,7 @@ module FHIR
           'criteria' => {'type'=>'string', 'path'=>'Stratifier.criteria', 'min'=>0, 'max'=>1},
           'path' => {'type'=>'string', 'path'=>'Stratifier.path', 'min'=>0, 'max'=>1}
         }
-
-        attr_accessor :id                # 0-1 string
-        attr_accessor :extension         # 0-* [ Extension ]
-        attr_accessor :modifierExtension # 0-* [ Extension ]
-        attr_accessor :identifier        # 1-1 Identifier
-        attr_accessor :criteria          # 0-1 string
-        attr_accessor :path              # 0-1 string
       end
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :identifier        # 1-1 Identifier
-      attr_accessor :name              # 0-1 string
-      attr_accessor :description       # 0-1 string
-      attr_accessor :population        # 0-* [ Measure::Group::Population ]
-      attr_accessor :stratifier        # 0-* [ Measure::Group::Stratifier ]
     end
 
     class SupplementalData < FHIR::Model
@@ -121,64 +96,6 @@ module FHIR
         'criteria' => {'type'=>'string', 'path'=>'SupplementalData.criteria', 'min'=>0, 'max'=>1},
         'path' => {'type'=>'string', 'path'=>'SupplementalData.path', 'min'=>0, 'max'=>1}
       }
-
-      attr_accessor :id                # 0-1 string
-      attr_accessor :extension         # 0-* [ Extension ]
-      attr_accessor :modifierExtension # 0-* [ Extension ]
-      attr_accessor :identifier        # 1-1 Identifier
-      attr_accessor :usage             # 0-* [ code ]
-      attr_accessor :criteria          # 0-1 string
-      attr_accessor :path              # 0-1 string
-    end
-
-    attr_accessor :id                              # 0-1 id
-    attr_accessor :meta                            # 0-1 Meta
-    attr_accessor :implicitRules                   # 0-1 uri
-    attr_accessor :language                        # 0-1 code
-    attr_accessor :text                            # 0-1 Narrative
-    attr_accessor :contained                       # 0-* [ Resource ]
-    attr_accessor :extension                       # 0-* [ Extension ]
-    attr_accessor :modifierExtension               # 0-* [ Extension ]
-    attr_accessor :url                             # 0-1 uri
-    attr_accessor :identifier                      # 0-* [ Identifier ]
-    attr_accessor :version                         # 0-1 string
-    attr_accessor :name                            # 0-1 string
-    attr_accessor :title                           # 0-1 string
-    attr_accessor :status                          # 1-1 code
-    attr_accessor :experimental                    # 0-1 boolean
-    attr_accessor :date                            # 0-1 dateTime
-    attr_accessor :description                     # 0-1 markdown
-    attr_accessor :purpose                         # 0-1 markdown
-    attr_accessor :usage                           # 0-1 string
-    attr_accessor :approvalDate                    # 0-1 date
-    attr_accessor :lastReviewDate                  # 0-1 date
-    attr_accessor :effectivePeriod                 # 0-1 Period
-    attr_accessor :useContext                      # 0-* [ UsageContext ]
-    attr_accessor :jurisdiction                    # 0-* [ CodeableConcept ]
-    attr_accessor :topic                           # 0-* [ CodeableConcept ]
-    attr_accessor :contributor                     # 0-* [ Contributor ]
-    attr_accessor :publisher                       # 0-1 string
-    attr_accessor :contact                         # 0-* [ ContactDetail ]
-    attr_accessor :copyright                       # 0-1 markdown
-    attr_accessor :relatedArtifact                 # 0-* [ RelatedArtifact ]
-    attr_accessor :library                         # 0-* [ Reference(Library) ]
-    attr_accessor :disclaimer                      # 0-1 markdown
-    attr_accessor :scoring                         # 0-1 code
-    attr_accessor :compositeScoring                # 0-1 code
-    attr_accessor :type                            # 0-* [ code ]
-    attr_accessor :riskAdjustment                  # 0-1 string
-    attr_accessor :rateAggregation                 # 0-1 string
-    attr_accessor :rationale                       # 0-1 markdown
-    attr_accessor :clinicalRecommendationStatement # 0-1 markdown
-    attr_accessor :improvementNotation             # 0-1 string
-    attr_accessor :definition                      # 0-1 markdown
-    attr_accessor :guidance                        # 0-1 markdown
-    attr_accessor :set                             # 0-1 string
-    attr_accessor :group                           # 0-* [ Measure::Group ]
-    attr_accessor :supplementalData                # 0-* [ Measure::SupplementalData ]
-
-    def resourceType
-      'Measure'
     end
   end
 end
