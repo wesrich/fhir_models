@@ -82,9 +82,5 @@ module FHIR
         }
       end
     end
-
-    def resourceType
-      'CarePlan'
-    end
   end
 end

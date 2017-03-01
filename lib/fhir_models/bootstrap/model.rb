@@ -18,10 +18,17 @@ module FHIR
       else
         super
       end
-    rescue
+    rescue => e
+      puts e
       # TODO: This is probably not what we want. For now, it's good enough. It
       # handles the case where a resourceType got deprecated and removed.
-      super
+      # super
+      if resource_type
+        subclass = FHIR.const_set(resource_type, Class.new(Model))
+        subclass.new(*args, &block)
+      else
+        super
+      end
     end
 
     def initialize(values = {})
@@ -68,8 +75,25 @@ module FHIR
     alias to_json to_fhir_json
 
     def resource_type
-      self.class.name.split('::').last unless self == Model
+      self.class.resource_type
     end
     alias resourceType resource_type
+
+    def self.resource_type
+      name.split('::').last unless name == 'Model'
+    end
+
+    # FIXME: Hacks to get it working.
+    def activity
+      super || [FHIR::Model.new]
+    end
+
+    def actionResulting
+      super || []
+    end
+
+    def reference
+      super || FHIR::Model.new(reference: '')
+    end
   end
 end

@@ -75,9 +75,5 @@ module FHIR
         }
       end
     end
-
-    def resourceType
-      'Medication'
-    end
   end
 end

@@ -10,11 +10,6 @@
 Metrics/AbcSize:
   Max: 423
 
-# Offense count: 31
-# Configuration parameters: CountComments, ExcludedMethods.
-Metrics/BlockLength:
-  Max: 218
-
 # Offense count: 1
 # Configuration parameters: CountBlocks.
 Metrics/BlockNesting:
@@ -60,14 +55,11 @@ Style/Documentation:
   Exclude:
     - 'spec/**/*'
     - 'test/**/*'
+    - 'lib/fhir_models/generator/**/*'
     - 'lib/fhir_models/bootstrap/definitions.rb'
-    - 'lib/fhir_models/bootstrap/field.rb'
-    - 'lib/fhir_models/bootstrap/generator.rb'
     - 'lib/fhir_models/bootstrap/hashable.rb'
     - 'lib/fhir_models/bootstrap/json.rb'
     - 'lib/fhir_models/bootstrap/model.rb'
-    - 'lib/fhir_models/bootstrap/preprocess.rb'
-    - 'lib/fhir_models/bootstrap/template.rb'
     - 'lib/fhir_models/bootstrap/xml.rb'
     - 'lib/fhir_models/fhir.rb'
     - 'lib/fhir_models/fhir_ext/structure_definition.rb'

@@ -52,9 +52,5 @@ module FHIR
         'rateQuantity' => {'type'=>'Quantity', 'path'=>'Dosage.rate[x]', 'min'=>0, 'max'=>1}
       }
     end
-
-    def resourceType
-      'MedicationAdministration'
-    end
   end
 end
