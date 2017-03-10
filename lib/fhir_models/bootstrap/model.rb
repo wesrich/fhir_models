@@ -5,9 +5,10 @@ require 'bcp47'
 
 module FHIR
   class Model
+    include FHIR::Operations
 
-    def initialize(hash={})
-      self.from_hash(hash)
+    def initialize(hash = {})
+      from_hash(hash)
       self.class::METADATA.each do |key, value|
         if value['max'] > 1 && self.instance_variable_get("@#{key}").nil?
           self.instance_variable_set("@#{key}".to_sym, [])

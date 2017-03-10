@@ -1,9 +1,11 @@
 require 'bundler/setup'
 Bundler.setup
+require 'webmock/rspec'
 require 'simplecov'
 SimpleCov.start do
   add_filter '/spec/'
   add_group 'FHIR Models', 'lib/fhir_models/fhir/resources'
+  add_group 'FHIR Client', ['lib/fhir_models/client*', 'lib/fhir_models/operations']
   add_group 'Generator Files', 'lib/fhir_models/bootstrap'
 end
 require 'fhir_models'

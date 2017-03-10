@@ -1,0 +1,59 @@
+{
+  "resourceType": "Bundle",
+  "id": "4850caf9-1450-46ae-a08c-7daa21c5ff7a",
+  "meta": {
+    "lastUpdated": "2017-03-10T12:47:31.794-08:00"
+  },
+  "type": "searchset",
+  "total": 1,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://ocm-dev2.usoncology.com/ocm-dev2/fhir/Patient?_format=json&name=John"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://ocm-dev2.usoncology.com/ocm-dev2/fhir/Patient/B67E28E14E2E454CAA9EA0AA9C3BB9D0",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "B67E28E14E2E454CAA9EA0AA9C3BB9D0",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Johnson, Bette F/72</div>"
+        },
+        "extension": [
+          {
+            "url": "http://fhir.iknowmed.com/StructureDefinition/study",
+            "valueBoolean": false
+          }
+        ],
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.3.623.4",
+            "value": "389423473297"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": [
+              "Johnson"
+            ],
+            "given": [
+              "Bette"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1945-01-01",
+        "generalPractitioner": [
+          {
+            "reference": "Practitioner/1843665892164331B6BEA03D6399D291",
+            "display": "Winn, Bill"
+          }
+        ]
+      }
+    }
+  ]
+}
