@@ -20,10 +20,13 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
+  spec.add_dependency 'activesupport', '>= 3'
   spec.add_dependency 'nokogiri', '>= 1.6'
   spec.add_dependency 'date_time_precision', '>= 0.8'
   spec.add_dependency 'bcp47', '>= 0.3'
   spec.add_dependency 'mime-types', '>= 1.16', '< 3'
+  spec.add_dependency 'oauth2', '~> 1.1'
+  spec.add_dependency 'rest-client', '~> 1.8'
 
   spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'rake'
@@ -33,4 +36,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'nokogiri-diff'
   spec.add_development_dependency 'rubocop'
   spec.add_development_dependency 'codeclimate-test-reporter'
+  spec.add_development_dependency 'webmock'
 end
