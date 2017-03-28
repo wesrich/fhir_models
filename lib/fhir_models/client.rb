@@ -1,5 +1,6 @@
 require 'rest-client'
 require 'addressable/uri'
+require 'oauth2'
 require 'pry'
 
 module FHIR
@@ -26,8 +27,8 @@ module FHIR
 
     def initialize(iss)
       @iss = Addressable::URI.parse(iss)
-      @http_client = RestClient
       @fhir_version = FHIR::VERSION.to_f
+      use_no_auth!
       use_json!
     end
 
@@ -97,6 +98,37 @@ module FHIR
     def use_format_param!(value = true)
       @use_format_param = value
     end
+
+    def use_no_auth!
+      @http_client = NoAuthClient.new
+    end
+    alias set_no_auth use_no_auth!
+
+    # TODO: Should the args here be id/secret or key/secret?
+    def use_basic_auth!(username, password)
+      @http_client = BasicAuthClient.new(username, password)
+    end
+    alias set_basic_auth use_basic_auth!
+
+    def use_bearer_token!(token)
+      @http_client = BearerTokenClient.new(token)
+    end
+    alias set_bearer_token use_bearer_token!
+
+    def use_oauth2_auth!(client_id, client_secret, authorize_url, token_url)
+      options = {
+        site: iss,
+        authorize_url: authorize_url,
+        token_url: token_url,
+        raise_errors: true,
+        connection_opts: {
+          headers: fhir_headers
+        }
+      }
+      client = OAuth2::Client.new(client_id, client_secret, options)
+      @http_client = client.client_credentials.get_token
+    end
+    alias set_oauth2_auth use_oauth2_auth!
 
     private
 

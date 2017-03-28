@@ -3,6 +3,16 @@ describe FHIR::URIHelper do
   let(:client) { FHIR::Client.new(iss) }
   let(:uri) { client.resource_url(FHIR::Patient, query_options).to_s }
 
+  context 'when iss has a trailing slash' do
+    let(:iss_with_trailing_slash) { "#{iss}/" }
+    let(:client) { FHIR::Client.new(iss_with_trailing_slash) }
+    let(:query_options) { { id: 1234 } }
+
+    it 'produces a valid URI' do
+      expect(uri).to eq "#{iss}/Patient/1234"
+    end
+  end
+
   context 'default param handler' do
     let(:query_options) { { name: 'John', _count: 1 } }
     it 'can handle default parameters' do

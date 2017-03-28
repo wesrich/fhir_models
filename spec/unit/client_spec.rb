@@ -209,6 +209,94 @@ describe FHIR::Client do
       it 'returns a valid conformance statement'
     end
   end
+
+  context 'auth type methods' do
+    context '#use_no_auth!' do
+      before do
+        # No auth is the default, switch to something else first
+        subject.use_basic_auth!('abc', '123')
+        subject.use_no_auth!
+      end
+
+      it 'does not use auth for requests' do
+        stub = stub_request(:get, "#{iss}/Patient/#{example_patient_id}")
+          .with(headers: fhir_headers)
+          .to_return(body: example_json)
+
+        response = subject.read(FHIR::Patient, example_patient_id)
+        expect(stub).to have_been_requested
+        expect(response.response.request.headers.keys).not_to include 'Authorization'
+      end
+    end
+
+    context '#use_basic_auth!' do
+      # Username and password long enough for regular Base64.encode64 to insert newlines
+      let(:username) { 'an_excessively_long_username' }
+      let(:password) { 'an_extremely_long_password' }
+      let(:expected_token) { Base64.strict_encode64("#{username}:#{password}") }
+      let(:expected_headers) { fhir_headers.merge('Authorization' => "Basic #{expected_token}") }
+
+      before do
+        subject.use_basic_auth!(username, password)
+      end
+
+      it 'uses HTTP Basic Authentication' do
+        stub = stub_request(:get, "#{iss}/Patient/#{example_patient_id}")
+          .with(headers: expected_headers)
+          .to_return(body: example_json)
+
+        response = subject.read(FHIR::Patient, example_patient_id)
+        expect(stub).to have_been_requested
+      end
+    end
+
+    context '#use_bearer_token!' do
+      let(:token) { Base64.strict_encode64('abc123') }
+      let(:expected_headers) { fhir_headers.merge('Authorization' => "Bearer #{token}") }
+
+      before do
+        subject.use_bearer_token!(token)
+      end
+
+      it 'sets the Authorization header for a bearer token' do
+        stub = stub_request(:get, "#{iss}/Patient/#{example_patient_id}")
+          .with(headers: expected_headers)
+          .to_return(body: example_json)
+
+        response = subject.read(FHIR::Patient, example_patient_id)
+        expect(stub).to have_been_requested
+      end
+    end
+
+    context '#use_oauth2_auth!' do
+      let(:client_id) { 'abc' }
+      let(:client_secret) { '123' }
+      let(:authorize_url) { 'http://fhir.example.com/oauth/authorize' }
+      let(:token_url) { 'http://fhir.example.com/oauth/token' }
+      let(:expected_headers) { fhir_headers.merge('Authorization' => "Bearer #{token}") }
+      let(:token) { 'ABC456' }
+
+      before do
+        stub_request(:post, token_url)
+          .with(body: { client_id: client_id, client_secret: client_secret, grant_type: 'client_credentials' })
+          .to_return(
+            body: { access_token: token, token_type: 'bearer', expires_in: 2592000, refresh_token: 'REFRESH_TOKEN', scope: 'read' }.to_json,
+            headers: { 'Content-Type' => 'application/json' }
+          )
+
+        subject.use_oauth2_auth!(client_id, client_secret, authorize_url, token_url)
+      end
+
+      it 'sets the Authorization header for a bearer token' do
+        stub = stub_request(:get, "#{iss}/Patient/#{example_patient_id}")
+          .with(headers: expected_headers)
+          .to_return(body: example_json)
+
+        response = subject.read(FHIR::Patient, example_patient_id)
+        expect(stub).to have_been_requested
+      end
+    end
+  end
 end
 
 # FHIR::Client#get(resource_class, params)

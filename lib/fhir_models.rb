@@ -23,6 +23,9 @@ require 'fhir_models/client/uri_helper'
 require 'fhir_models/client'
 require 'fhir_models/client_reply'
 require 'fhir_models/client_exception'
+require 'fhir_models/no_auth_client'
+require 'fhir_models/basic_auth_client'
+require 'fhir_models/bearer_token_client'
 
 # Require the generated code
 Dir.glob(File.join(root, 'lib', 'fhir_models', 'fhir', '*.rb')).each do |file|

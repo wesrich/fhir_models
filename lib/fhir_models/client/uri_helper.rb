@@ -22,7 +22,8 @@ module FHIR
       suffixes << '$validate' if params.fetch(:validate, false)
       suffixes << params.fetch(:history, {}).fetch(:id, nil)
       prefixes << params.fetch(:search, {}).fetch(:compartment, nil)
-      [iss.path, prefixes, resource_class.name.demodulize, id, suffixes].flatten.compact.join('/')
+      base_path = iss.path.chomp('/')
+      [base_path, prefixes, resource_class.name.demodulize, id, suffixes].flatten.compact.join('/')
     end
 
     def resource_params(params = {})
