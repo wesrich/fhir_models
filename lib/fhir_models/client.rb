@@ -38,6 +38,7 @@ module FHIR
         response: http_client.get(path, fhir_headers),
         resource_type: resource_class
       )
+      # TODO: Put note here about what ExceptionWithResponse is.
     rescue RestClient::ExceptionWithResponse => http_error
       ClientException.new(response: http_error)
     end
@@ -68,6 +69,7 @@ module FHIR
           response: http_client.get(capability_url) # See if this pans out with Grahame's server, etc. (since it's not asking for json/etc)
         ).resource.tap do |capabilities|
           @fhir_version = capabilities.fhirVersion.to_f
+          # TODO: Include? logic might need tweaking
           select_mime_type!(capabilities.format.first) unless capabilities.format.include?(@accept_type)
         end
       end
@@ -130,6 +132,11 @@ module FHIR
     end
     alias set_oauth2_auth use_oauth2_auth!
 
+    def oauth2_urls
+      capability_statement.oauth2_urls
+    end
+    alias get_oauth2_metadata_from_conformance oauth2_urls
+
     private
 
     def capability_url
@@ -137,9 +144,10 @@ module FHIR
     end
 
     def fhir_headers
-      {}.tap do |headers|
-        headers['Accept'] = mime_types_for(fhir_version)[accept_type] unless use_format_param?
-      end
+      return {} if use_format_param?
+      {
+        'Accept' => mime_types_for(fhir_version)[accept_type]
+      }
     end
 
     def mime_types_for(fhir_version = @fhir_version)

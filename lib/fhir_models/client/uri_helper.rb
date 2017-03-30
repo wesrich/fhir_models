@@ -6,8 +6,9 @@ module FHIR
   module URIHelper
     def resource_url(resource_class, params = {})
       params = params.with_indifferent_access
+      id = params.delete(:id)
       iss.merge(
-        path: resource_path(resource_class, params.delete(:id), params),
+        path: resource_path(resource_class, id, params),
         query: resource_params(params)
       )
     end
