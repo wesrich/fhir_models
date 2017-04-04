@@ -13,8 +13,12 @@ describe FHIR::Conformance do
     it 'returns the first auth URLs' do
       subject.rest << FHIR::Conformance::Rest.new
       subject.rest << FHIR::Conformance::Rest.new(security: security_hash)
-      subject.oauth2_urls
       expect(subject.oauth2_urls).to eq expected_oauth_urls
+    end
+
+    it 'logs an error when no URLs are found' do
+      expect(FHIR.logger).to receive(:error).once
+      subject.oauth2_urls
     end
   end
 

@@ -3,8 +3,8 @@ module FHIR
     def oauth2_urls
       @oauth2_urls ||= begin
         urls = rest.map { |rest_item| rest_item.security.try(:oauth2_urls) }.compact.first
-        FHIR.logger.error "Failed to locate SMART-on-FHIR OAuth2 Security Extensions: #{e.message}" unless urls.present?
-        return urls
+        FHIR.logger.error 'Failed to locate SMART-on-FHIR OAuth2 Security Extensions!' unless urls.present?
+        urls
       end
     end
 
