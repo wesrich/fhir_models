@@ -36,7 +36,8 @@ module FHIR
       path = resource_url(resource_class, id: id).to_s
       ClientReply.new(
         response: http_client.get(path, fhir_headers),
-        resource_type: resource_class
+        resource_type: resource_class,
+        client: self
       )
       # TODO: Put note here about what ExceptionWithResponse is.
     rescue RestClient::ExceptionWithResponse => http_error
@@ -47,7 +48,8 @@ module FHIR
       path = resource_url(resource_class, params).to_s
       ClientReply.new(
         response: http_client.get(path, fhir_headers),
-        resource_type: resource_class
+        resource_type: resource_class,
+        client: self
       )
     rescue RestClient::ExceptionWithResponse => http_error
       ClientException.new(response: http_error)
@@ -57,7 +59,8 @@ module FHIR
       path = resource_url(resource_class, options).to_s
       ClientReply.new(
         response: http_client.post(path, body.to_json, fhir_headers),
-        resource_type: resource_class
+        resource_type: resource_class,
+        client: self
       )
     rescue RestClient::ExceptionWithResponse => http_error
       ClientException.new(response: http_error)
@@ -68,7 +71,7 @@ module FHIR
         ClientReply.new(
           response: http_client.get(capability_url) # See if this pans out with Grahame's server, etc. (since it's not asking for json/etc)
         ).resource.tap do |capabilities|
-          @fhir_version = capabilities.fhirVersion.to_f
+          @fhir_version = capabilities.fhirVersion.to_f if capabilities.fhirVersion.present?
           # TODO: Include? logic might need tweaking
           select_mime_type!(capabilities.format.first) unless capabilities.format.include?(@accept_type)
         end

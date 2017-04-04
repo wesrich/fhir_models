@@ -19,6 +19,7 @@ describe FHIR::Client do
       expect(response).to be_a FHIR::ClientReply
       expect(response.response.code).to eq 200
       expect(response.resource).to be_a FHIR::Patient
+      expect(response.client).to eq subject
     end
 
     context 'with invalid parameters' do
@@ -50,6 +51,7 @@ describe FHIR::Client do
         expect(response).to be_a FHIR::ClientReply
         expect(response.response.code).to eq 200
         expect(response.resource).to be_a FHIR::Bundle
+        expect(response.client).to eq subject
       end
     end
 
@@ -63,6 +65,7 @@ describe FHIR::Client do
         expect(response).to be_a FHIR::ClientReply
         expect(response.response.code).to eq 200
         expect(response.resource).to be_a FHIR::Bundle
+        expect(response.client).to eq subject
       end
     end
 
@@ -93,6 +96,7 @@ describe FHIR::Client do
         expect(response).to be_a FHIR::ClientReply
         expect(response.response.code).to eq 201
         expect(response.resource).to be_nil
+        expect(response.client).to eq subject
       end
 
       it 'can parse a response from the server' do

@@ -26,12 +26,13 @@ describe FHIR::ClientReply do
   let(:example_json) { File.read('./spec/fixtures/json/patient-example.json') }
   let(:iss) { 'http://fhir.example.com' }
   let(:expected_response_code) { 200 }
+  let(:client) { nil }
   let(:response) do
     stub_request(:get, iss).to_return(body: example_json, status: expected_response_code)
     RestClient.get(iss)
   end
 
-  subject { FHIR::ClientReply.new(response: response) }
+  subject { FHIR::ClientReply.new(response: response, client: client) }
 
   it_behaves_like 'a fhir response container'
 
@@ -47,6 +48,34 @@ describe FHIR::ClientReply do
 
       it 'returns a FHIR bundle' do
         expect(subject.resource).to be_a FHIR::Bundle
+      end
+    end
+
+    context 'with a client' do
+      let(:client) { FHIR::Client.new(iss) }
+
+      context 'read' do
+        it 'returns a single FHIR resource with client set' do
+          expect(subject.resource).to be_a FHIR::Patient
+          expect(subject.resource.client).to eq client
+        end
+      end
+
+      context 'search' do
+        let(:example_json) { File.read('./spec/fixtures/json/search-example.json') }
+
+        it 'returns a FHIR bundle with client set' do
+          expect(subject.resource).to be_a FHIR::Bundle
+          expect(subject.resource.client).to eq client
+        end
+      end
+    end
+
+    context 'with an empty response body' do
+      let(:example_json) { '' }
+
+      it 'returns nothing' do
+        expect(subject.resource).to be_blank
       end
     end
   end
