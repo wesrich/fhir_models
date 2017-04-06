@@ -72,14 +72,16 @@ module FHIR
           response: http_client.get(capability_url) # See if this pans out with Grahame's server, etc. (since it's not asking for json/etc)
         ).resource.tap do |capabilities|
           @fhir_version = capabilities.fhirVersion.to_f if capabilities.fhirVersion.present?
-          # TODO: Include? logic might need tweaking
-          select_mime_type!(capabilities.format.first) unless capabilities.format.include?(@accept_type)
+          select_mime_type!(capabilities.format)
         end
       end
     end
     alias conformance_statement capability_statement
 
-    def select_mime_type!(format)
+    # TODO: Test this method better
+    def select_mime_type!(formats)
+      mime_types = mime_types_for(@fhir_version)
+      return if formats.any? { |format| format == @accept_type || format == mime_types[@accept_type] }
       @accept_type = mime_types_for(@fhir_version).detect { |abbr, mimetype| mimetype == format || abbr.to_s == format }.first
     end
 
