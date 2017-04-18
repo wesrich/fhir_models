@@ -15,11 +15,22 @@ module FHIR
       end
     end
 
-    def method_missing(method, *args, &block)
+    # This is necessary for uniq to properly identify two FHIR models as being identical
+    def hash
+      to_hash.hash
+    end
+
+    # allow two FHIR models to be compared for equality
+    def ==(other)
+      to_hash == other.to_hash
+    end
+    alias eql? ==
+
+    def method_missing(method, *_args, &_block)
       if defined?(self.class::MULTIPLE_TYPES) && self.class::MULTIPLE_TYPES[method.to_s]
         self.class::MULTIPLE_TYPES[method.to_s].each do |type|
           type[0] = type[0].upcase
-          value = self.method("#{method}#{type}").call()
+          value = send("#{method}#{type}".to_sym)
           return value if !value.nil?
         end
         return nil
@@ -50,7 +61,7 @@ module FHIR
           end
         end
       end
-      super(method, *args, &block)
+      raise NoMethodError.new("undefined method `#{method}' for #{inspect}", method)
     end
 
     def to_reference
